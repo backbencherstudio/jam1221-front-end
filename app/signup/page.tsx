@@ -87,14 +87,14 @@ export default function RegisterForm() {
                     </div>
 
                     {/* Register Button */}
-                    <button
-                        type="submit"
-                        className="flex mx-auto bg-blue-500 hover:bg-blue-600 text-white font-bold  rounded-lg transition-all duration-300"
-                    >
-                        <Link href="/login" className="py-3 px-10 block">
+                    <Link href="/login" className="py-3 px-10 block">
+                        <button
+                            type="submit"
+                            className="flex mx-auto bg-blue-500 hover:bg-blue-600 text-white font-bold  rounded-lg transition-all duration-300"
+                        >
                             Registrera
-                        </Link>
-                    </button>
+                        </button>
+                    </Link>
                 </form>
             </div>
         </div>

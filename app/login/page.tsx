@@ -45,18 +45,18 @@ export default function LoginForm() {
 
           {/* Buttons */}
           <div className="flex space-x-4">
-            <Link href="/about">
+            <Link href="/about" className="w-full"> 
               <button
                 type="submit"
-                className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300"
+                className=" bg-blue-500 cursor-pointer w-full hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300"
               >
                 Logga in
               </button>
             </Link>
-            <Link href="/signup" className="py-2 px-4 ">
+            <Link href="/signup" className=" w-full">
               <button
                 type="button"
-                className="w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold rounded-lg transition-all duration-300"
+                className=" bg-gray-200 w-full cursor-pointer py-2 px-4 hover:bg-gray-300 text-gray-700 font-bold rounded-lg transition-all duration-300"
               >
                 Register
               </button>
