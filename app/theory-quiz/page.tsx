@@ -13,16 +13,12 @@ interface QuizQuestion {
     id: number;
     question: string;
     options: string[];
-    correctAnswer: string;
+    answer: string;
 }
 
 export default  function TheoryQuiz() {
 
-   
 
-    // const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-    // const [selectedOptions, setSelectedOptions] = useState<(string | null)[]>(Array(10).fill(null));
-    // const [isAnswerSubmitted, setIsAnswerSubmitted] = useState(false);
 
     const [questions, setQuestions] = useState<QuizQuestion[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -83,9 +79,12 @@ export default  function TheoryQuiz() {
     const currentQuestion = questions[currentQuestionIndex];
     const selectedOption = selectedOptions[currentQuestionIndex];
 
-    if (option === currentQuestion.correctAnswer) {
+    console.log( currentQuestion.answer)
+    if (option === currentQuestion.answer) {
+
+        console.log("Dfaaaaaaaa")
       return "border border-green-500 bg-green-100 rounded p-3";
-    } else if (option === selectedOption && option !== currentQuestion.correctAnswer) {
+    } else if (option === selectedOption && option !== currentQuestion.answer) {
       return "border border-red-500 bg-red-100 rounded p-3";
     } else {
       return "border border-gray-300 rounded p-3 opacity-50";
@@ -93,76 +92,7 @@ export default  function TheoryQuiz() {
   };
 
 
-    // return (
-    //     <div className="bg-[#FAD0C4] min-h-screen flex flex-col items-center p-4">
-    //         <Head>
-    //             <title>Quiz App</title>
-    //             <meta name="description" content="Interactive quiz application" />
-    //             <link rel="icon" href="/favicon.ico" />
-    //         </Head>
-
-    //         <div className="w-full max-w-lg flex justify-center mt-30 mb-8">
-    //             <nav className="absolute top-15 left-1/2 -translate-x-1/2 bg-gradient-to-r hover:from-[#ff9966] hover:to-[#ff5e62] scale-100 hover:scale-110 transition-all duration-300 from-[#ff7e5f] to-[#feb47b] rounded-[30px]  text-white text-center">
-    //                 <Link href="/login" className="md:text-xl text:lg px-[40px] py-[15px] block font-bold">
-    //                    Go Back
-    //                 </Link>
-    //             </nav>
-    //         </div>
-
-    //         <div className="flex justify-center mb-6">
-    //             <div className="flex items-center">
-    //                 <span className="mr-2 text-white md:text-2xl text-lg">Select language:</span>
-    //                 <LanguageSwitcher />
-    //             </div>
-    //         </div>
-
-    //         <div className="bg-white rounded-lg shadow-lg w-full max-w-lg p-6">
-    //             <div className="flex justify-end mb-4">
-    //                 <span className="text-sm text-gray-500">{currentQuestionIndex + 1} / {quizQuestions.length}</span>
-    //             </div>
-
-    //             <h2 className="text-lg font-medium mb-6 text-center text-black">
-    //                 {quizQuestions[currentQuestionIndex].question}
-    //             </h2>
-
-    //             <div className="space-y-3 mb-6 text-black font-bold">
-    //                 {quizQuestions[currentQuestionIndex].options.map((option, index) => (
-    //                     <div
-    //                         key={index}
-    //                         className={getOptionStyle(option)}
-    //                         onClick={() => handleOptionSelect(option)}
-    //                     >
-    //                         <label className="flex items-center cursor-pointer w-full">
-    //                             <input
-    //                                 type="radio"
-    //                                 name="quiz-option"
-    //                                 className="mr-3 h-4 w-4"
-    //                                 checked={selectedOptions[currentQuestionIndex] === option}
-    //                                 onChange={() => handleOptionSelect(option)}
-    //                                 disabled={isAnswerSubmitted}
-    //                             />
-    //                             {option}
-    //                         </label>
-    //                     </div>
-    //                 ))}
-    //             </div>
-
-    //             <div className="flex justify-center">
-    //                 <button
-    //                     className={`${isAnswerSubmitted
-    //                             ? "bg-gray-500 hover:bg-gray-600"
-    //                             : "bg-gray-300 cursor-not-allowed"
-    //                         } text-white font-bold py-2 px-12 rounded`}
-    //                     onClick={handleNextQuestion}
-    //                     disabled={!isAnswerSubmitted}
-    //                 >
-    //                     Next
-    //                 </button>
-    //             </div>
-    //         </div>
-    //     </div>
-    // );
-    return (
+ return (
         <div className="bg-[#FAD0C4] min-h-screen flex flex-col items-center p-4">
           <Head>
             <title>Quiz App</title>
@@ -172,7 +102,7 @@ export default  function TheoryQuiz() {
     
           <div className="w-full max-w-lg flex justify-center mt-30 mb-8">
             <nav className="absolute top-15 left-1/2 -translate-x-1/2 bg-gradient-to-r hover:from-[#ff9966] hover:to-[#ff5e62] scale-100 hover:scale-110 transition-all duration-300 from-[#ff7e5f] to-[#feb47b] rounded-[30px] text-white text-center">
-              <Link href="/home" className="md:text-xl text:lg px-[40px] py-[15px] block font-bold">
+              <Link href="/" className="md:text-xl text:lg px-[40px] py-[15px] block font-bold">
                 Go Back
               </Link>
             </nav>
@@ -202,6 +132,7 @@ export default  function TheoryQuiz() {
                   key={index}
                   className={getOptionStyle(option)}
                   onClick={() => handleOptionSelect(option)}
+
                 >
                   <label className="flex items-center cursor-pointer w-full">
                     <input
@@ -221,7 +152,7 @@ export default  function TheoryQuiz() {
             <div className="flex justify-center">
               <button
                 className={`${
-                  isAnswerSubmitted ? "bg-gray-500 hover:bg-gray-600" : "bg-gray-300 cursor-not-allowed"
+                  isAnswerSubmitted ? "bg-blue-400 hover:ring-1 cursor-pointer" : "bg-gray-300 cursor-not-allowed"
                 } text-white font-bold py-2 px-12 rounded`}
                 onClick={handleNextQuestion}
                 disabled={!isAnswerSubmitted}

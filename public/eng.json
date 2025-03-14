@@ -1,389 +1,3995 @@
- [
+[
     {
         "id": 1,
         "question": "What color is a warning sign in Sweden?",
-        "options": ["Blue", "Yellow", "Red", "White"],
+        "options": [
+            "Blue",
+            "Yellow",
+            "Red",
+            "White"
+        ],
         "answer": "Yellow"
     },
     {
         "id": 2,
         "question": "What does a red and white triangular sign with a black arrow mean?",
-        "options": ["No entry", "Main road", "Warning for oncoming traffic", "Yield"],
+        "options": [
+            "No entry",
+            "Main road",
+            "Warning for oncoming traffic",
+            "Yield"
+        ],
         "answer": "Yield"
     },
     {
         "id": 3,
-        "question": "What is the maximum blood alcohol level allowed when driving in Sweden?",
-        "options": ["0.0", "0.2", "0.5", "1.0"],
+        "question": "How many per mille of alcohol are you allowed to have in your blood when driving in Sweden?",
+        "options": [
+            "0.0",
+            "0.2",
+            "0.5",
+            "1.0"
+        ],
         "answer": "0.2"
     },
     {
         "id": 4,
         "question": "What does a solid line on the road mean?",
-        "options": ["You may not change lanes", "You may park there", "You must turn", "The road is one-way"],
+        "options": [
+            "You may not change lanes",
+            "You may park there",
+            "You must turn",
+            "The road is one-way"
+        ],
         "answer": "You may not change lanes"
     },
     {
         "id": 5,
-        "question": "What is the maximum speed allowed on a highway in Sweden unless otherwise stated?",
-        "options": ["100 km/h", "110 km/h", "120 km/h", "130 km/h"],
+        "question": "What is the maximum allowed speed on a highway in Sweden if nothing else is indicated?",
+        "options": [
+            "100 km/h",
+            "110 km/h",
+            "120 km/h",
+            "130 km/h"
+        ],
         "answer": "110 km/h"
     },
     {
         "id": 6,
         "question": "Which lighting should be used in fog?",
-        "options": ["Low beam", "Parking lights", "Fog lights", "High beam"],
+        "options": [
+            "Low beam",
+            "Parking lights",
+            "Fog lights",
+            "High beam"
+        ],
         "answer": "Fog lights"
     },
     {
         "id": 7,
         "question": "What does a red and yellow sign with a black symbol of a walking person mean?",
-        "options": ["Pedestrian street", "Warning for children", "Warning for pedestrians", "Bicycle lane"],
+        "options": [
+            "Pedestrian street",
+            "Warning for children",
+            "Warning for pedestrians",
+            "Bicycle path"
+        ],
         "answer": "Warning for pedestrians"
     },
     {
         "id": 8,
-        "question": "Which substance in car emissions contributes to acid rain?",
-        "options": ["Carbon dioxide", "Sulfur dioxide", "Nitrogen oxide", "Methane"],
+        "question": "Which substance in car exhaust contributes to acidification?",
+        "options": [
+            "Carbon dioxide",
+            "Sulfur dioxide",
+            "Nitrogen oxide",
+            "Methane"
+        ],
         "answer": "Sulfur dioxide"
     },
     {
         "id": 9,
-        "question": "What is the greatest risk when driving with worn tires?",
-        "options": ["Increased fuel consumption", "Lower top speed", "Poorer road grip", "Higher noise levels"],
+        "question": "What is the biggest risk when driving with worn tires?",
+        "options": [
+            "Increased fuel consumption",
+            "Lower top speed",
+            "Poorer road grip",
+            "Higher noise level"
+        ],
         "answer": "Poorer road grip"
     },
     {
         "id": 10,
         "question": "Which document must you have with you when driving a car?",
-        "options": ["Registration certificate", "Driver's license", "Service book", "Purchase contract"],
+        "options": [
+            "Registration certificate",
+            "Driver's license",
+            "Service book",
+            "Purchase contract"
+        ],
         "answer": "Driver's license"
     },
     {
         "id": 11,
         "question": "What does a blue sign with a white arrow pointing straight ahead mean?",
-        "options": ["Oncoming traffic has priority", "Mandatory driving direction", "Main road", "No turning allowed"],
+        "options": [
+            "Oncoming traffic has priority",
+            "Mandatory driving direction",
+            "Main road",
+            "No turning"
+        ],
         "answer": "Mandatory driving direction"
     },
     {
         "id": 12,
         "question": "What does a road sign with a red cross over a car mean?",
-        "options": ["No parking", "No motor traffic", "Toll road", "No through traffic"],
-        "answer": "No motor traffic"
+        "options": [
+            "No parking",
+            "No motor vehicles",
+            "Road toll required",
+            "No through traffic"
+        ],
+        "answer": "No motor vehicles"
     },
     {
         "id": 13,
-        "question": "What is the minimum tread depth allowed on summer tires?",
-        "options": ["1.6 mm", "2.0 mm", "3.0 mm", "4.0 mm"],
+        "question": "What is the minimum allowed tread depth on summer tires?",
+        "options": [
+            "1.6 mm",
+            "2.0 mm",
+            "3.0 mm",
+            "4.0 mm"
+        ],
         "answer": "1.6 mm"
     },
     {
         "id": 14,
         "question": "Which of the following is a defensive driving style?",
-        "options": ["Always driving as fast as possible", "Keeping a safe distance and planning the drive", "Never using mirrors", "Braking suddenly"],
-        "answer": "Keeping a safe distance and planning the drive"
+        "options": [
+            "Always driving as fast as possible",
+            "Keeping distance and planning your driving",
+            "Never using rearview mirrors",
+            "Braking suddenly"
+        ],
+        "answer": "Keeping distance and planning your driving"
     },
     {
         "id": 15,
         "question": "What does a blue sign with a white bicycle mean?",
-        "options": ["Bicycle crossing", "Bicycle lane", "No bicycles", "Pedestrian street"],
-        "answer": "Bicycle lane"
+        "options": [
+            "Bicycle crossing",
+            "Bicycle path",
+            "No bicycles",
+            "Pedestrian street"
+        ],
+        "answer": "Bicycle path"
     },
     {
         "id": 16,
-        "question": "What is the biggest danger of driving while tired?",
-        "options": ["Lower fuel consumption", "Impaired reaction ability", "Better attention", "No risks at all"],
-        "answer": "Impaired reaction ability"
+        "question": "What is the greatest danger of driving while tired?",
+        "options": [
+            "Lower fuel consumption",
+            "Impaired reaction time",
+            "Better attention",
+            "No risks at all"
+        ],
+        "answer": "Impaired reaction time"
     },
     {
         "id": 17,
         "question": "What does a sign with a yellow circle and a black X mean?",
-        "options": ["No parking", "End of main road", "Stop sign", "Warning sign"],
+        "options": [
+            "No parking",
+            "End of main road",
+            "Stop",
+            "Warning sign"
+        ],
         "answer": "No parking"
     },
     {
         "id": 18,
-        "question": "What is the biggest risk of driving too close to the car in front?",
-        "options": ["Higher fuel consumption", "Risk of collision in sudden braking", "Better visibility", "Lower speed"],
-        "answer": "Risk of collision in sudden braking"
+        "question": "What is the biggest risk of driving too close to the vehicle in front?",
+        "options": [
+            "Higher fuel consumption",
+            "Risk of collision if sudden braking occurs",
+            "Better visibility",
+            "Lower speed"
+        ],
+        "answer": "Risk of collision if sudden braking occurs"
     },
     {
         "id": 19,
         "question": "What does a sign with a white arrow on a blue background pointing right mean?",
-        "options": ["One-way street", "Mandatory right turn", "Main road", "Warning sign"],
+        "options": [
+            "One-way street",
+            "Mandatory right turn",
+            "Main road",
+            "Warning sign"
+        ],
         "answer": "Mandatory right turn"
     },
     {
         "id": 20,
         "question": "What does a yellow road marking in the middle of the road mean?",
-        "options": ["Only for buses", "No overtaking", "Temporary road marking", "Oncoming traffic has priority"],
+        "options": [
+            "Only for buses",
+            "No overtaking",
+            "Temporary road marking",
+            "Oncoming traffic has priority"
+        ],
         "answer": "Temporary road marking"
     },
     {
         "id": 21,
-        "question": "When is it prohibited to use high beams?",
-        "options": ["When meeting another car", "When driving in an urban area", "When the road is well-lit", "All of the above"],
+        "question": "When is it forbidden to use high beam?",
+        "options": [
+            "When meeting another car",
+            "When driving in urban areas",
+            "When the road is well lit",
+            "All of the above"
+        ],
         "answer": "All of the above"
     },
     {
         "id": 22,
-        "question": "What color is a road sign that warns of dangerous curves?",
-        "options": ["Red and yellow", "Blue and white", "Green and white", "Black and white"],
+        "question": "What color is a road sign warning of dangerous curves?",
+        "options": [
+            "Red and yellow",
+            "Blue and white",
+            "Green and white",
+            "Black and white"
+        ],
         "answer": "Red and yellow"
     },
     {
         "id": 23,
         "question": "What is the biggest risk of using a mobile phone while driving?",
-        "options": ["Increased fuel consumption", "Reduced concentration", "Better road awareness", "No risks"],
-        "answer": "Reduced concentration"
+        "options": [
+            "Increased fuel consumption",
+            "Impaired concentration",
+            "Better road awareness",
+            "No risks"
+        ],
+        "answer": "Impaired concentration"
     },
     {
         "id": 24,
-        "question": "Which of these vehicles can drive in a bus lane?",
-        "options": ["Motorcycles", "Taxis", "Ambulances", "All of the above"],
+        "question": "Which of these vehicles may drive in a bus lane?",
+        "options": [
+            "Motorcycles",
+            "Taxis",
+            "Ambulances",
+            "All of the above"
+        ],
         "answer": "All of the above"
     },
     {
         "id": 25,
         "question": "What does a sign with a white arrow on a blue background pointing left mean?",
-        "options": ["Mandatory left turn", "One-way street", "No left turn", "Main road"],
+        "options": [
+            "Mandatory left turn",
+            "One-way street",
+            "No left turn",
+            "Main road"
+        ],
         "answer": "One-way street"
     },
     {
         "id": 26,
-        "question": "Which vehicle always has the right of way in a roundabout?",
-        "options": ["Cars", "Bicycles", "Vehicles inside the roundabout", "Mopeds"],
-        "answer": "Vehicles inside the roundabout"
+        "question": "Which vehicle always has priority in a roundabout?",
+        "options": [
+            "Cars",
+            "Bicycles",
+            "Vehicles in the roundabout",
+            "Mopeds"
+        ],
+        "answer": "Vehicles in the roundabout"
     },
     {
         "id": 27,
-        "question": "What should you do when approaching a pedestrian crossing and a pedestrian is waiting?",
-        "options": ["Drive through if you have a green light", "Slow down and be ready to stop", "Honk to alert the pedestrian", "Speed up to pass before them"],
-        "answer": "Slow down and be ready to stop"
+        "question": "What should you do if you approach a pedestrian crossing and a pedestrian is standing at the edge?",
+        "options": [
+            "Continue if you have a green light",
+            "Slow down and be prepared to stop",
+            "Honk to alert the pedestrian",
+            "Speed up to pass before them"
+        ],
+        "answer": "Slow down and be prepared to stop"
     },
     {
         "id": 28,
-        "question": "What does a yellow-marked road sign with a red border and a black symbol mean?",
-        "options": ["Warning sign", "Parking sign", "Mandatory sign", "Main road sign"],
+        "question": "What does a yellow-marked road sign with a red frame and a black symbol mean?",
+        "options": [
+            "Warning sign",
+            "Parking sign",
+            "Mandatory sign",
+            "Main road sign"
+        ],
         "answer": "Warning sign"
     },
     {
         "id": 29,
         "question": "How often should you check the air pressure in your tires?",
-        "options": ["Every month", "Every year", "Only before long trips", "Only during vehicle inspection"],
+        "options": [
+            "Every month",
+            "Every year",
+            "Only before long trips",
+            "Only during inspection"
+        ],
         "answer": "Every month"
     },
     {
         "id": 30,
-        "question": "What should you do if you skid on an icy road?",
-        "options": ["Brake hard and turn the wheel", "Ease off the gas and steer into the skid", "Shift to a higher gear", "Press the clutch immediately"],
-        "answer": "Ease off the gas and steer into the skid"
+        "question": "What should you do if you skid on a slippery road?",
+        "options": [
+            "Brake hard and turn the wheel",
+            "Ease off the gas and steer in the direction of the skid",
+            "Shift to a higher gear",
+            "Press the clutch immediately"
+        ],
+        "answer": "Ease off the gas and steer in the direction of the skid"
     },
     {
         "id": 31,
-        "question": "Which action reduces a car’s fuel consumption?",
-        "options": ["Hard acceleration", "Driving in low gears", "Smooth and even driving", "Low tire pressure"],
+        "question": "Which action reduces the car's fuel consumption?",
+        "options": [
+            "Hard acceleration",
+            "Driving in low gears",
+            "Smooth and even driving",
+            "Having low tire pressure"
+        ],
         "answer": "Smooth and even driving"
     },
     {
         "id": 32,
-        "question": "What does it mean if a police officer waves you through an intersection despite a red traffic light?",
-        "options": ["You should ignore the officer and stop", "You should follow the officer’s instructions", "You should wait until the light turns green", "You should honk to alert the officer"],
-        "answer": "You should follow the officer’s instructions"
+        "question": "What does it mean if a police officer waves you forward at an intersection despite the traffic light being red?",
+        "options": [
+            "You should ignore the officer and stop",
+            "You should follow the officer's instructions",
+            "You should wait until the traffic light turns green",
+            "You should honk to alert the officer"
+        ],
+        "answer": "You should follow the officer's instructions"
     },
     {
         "id": 33,
-        "question": "What is the biggest risk of driving at night?",
-        "options": ["Reduced visibility and longer reaction time", "More cars on the road", "Lower speeds", "Better visibility of road signs"],
-        "answer": "Reduced visibility and longer reaction time"
+        "question": "What is the biggest risk of driving in the dark?",
+        "options": [
+            "Poorer visibility and longer reaction time",
+            "More cars on the roads",
+            "Lower speeds",
+            "Better visibility of road signs"
+        ],
+        "answer": "Poorer visibility and longer reaction time"
     },
     {
         "id": 34,
         "question": "What does a blue sign with a white arrow pointing straight ahead mean?",
-        "options": ["One-way street", "Mandatory driving direction", "No turning allowed", "Main road"],
+        "options": [
+            "One-way street",
+            "Mandatory driving direction",
+            "No turning",
+            "Main road"
+        ],
         "answer": "Mandatory driving direction"
     },
     {
         "id": 35,
-        "question": "When is it prohibited to stop on a road?",
-        "options": ["When there is a solid line near the edge", "When you block a driveway", "At a bus stop", "All of the above"],
+        "question": "When is it forbidden to stop on a road?",
+        "options": [
+            "When there is a solid line near the edge",
+            "When you block an exit",
+            "At a bus stop",
+            "All of the above"
+        ],
         "answer": "All of the above"
     },
     {
         "id": 36,
         "question": "What does a road sign with a red circle and a white background mean?",
-        "options": ["Prohibition", "Information", "Warning", "Main road"],
+        "options": [
+            "Prohibition",
+            "Information",
+            "Warning",
+            "Main road"
+        ],
         "answer": "Prohibition"
     },
     {
         "id": 37,
         "question": "How can you reduce the risk of hydroplaning?",
-        "options": ["By driving faster", "By keeping tires worn out", "By maintaining proper tire pressure and speed", "By using low beams"],
-        "answer": "By maintaining proper tire pressure and speed"
+        "options": [
+            "By driving faster",
+            "By keeping tires worn",
+            "By maintaining correct tire pressure and speed",
+            "By using low beam"
+        ],
+        "answer": "By maintaining correct tire pressure and speed"
     },
     {
         "id": 38,
-        "question": "Which of the following factors affects a car’s braking distance the most?",
-        "options": ["Tire condition", "Number of passengers", "Car color", "Wind direction"],
+        "question": "Which of the following factors most affects the car's braking distance?",
+        "options": [
+            "Tire condition",
+            "Number of passengers",
+            "Car color",
+            "Wind direction"
+        ],
         "answer": "Tire condition"
     },
     {
         "id": 39,
         "question": "Which vehicle is allowed to drive on a highway?",
-        "options": ["Mopeds", "Bicycles", "Tractors", "Cars"],
+        "options": [
+            "Mopeds",
+            "Bicycles",
+            "Tractors",
+            "Cars"
+        ],
         "answer": "Cars"
     },
-
     {
         "id": 40,
         "question": "What should you do if you see a warning triangle on the road?",
-        "options": ["Slow down and be prepared to stop", "Speed up and pass quickly", "Ignore the sign", "Brake hard"],
+        "options": [
+            "Slow down and be prepared to stop",
+            "Speed up and pass quickly",
+            "Ignore the sign",
+            "Brake hard"
+        ],
         "answer": "Slow down and be prepared to stop"
     },
     {
         "id": 41,
-        "question": "What is the minimum legal tread depth for winter tires?",
-        "options": ["1.6 mm", "3.0 mm", "5.0 mm", "4.0 mm"],
+        "question": "What is the minimum allowed tread depth for winter tires?",
+        "options": [
+            "1.6 mm",
+            "3.0 mm",
+            "5.0 mm",
+            "4.0 mm"
+        ],
         "answer": "3.0 mm"
     },
     {
         "id": 42,
         "question": "What does a blue sign with a white pedestrian symbol mean?",
-        "options": ["Pedestrian street", "Pedestrian crossing", "Bicycle lane", "No pedestrians allowed"],
+        "options": [
+            "Pedestrian street",
+            "Pedestrian crossing",
+            "Bicycle path",
+            "No pedestrians"
+        ],
         "answer": "Pedestrian street"
     },
     {
         "id": 43,
         "question": "When is it forbidden to use fog lights?",
-        "options": ["When visibility is good", "When it is dark", "When meeting another car", "During snowfall"],
+        "options": [
+            "When visibility is good",
+            "When it's dark",
+            "When meeting another car",
+            "During snowfall"
+        ],
         "answer": "When visibility is good"
     },
     {
         "id": 44,
-        "question": "What should you do when approaching a railway crossing without barriers and the red light is flashing?",
-        "options": ["Continue if you don't see a train", "Stop and wait until the light stops flashing", "Slow down and honk", "Drive over quickly"],
+        "question": "What should you do if you approach a railway crossing without barriers and a red light is flashing?",
+        "options": [
+            "Continue if you don't see a train",
+            "Stop and wait until the light stops flashing",
+            "Slow down and honk",
+            "Cross quickly"
+        ],
         "answer": "Stop and wait until the light stops flashing"
     },
     {
         "id": 45,
-        "question": "What does a red circle with a white horizontal line in the middle mean?",
-        "options": ["No entry", "Main road", "Yield", "Pedestrian street"],
-        "answer": "No entry"
+        "question": "Which vehicle always has priority in a roundabout?",
+        "options": [
+            "Cars",
+            "Bicycles",
+            "Vehicles in the roundabout",
+            "Mopeds"
+        ],
+        "answer": "Vehicles in the roundabout"
     },
     {
         "id": 46,
-        "question": "Which action reduces the risk of skidding on icy roads?",
-        "options": ["Braking hard", "Using winter tires", "Turning quickly", "Driving at high speed"],
-        "answer": "Using winter tires"
+        "question": "What should you do if you approach a pedestrian crossing and a pedestrian is standing at the edge?",
+        "options": [
+            "Continue if you have a green light",
+            "Slow down and be prepared to stop",
+            "Honk to alert the pedestrian",
+            "Speed up to pass before them"
+        ],
+        "answer": "Slow down and be prepared to stop"
     },
     {
         "id": 47,
-        "question": "What does a blue sign with a white bus mean?",
-        "options": ["Bus stop", "Bus lane", "No buses allowed", "Mandatory direction"],
-        "answer": "Bus lane"
+        "question": "What does a yellow-marked road sign with a red frame and a black symbol mean?",
+        "options": [
+            "Warning sign",
+            "Parking sign",
+            "Mandatory sign",
+            "Main road sign"
+        ],
+        "answer": "Warning sign"
     },
     {
         "id": 48,
-        "question": "What type of intersection has no traffic lights or road signs?",
-        "options": ["Main road", "Roundabout", "Uncontrolled intersection", "Signalized intersection"],
-        "answer": "Uncontrolled intersection"
+        "question": "How often should you check the air pressure in your tires?",
+        "options": [
+            "Every month",
+            "Every year",
+            "Only before long trips",
+            "Only during inspection"
+        ],
+        "answer": "Every month"
     },
     {
         "id": 49,
-        "question": "What does an orange-colored road sign indicate?",
-        "options": ["Temporary road sign", "Main road", "Tourist road", "Dangerous area"],
-        "answer": "Temporary road sign"
+        "question": "What should you do if you skid on a slippery road?",
+        "options": [
+            "Brake hard and turn the wheel",
+            "Ease off the gas and steer in the direction of the skid",
+            "Shift to a higher gear",
+            "Press the clutch immediately"
+        ],
+        "answer": "Ease off the gas and steer in the direction of the skid"
     },
     {
         "id": 50,
-        "question": "How does a high load affect a vehicle’s stability?",
-        "options": ["No effect", "Makes the car more stable", "Increases the risk of tipping over", "Reduces braking distance"],
-        "answer": "Increases the risk of tipping over"
+        "question": "Which action reduces the car's fuel consumption?",
+        "options": [
+            "Hard acceleration",
+            "Driving in low gears",
+            "Smooth and even driving",
+            "Having low tire pressure"
+        ],
+        "answer": "Smooth and even driving"
     },
     {
         "id": 51,
-        "question": "What should you do if a car behind you is driving too close?",
-        "options": ["Brake quickly to warn them", "Increase speed", "Maintain a steady pace and possibly allow them to pass", "Turn on hazard lights"],
-        "answer": "Maintain a steady pace and possibly allow them to pass"
+        "question": "What does it mean if a police officer waves you forward at an intersection despite the traffic light being red?",
+        "options": [
+            "You should ignore the officer and stop",
+            "You should follow the officer's instructions",
+            "You should wait until the traffic light turns green",
+            "You should honk to alert the officer"
+        ],
+        "answer": "You should follow the officer's instructions"
     },
     {
         "id": 52,
-        "question": "What is the purpose of a median barrier on a road?",
-        "options": ["Reduce the risk of head-on collisions", "Increase speed", "Reduce fuel consumption", "Reduce tire wear"],
-        "answer": "Reduce the risk of head-on collisions"
+        "question": "What is the biggest risk of driving in the dark?",
+        "options": [
+            "Poorer visibility and longer reaction time",
+            "More cars on the roads",
+            "Lower speeds",
+            "Better visibility of road signs"
+        ],
+        "answer": "Poorer visibility and longer reaction time"
     },
     {
         "id": 53,
-        "question": "Which type of road has the highest risk of wildlife collisions?",
-        "options": ["Highway", "Country road", "City road", "Residential area"],
-        "answer": "Country road"
+        "question": "What does a blue sign with a white arrow pointing straight ahead mean?",
+        "options": [
+            "One-way street",
+            "Mandatory driving direction",
+            "No turning",
+            "Main road"
+        ],
+        "answer": "Mandatory driving direction"
     },
     {
         "id": 54,
-        "question": "Which factor affects fuel consumption the most?",
-        "options": ["Using AC", "Having windows open", "Driving style and speed", "Car color"],
-        "answer": "Driving style and speed"
+        "question": "When is it forbidden to stop on a road?",
+        "options": [
+            "When there is a solid line near the edge",
+            "When you block an exit",
+            "At a bus stop",
+            "All of the above"
+        ],
+        "answer": "All of the above"
     },
     {
         "id": 55,
-        "question": "What is the biggest danger of driving on gravel roads?",
-        "options": ["Reduced braking grip and risk of stone chips", "Lower speed limits", "More road signs", "Better visibility"],
-        "answer": "Reduced braking grip and risk of stone chips"
+        "question": "What does a road sign with a red circle and a white background mean?",
+        "options": [
+            "Prohibition",
+            "Information",
+            "Warning",
+            "Main road"
+        ],
+        "answer": "Prohibition"
     },
     {
         "id": 56,
-        "question": "What does a sign with a red X over a lane mean?",
-        "options": ["Lane is closed", "Speed limit is 50 km/h", "No right turns", "No parking"],
-        "answer": "Lane is closed"
+        "question": "How can you reduce the risk of hydroplaning?",
+        "options": [
+            "By driving faster",
+            "By keeping tires worn",
+            "By maintaining correct tire pressure and speed",
+            "By using low beam"
+        ],
+        "answer": "By maintaining correct tire pressure and speed"
     },
     {
         "id": 57,
-        "question": "What should you do if you discover a traffic accident where no one has called for help?",
-        "options": ["Keep driving and assume someone else will call", "Stop, help, and call 112", "Record and share on social media", "Signal for others to drive on"],
-        "answer": "Stop, help, and call 112"
+        "question": "Which of the following factors most affects the car's braking distance?",
+        "options": [
+            "Tire condition",
+            "Number of passengers",
+            "Car color",
+            "Wind direction"
+        ],
+        "answer": "Tire condition"
     },
     {
         "id": 58,
-        "question": "What rule applies at an intersection where the right-hand rule is in effect?",
-        "options": ["The driver from the right has priority", "The driver on the main road has priority", "The biggest vehicle has priority", "The first to honk has priority"],
-        "answer": "The driver from the right has priority"
+        "question": "Which vehicle is allowed to drive on a highway?",
+        "options": [
+            "Mopeds",
+            "Bicycles",
+            "Tractors",
+            "Cars"
+        ],
+        "answer": "Cars"
     },
     {
         "id": 59,
-        "question": "What does a yellow solid line along the curb mean?",
-        "options": ["No parking", "No stopping", "Bicycle lane", "Yield"],
-        "answer": "No stopping"
+        "question": "What should you do if you see a warning triangle on the road?",
+        "options": [
+            "Slow down and be prepared to stop",
+            "Speed up and pass quickly",
+            "Ignore the sign",
+            "Brake hard"
+        ],
+        "answer": "Slow down and be prepared to stop"
     },
     {
         "id": 60,
-        "question": "What should you do if you are blinded by oncoming traffic at night?",
-        "options": ["Flash your high beams", "Look at the right edge of the road", "Close your eyes briefly and keep driving", "Reduce speed to 30 km/h"],
-        "answer": "Look at the right edge of the road"
+        "question": "What is the minimum allowed tread depth for winter tires?",
+        "options": [
+            "1.6 mm",
+            "3.0 mm",
+            "5.0 mm",
+            "4.0 mm"
+        ],
+        "answer": "3.0 mm"
     },
     {
         "id": 61,
-        "question": "What is a car’s catalytic converter used for?",
-        "options": ["Reduce fuel consumption", "Filter exhaust gases and reduce emissions", "Help the car start in cold weather", "Increase car speed"],
-        "answer": "Filter exhaust gases and reduce emissions"
+        "question": "What does a blue sign with a white pedestrian symbol mean?",
+        "options": [
+            "Pedestrian street",
+            "Pedestrian crossing",
+            "Bicycle path",
+            "No pedestrians"
+        ],
+        "answer": "Pedestrian street"
     },
     {
         "id": 62,
-        "question": "What does a blue sign with a white person pushing a bicycle mean?",
-        "options": ["Pedestrian and bicycle path", "Bicycle crossing", "Walking path", "No bicycles allowed"],
-        "answer": "Pedestrian and bicycle path"
+        "question": "When is it forbidden to use fog lights?",
+        "options": [
+            "When visibility is good",
+            "When it's dark",
+            "When meeting another car",
+            "During snowfall"
+        ],
+        "answer": "When visibility is good"
     },
     {
         "id": 63,
-        "question": "What is the biggest risk of using cruise control on a wet road?",
-        "options": ["Increased risk of hydroplaning", "Lower fuel consumption", "More control over the car", "Higher speed"],
-        "answer": "Increased risk of hydroplaning"
+        "question": "What should you do if you approach a railway crossing without barriers and a red light is flashing?",
+        "options": [
+            "Continue if you don't see a train",
+            "Stop and wait until the light stops flashing",
+            "Slow down and honk",
+            "Cross quickly"
+        ],
+        "answer": "Stop and wait until the light stops flashing"
     },
     {
         "id": 64,
+        "question": "What does a red circle with a white horizontal line in the middle mean?",
+        "options": [
+            "No entry",
+            "Main road",
+            "Yield",
+            "Pedestrian street"
+        ],
+        "answer": "No entry"
+    },
+    {
+        "id": 65,
+        "question": "Which measure reduces the risk of skidding on slippery roads?",
+        "options": [
+            "Braking hard",
+            "Using winter tires",
+            "Turning quickly",
+            "Driving at high speed"
+        ],
+        "answer": "Using winter tires"
+    },
+    {
+        "id": 66,
+        "question": "What does a blue sign with a white bus mean?",
+        "options": [
+            "Bus stop",
+            "Bus lane",
+            "No buses",
+            "Mandatory driving direction"
+        ],
+        "answer": "Bus lane"
+    },
+    {
+        "id": 67,
+        "question": "Which type of intersection has no traffic lights or road signs?",
+        "options": [
+            "Main road",
+            "Roundabout",
+            "Uncontrolled intersection",
+            "Signal intersection"
+        ],
+        "answer": "Uncontrolled intersection"
+    },
+    {
+        "id": 68,
+        "question": "What does an orange-colored road sign mean?",
+        "options": [
+            "Temporary road sign",
+            "Main road",
+            "Tourist route",
+            "Dangerous area"
+        ],
+        "answer": "Temporary road sign"
+    },
+    {
+        "id": 69,
+        "question": "How does a high load affect a car's stability?",
+        "options": [
+            "No effect",
+            "Makes the car more stable",
+            "Increases the risk of tipping over",
+            "Reduces the car's braking distance"
+        ],
+        "answer": "Increases the risk of tipping over"
+    },
+    {
+        "id": 70,
+        "question": "What should you do if a car behind you is driving very close?",
+        "options": [
+            "Brake quickly to warn them",
+            "Increase your speed",
+            "Maintain a calm pace and possibly give way",
+            "Turn on your hazard lights"
+        ],
+        "answer": "Maintain a calm pace and possibly give way"
+    },
+    {
+        "id": 71,
+        "question": "What is the purpose of a median barrier on a road?",
+        "options": [
+            "Reduce the risk of head-on collisions",
+            "Increase speed",
+            "Reduce fuel consumption",
+            "Reduce tire wear"
+        ],
+        "answer": "Reduce the risk of head-on collisions"
+    },
+    {
+        "id": 72,
+        "question": "Which type of road has the highest risk of wildlife accidents?",
+        "options": [
+            "Highway",
+            "Rural road",
+            "City road",
+            "Residential area"
+        ],
+        "answer": "Rural road"
+    },
+    {
+        "id": 73,
+        "question": "Which of the following most affects fuel consumption?",
+        "options": [
+            "Using AC",
+            "Having windows open",
+            "Driving style and speed",
+            "Car color"
+        ],
+        "answer": "Driving style and speed"
+    },
+    {
+        "id": 74,
+        "question": "What is the greatest danger of driving on gravel roads?",
+        "options": [
+            "Poorer braking grip and risk of stone chips",
+            "Lower speed limits",
+            "More road signs",
+            "Better visibility"
+        ],
+        "answer": "Poorer braking grip and risk of stone chips"
+    },
+    {
+        "id": 75,
+        "question": "What does a sign with a red X over a lane mean?",
+        "options": [
+            "The lane is closed",
+            "Forbidden to drive faster than 50 km/h",
+            "No right turn",
+            "No parking"
+        ],
+        "answer": "The lane is closed"
+    },
+    {
+        "id": 76,
+        "question": "What should you do if you discover a traffic accident where no one has yet called for help?",
+        "options": [
+            "Continue driving and rely on someone else to call",
+            "Stop, help and call 112",
+            "Film and share on social media",
+            "Signal to others to drive on"
+        ],
+        "answer": "Stop, help and call 112"
+    },
+    {
+        "id": 77,
+        "question": "What rule applies at an intersection where the right-hand rule is in effect?",
+        "options": [
+            "The one coming from the right has priority",
+            "The one driving on the main road has priority",
+            "The one with the biggest car has priority",
+            "The one who honks first has priority"
+        ],
+        "answer": "The one coming from the right has priority"
+    },
+    {
+        "id": 78,
+        "question": "What does a yellow solid line along the curb mean?",
+        "options": [
+            "No parking",
+            "No stopping",
+            "Bicycle lane",
+            "Yield"
+        ],
+        "answer": "No stopping"
+    },
+    {
+        "id": 79,
+        "question": "What should you do if you are blinded by oncoming traffic at night?",
+        "options": [
+            "Flash your high beams",
+            "Look at the right edge of the road",
+            "Close your eyes briefly and continue driving",
+            "Reduce speed to 30 km/h"
+        ],
+        "answer": "Look at the right edge of the road"
+    },
+    {
+        "id": 80,
+        "question": "What is a catalytic converter in a car used for?",
+        "options": [
+            "Reduces fuel consumption",
+            "Filters exhaust gases and reduces emissions",
+            "Helps the car start in cold weather",
+            "Increases the car's speed"
+        ],
+        "answer": "Filters exhaust gases and reduces emissions"
+    },
+    {
+        "id": 81,
+        "question": "What does a blue sign with a white person leading a bicycle mean?",
+        "options": [
+            "Pedestrian and bicycle path",
+            "Bicycle crossing",
+            "Pedestrian path",
+            "No cycling"
+        ],
+        "answer": "Pedestrian and bicycle path"
+    },
+    {
+        "id": 82,
+        "question": "What is the biggest risk of using cruise control on a wet road?",
+        "options": [
+            "Increased risk of hydroplaning",
+            "Lower fuel consumption",
+            "Increased control of the car",
+            "Higher speed"
+        ],
+        "answer": "Increased risk of hydroplaning"
+    },
+    {
+        "id": 83,
         "question": "What does a red triangle with an exclamation mark mean?",
-        "options": ["General warning", "Yield", "Main road", "Speed limit of 30 km/h"],
+        "options": [
+            "General warning",
+            "Yield",
+            "Main road",
+            "Speed limit 30 km/h"
+        ],
         "answer": "General warning"
+    },
+    {
+        "id": 84,
+        "question": "What type of sign is yellow with a red border?",
+        "options": [
+            "Warning sign",
+            "Prohibition sign",
+            "Information sign",
+            "Mandatory sign"
+        ],
+        "answer": "Warning sign"
+    },
+    {
+        "id": 85,
+        "question": "How long is a normal reaction distance at 90 km/h?",
+        "options": [
+            "9 meters",
+            "18 meters",
+            "27 meters",
+            "36 meters"
+        ],
+        "answer": "27 meters"
+    },
+    {
+        "id": 86,
+        "question": "What does a red sign with a white diagonal line over a P mean?",
+        "options": [
+            "No parking",
+            "Parking space",
+            "Private parking",
+            "Short-term parking"
+        ],
+        "answer": "No parking"
+    },
+    {
+        "id": 87,
+        "question": "Which of the following roads is most prone to ice in cold weather?",
+        "options": [
+            "A country road",
+            "A bridge",
+            "A highway",
+            "A city street"
+        ],
+        "answer": "A bridge"
+    },
+    {
+        "id": 88,
+        "question": "What is the greatest danger of driving on a newly paved road in the rain?",
+        "options": [
+            "Increased braking distance",
+            "Poorer road grip",
+            "Better traction",
+            "Lower fuel consumption"
+        ],
+        "answer": "Poorer road grip"
+    },
+    {
+        "id": 89,
+        "question": "Which of the following factors increases the car's fuel consumption the most?",
+        "options": [
+            "High speed",
+            "Low tire pressure",
+            "Hard acceleration",
+            "All of the above"
+        ],
+        "answer": "All of the above"
+    },
+    {
+        "id": 90,
+        "question": "What does a blue sign with a white arrow pointing downward mean?",
+        "options": [
+            "Lane indication",
+            "Oncoming traffic",
+            "Road without center line",
+            "Main road"
+        ],
+        "answer": "Lane indication"
+    },
+    {
+        "id": 91,
+        "question": "How do you know you are driving in a walking speed area?",
+        "options": [
+            "When the roads are narrow",
+            "When there is no speed limit sign",
+            "When there is a blue sign with pedestrians",
+            "When the sidewalk is wide"
+        ],
+        "answer": "When there is a blue sign with pedestrians"
+    },
+    {
+        "id": 92,
+        "question": "What should you do if you approach a traffic jam?",
+        "options": [
+            "Keep your distance and be prepared to brake",
+            "Downshift and accelerate",
+            "Honk to get attention",
+            "Change lanes quickly"
+        ],
+        "answer": "Keep your distance and be prepared to brake"
+    },
+    {
+        "id": 93,
+        "question": "What is the purpose of a traffic island in the roadway?",
+        "options": [
+            "Improve drainage during rain",
+            "Separate traffic flows",
+            "Reduce noise",
+            "Increase road wear"
+        ],
+        "answer": "Separate traffic flows"
+    },
+    {
+        "id": 94,
+        "question": "What speed applies in a walking speed area?",
+        "options": [
+            "30 km/h",
+            "20 km/h",
+            "10 km/h",
+            "Walking speed"
+        ],
+        "answer": "Walking speed"
+    },
+    {
+        "id": 95,
+        "question": "What does a red traffic signal with a yellow light on at the same time mean?",
+        "options": [
+            "No driving",
+            "About to change to green",
+            "Traffic light is malfunctioning",
+            "Buses have priority"
+        ],
+        "answer": "About to change to green"
+    },
+    {
+        "id": 96,
+        "question": "What should you do if your engine stalls on a highway?",
+        "options": [
+            "Stay in the car and wait",
+            "Get out and wave for help",
+            "Turn on hazard lights and leave the car",
+            "Try to push the car to the nearest exit"
+        ],
+        "answer": "Turn on hazard lights and leave the car"
+    },
+    {
+        "id": 97,
+        "question": "What does a road sign with a blue background and a white truck mean?",
+        "options": [
+            "No heavy traffic",
+            "Mandatory route for trucks",
+            "Parking space for trucks",
+            "Environmental zone for trucks"
+        ],
+        "answer": "Mandatory route for trucks"
+    },
+    {
+        "id": 98,
+        "question": "What does a black sign with a yellow and red border mean?",
+        "options": [
+            "Warning sign for road maintenance",
+            "Temporary road guidance",
+            "Road work",
+            "Parking sign"
+        ],
+        "answer": "Temporary road guidance"
+    },
+    {
+        "id": 99,
+        "question": "How should you act when entering a roundabout?",
+        "options": [
+            "Give way to all vehicles in the roundabout",
+            "Accelerate to get ahead",
+            "Signal right when entering",
+            "Always stop before entering"
+        ],
+        "answer": "Give way to all vehicles in the roundabout"
+    },
+    {
+        "id": 100,
+        "question": "What lighting should you use in a tunnel?",
+        "options": [
+            "Only parking lights",
+            "Low beam or daytime running lights",
+            "Fog lights",
+            "High beam"
+        ],
+        "answer": "Low beam or daytime running lights"
+    },
+    {
+        "id": 101,
+        "question": "What is the biggest risk of driving in rain?",
+        "options": [
+            "Poor visibility",
+            "Longer braking distance",
+            "Hydroplaning",
+            "All of the above"
+        ],
+        "answer": "All of the above"
+    },
+    {
+        "id": 102,
+        "question": "What does a road sign with a red circle and a black truck mean?",
+        "options": [
+            "No trucks",
+            "Dangerous area for trucks",
+            "Mandatory route for trucks",
+            "Environmental zone"
+        ],
+        "answer": "No trucks"
+    },
+    {
+        "id": 103,
+        "question": "What should you do at a railway crossing with barriers that are down?",
+        "options": [
+            "Wait until the barriers open",
+            "Cross if no trains are visible",
+            "Back up",
+            "Honk to signal"
+        ],
+        "answer": "Wait until the barriers open"
+    },
+    {
+        "id": 104,
+        "question": "Which of the following vehicles always has priority?",
+        "options": [
+            "Ambulances with sirens",
+            "Taxis",
+            "Buses",
+            "Motorcycles"
+        ],
+        "answer": "Ambulances with sirens"
+    },
+    {
+        "id": 105,
+        "question": "What color is an information sign on a highway?",
+        "options": [
+            "Blue",
+            "Green",
+            "Red",
+            "Yellow"
+        ],
+        "answer": "Blue"
+    },
+    {
+        "id": 106,
+        "question": "What does a sign with a red triangle and an exclamation mark mean?",
+        "options": [
+            "Yield",
+            "General warning",
+            "Main road",
+            "No turning"
+        ],
+        "answer": "General warning"
+    },
+    {
+        "id": 107,
+        "question": "What is the greatest danger when driving in a roundabout?",
+        "options": [
+            "Not signaling when exiting",
+            "Driving too fast",
+            "Changing lanes without looking",
+            "All of the above"
+        ],
+        "answer": "All of the above"
+    },
+    {
+        "id": 108,
+        "question": "What is the minimum legal tread depth for winter tires?",
+        "options": [
+            "1.6 mm",
+            "3 mm",
+            "4 mm",
+            "5 mm"
+        ],
+        "answer": "3 mm"
+    },
+    {
+        "id": 109,
+        "question": "What should you do when approaching a school area?",
+        "options": [
+            "Increase speed to pass quickly",
+            "Reduce speed and be extra vigilant",
+            "Brake suddenly",
+            "Honk to warn"
+        ],
+        "answer": "Reduce speed and be extra vigilant"
+    },
+    {
+        "id": 110,
+        "question": "How does a heavy load affect the car's braking distance?",
+        "options": [
+            "It decreases",
+            "It increases",
+            "It is not affected",
+            "It becomes shorter when braking in curves"
+        ],
+        "answer": "It increases"
+    },
+    {
+        "id": 111,
+        "question": "What does a blue sign with a white arrow pointing upward mean?",
+        "options": [
+            "Mandatory driving direction",
+            "Prohibited driving direction",
+            "Main road",
+            "Oncoming traffic"
+        ],
+        "answer": "Mandatory driving direction"
+    },
+    {
+        "id": 112,
+        "question": "What is the biggest risk of driving in the dark?",
+        "options": [
+            "More vehicles on the road",
+            "Poorer visibility and longer reaction time",
+            "Better road awareness",
+            "Lower speeds"
+        ],
+        "answer": "Poorer visibility and longer reaction time"
+    },
+    {
+        "id": 113,
+        "question": "Which measure reduces fuel consumption the most?",
+        "options": [
+            "Driving aggressively",
+            "Driving smoothly and evenly",
+            "Having low tire pressure",
+            "Using high beam all the time"
+        ],
+        "answer": "Driving smoothly and evenly"
+    },
+    {
+        "id": 114,
+        "question": "What should you do if a police officer waves you to drive despite a red light?",
+        "options": [
+            "Ignore the police officer",
+            "Stop and wait for the green light",
+            "Follow the police officer's instructions",
+            "Honk"
+        ],
+        "answer": "Follow the police officer's instructions"
+    },
+    {
+        "id": 115,
+        "question": "What is the biggest risk of driving too close to the vehicle in front?",
+        "options": [
+            "Lower speed",
+            "Better visibility",
+            "Risk of collision if sudden braking occurs",
+            "Lower fuel consumption"
+        ],
+        "answer": "Risk of collision if sudden braking occurs"
+    },
+    {
+        "id": 116,
+        "question": "What does a sign with a red circle and a car mean?",
+        "options": [
+            "No motor vehicles",
+            "No parking",
+            "Warning sign",
+            "Main road"
+        ],
+        "answer": "No motor vehicles"
+    },
+    {
+        "id": 117,
+        "question": "How does alcohol affect driving ability?",
+        "options": [
+            "It improves reaction ability",
+            "It reduces judgment and impairs reaction time",
+            "It has no effect",
+            "It increases attention"
+        ],
+        "answer": "It reduces judgment and impairs reaction time"
+    },
+    {
+        "id": 118,
+        "question": "What is the biggest risk of using a mobile phone while driving?",
+        "options": [
+            "Lower speed",
+            "Reduced concentration",
+            "Better driving ability",
+            "Better reaction time"
+        ],
+        "answer": "Reduced concentration"
+    },
+    {
+        "id": 119,
+        "question": "What does a blue sign with a white bicycle mean?",
+        "options": [
+            "Bicycle path",
+            "Bicycle crossing",
+            "No cycling",
+            "Pedestrian street"
+        ],
+        "answer": "Bicycle path"
+    },
+    {
+        "id": 120,
+        "question": "What does a sign with a yellow circle and a black X mean?",
+        "options": [
+            "No parking",
+            "End of main road",
+            "Stop",
+            "Warning sign"
+        ],
+        "answer": "No parking"
+    },
+    {
+        "id": 121,
+        "question": "What does a yellow line along the curb mean?",
+        "options": [
+            "No stopping",
+            "No parking",
+            "Pedestrian street",
+            "Yield"
+        ],
+        "answer": "No stopping"
+    },
+    {
+        "id": 122,
+        "question": "What should you do if your car skids on a slippery road?",
+        "options": [
+            "Brake hard",
+            "Ease off the gas and steer in the direction of the skid",
+            "Let go of the steering wheel",
+            "Accelerate quickly"
+        ],
+        "answer": "Ease off the gas and steer in the direction of the skid"
+    },
+    {
+        "id": 123,
+        "question": "Which substance in exhaust gases contributes most to the greenhouse effect?",
+        "options": [
+            "Nitrogen oxide",
+            "Carbon dioxide",
+            "Sulfur dioxide",
+            "Methane"
+        ],
+        "answer": "Carbon dioxide"
+    },
+    {
+        "id": 124,
+        "question": "What is the best way to avoid hydroplaning?",
+        "options": [
+            "Drive faster",
+            "Maintain correct tire pressure and adjust speed",
+            "Brake hard",
+            "Turn quickly at water puddles"
+        ],
+        "answer": "Maintain correct tire pressure and adjust speed"
+    },
+    {
+        "id": 125,
+        "question": "What is the greatest danger of driving on gravel roads?",
+        "options": [
+            "Increased fuel consumption",
+            "Poorer braking grip and risk of stone chips",
+            "Lower speed",
+            "Better road grip"
+        ],
+        "answer": "Poorer braking grip and risk of stone chips"
+    },
+    {
+        "id": 126,
+        "question": "What color is a warning sign in Sweden?",
+        "options": [
+            "Blue",
+            "Yellow",
+            "Red",
+            "White"
+        ],
+        "answer": "Yellow"
+    },
+    {
+        "id": 127,
+        "question": "What does a sign with a red triangle and an exclamation mark mean?",
+        "options": [
+            "Yield",
+            "General warning",
+            "Main road",
+            "No turning"
+        ],
+        "answer": "General warning"
+    },
+    {
+        "id": 128,
+        "question": "How does alcohol affect driving ability?",
+        "options": [
+            "It improves reaction ability",
+            "It reduces judgment and impairs reaction time",
+            "It has no effect",
+            "It increases attention"
+        ],
+        "answer": "It reduces judgment and impairs reaction time"
+    },
+    {
+        "id": 129,
+        "question": "What is the minimum allowed tread depth for summer tires?",
+        "options": [
+            "1.6 mm",
+            "2.0 mm",
+            "3.0 mm",
+            "4.0 mm"
+        ],
+        "answer": "1.6 mm"
+    },
+    {
+        "id": 130,
+        "question": "What should you do if your car skids on a slippery road?",
+        "options": [
+            "Brake hard",
+            "Ease off the gas and steer in the direction of the skid",
+            "Let go of the steering wheel",
+            "Accelerate quickly"
+        ],
+        "answer": "Ease off the gas and steer in the direction of the skid"
+    },
+    {
+        "id": 131,
+        "question": "Which substance in car exhaust contributes to acidification?",
+        "options": [
+            "Carbon dioxide",
+            "Sulfur dioxide",
+            "Nitrogen oxide",
+            "Methane"
+        ],
+        "answer": "Sulfur dioxide"
+    },
+    {
+        "id": 132,
+        "question": "How often should you check the air pressure in your tires?",
+        "options": [
+            "Every month",
+            "Every six months",
+            "Only before long trips",
+            "Only during inspection"
+        ],
+        "answer": "Every month"
+    },
+    {
+        "id": 133,
+        "question": "What should you do if you see a warning triangle on the road?",
+        "options": [
+            "Slow down and be prepared to stop",
+            "Speed up and pass quickly",
+            "Ignore the sign",
+            "Brake hard"
+        ],
+        "answer": "Slow down and be prepared to stop"
+    },
+    {
+        "id": 134,
+        "question": "Which lights should you use in fog?",
+        "options": [
+            "Low beam",
+            "Parking lights",
+            "Fog lights",
+            "High beam"
+        ],
+        "answer": "Fog lights"
+    },
+    {
+        "id": 135,
+        "question": "What should you do if a police officer waves you to drive despite a red light?",
+        "options": [
+            "Ignore the police officer",
+            "Stop and wait for the green light",
+            "Follow the police officer's instructions",
+            "Honk"
+        ],
+        "answer": "Follow the police officer's instructions"
+    },
+    {
+        "id": 136,
+        "question": "How should you act when entering a roundabout?",
+        "options": [
+            "Give way to all vehicles in the roundabout",
+            "Accelerate to get ahead",
+            "Signal right when entering",
+            "Always stop before entering"
+        ],
+        "answer": "Give way to all vehicles in the roundabout"
+    },
+    {
+        "id": 137,
+        "question": "What is the biggest risk of using a mobile phone while driving?",
+        "options": [
+            "Lower speed",
+            "Reduced concentration",
+            "Better driving ability",
+            "Better reaction time"
+        ],
+        "answer": "Reduced concentration"
+    },
+    {
+        "id": 138,
+        "question": "Which of the following most affects fuel consumption?",
+        "options": [
+            "Using AC",
+            "Having windows open",
+            "Driving style and speed",
+            "Car color"
+        ],
+        "answer": "Driving style and speed"
+    },
+    {
+        "id": 139,
+        "question": "What should you do at a railway crossing with barriers that are down?",
+        "options": [
+            "Wait until the barriers open",
+            "Cross if no trains are visible",
+            "Back up",
+            "Honk to signal"
+        ],
+        "answer": "Wait until the barriers open"
+    },
+    {
+        "id": 140,
+        "question": "What does a blue sign with a white truck mean?",
+        "options": [
+            "No trucks",
+            "Mandatory route for trucks",
+            "Parking space for trucks",
+            "Environmental zone for trucks"
+        ],
+        "answer": "Mandatory route for trucks"
+    },
+    {
+        "id": 141,
+        "question": "What should you do if your engine stalls on a highway?",
+        "options": [
+            "Stay in the car and wait",
+            "Get out and wave for help",
+            "Turn on hazard lights and leave the car",
+            "Try to push the car to the nearest exit"
+        ],
+        "answer": "Turn on hazard lights and leave the car"
+    },
+    {
+        "id": 142,
+        "question": "What is a 'blind spot'?",
+        "options": [
+            "An area that can only be seen in the rearview mirror",
+            "An area that cannot be seen in the mirrors",
+            "An area in front of the car",
+            "An area behind the car"
+        ],
+        "answer": "An area that cannot be seen in the mirrors"
+    },
+    {
+        "id": 143,
+        "question": "What is the best way to handle an aggressive driver behind you?",
+        "options": [
+            "Accelerate and create distance",
+            "Brake suddenly",
+            "Move to the right lane and let them pass",
+            "Ignore them and maintain your speed"
+        ],
+        "answer": "Move to the right lane and let them pass"
+    },
+    {
+        "id": 144,
+        "question": "Which action reduces the risk of collision at an intersection?",
+        "options": [
+            "Drive quickly through the intersection",
+            "Brake hard at the beginning of the intersection",
+            "Look both ways and be prepared to stop",
+            "Maintain your position in the intersection"
+        ],
+        "answer": "Look both ways and be prepared to stop"
+    },
+    {
+        "id": 145,
+        "question": "What is the biggest risk of driving close to a heavy truck?",
+        "options": [
+            "Increased fuel consumption",
+            "Reduced visibility and blind spots",
+            "Lower speed",
+            "Higher risk of puncture"
+        ],
+        "answer": "Reduced visibility and blind spots"
+    },
+    {
+        "id": 146,
+        "question": "What should you do if you're driving on a country road and a moose suddenly appears on the road?",
+        "options": [
+            "Brake and steer straight ahead",
+            "Swerve quickly",
+            "Accelerate to pass before the moose",
+            "Turn on high beams and honk"
+        ],
+        "answer": "Brake and steer straight ahead"
+    },
+    {
+        "id": 147,
+        "question": "What does it mean if a road has a median barrier?",
+        "options": [
+            "It's a highway",
+            "Overtaking is prohibited",
+            "It reduces the risk of head-on collisions",
+            "It means the road is only for buses"
+        ],
+        "answer": "It reduces the risk of head-on collisions"
+    },
+    {
+        "id": 148,
+        "question": "What is the background color of a highway sign in Sweden?",
+        "options": [
+            "Green",
+            "Blue",
+            "Red",
+            "Yellow"
+        ],
+        "answer": "Blue"
+    },
+    {
+        "id": 149,
+        "question": "Which of the following affects a car's stability at high speed?",
+        "options": [
+            "Low tire profile",
+            "Wider tires",
+            "Heavy load on the roof",
+            "New asphalt"
+        ],
+        "answer": "Heavy load on the roof"
+    },
+    {
+        "id": 150,
+        "question": "What should you do if you drive onto a road with a lot of snow and ice?",
+        "options": [
+            "Accelerate to reduce the risk of getting stuck",
+            "Maintain low speed and use gentle steering and braking movements",
+            "Brake hard to check road grip",
+            "Drive close to the edge of the road for better traction"
+        ],
+        "answer": "Maintain low speed and use gentle steering and braking movements"
+    },
+    {
+        "id": 151,
+        "question": "What is a recommended speed sign?",
+        "options": [
+            "A speed limit that must be followed",
+            "A sign showing the maximum allowed speed",
+            "A sign showing a safe speed in certain road conditions",
+            "A sign that applies only to trucks"
+        ],
+        "answer": "A sign showing a safe speed in certain road conditions"
+    },
+    {
+        "id": 152,
+        "question": "What is one of the biggest risks of driving in rain?",
+        "options": [
+            "The car gets dirty",
+            "Hydroplaning",
+            "Increased fuel consumption",
+            "Better visibility at night"
+        ],
+        "answer": "Hydroplaning"
+    },
+    {
+        "id": 153,
+        "question": "What should you do if your car starts to skid on an icy road?",
+        "options": [
+            "Brake hard and turn the wheel in the opposite direction",
+            "Release the gas and steer in the direction of the skid",
+            "Accelerate to get better grip",
+            "Pull the handbrake to stop the car"
+        ],
+        "answer": "Release the gas and steer in the direction of the skid"
+    },
+    {
+        "id": 154,
+        "question": "When is it permitted to use rear fog lights?",
+        "options": [
+            "When it's dark",
+            "In heavy fog or snowfall",
+            "When it's raining lightly",
+            "When driving on a highway"
+        ],
+        "answer": "In heavy fog or snowfall"
+    },
+    {
+        "id": 155,
+        "question": "What does a sign with a blue background and a white car mean?",
+        "options": [
+            "Parking allowed",
+            "Only for electric cars",
+            "Vehicles with trailers prohibited",
+            "Pedestrian street"
+        ],
+        "answer": "Parking allowed"
+    },
+    {
+        "id": 156,
+        "question": "What should you do if you see a pedestrian about to cross the street at a crosswalk without traffic lights?",
+        "options": [
+            "Continue if they are far away",
+            "Slow down and be prepared to stop",
+            "Honk to warn them",
+            "Accelerate to pass before them"
+        ],
+        "answer": "Slow down and be prepared to stop"
+    },
+    {
+        "id": 157,
+        "question": "Which type of road is most susceptible to ice formation?",
+        "options": [
+            "City roads",
+            "Country roads",
+            "Bridges and viaducts",
+            "Highways"
+        ],
+        "answer": "Bridges and viaducts"
+    },
+    {
+        "id": 158,
+        "question": "What is the risk of driving with too low tire pressure?",
+        "options": [
+            "Better road grip",
+            "Increased fuel consumption and reduced stability",
+            "Shorter braking distance",
+            "Less risk of hydroplaning"
+        ],
+        "answer": "Increased fuel consumption and reduced stability"
+    },
+    {
+        "id": 159,
+        "question": "What is the biggest risk of driving too close to the vehicle in front?",
+        "options": [
+            "Higher fuel consumption",
+            "Less reaction time when braking",
+            "Better visibility of the road",
+            "Increased engine heat"
+        ],
+        "answer": "Less reaction time when braking"
+    },
+    {
+        "id": 160,
+        "question": "What does a blue road sign with a white arrow pointing straight ahead mean?",
+        "options": [
+            "Mandatory driving direction",
+            "Oncoming traffic has priority",
+            "Only for motorcycles",
+            "No parking"
+        ],
+        "answer": "Mandatory driving direction"
+    },
+    {
+        "id": 161,
+        "question": "Which type of vehicle is NOT allowed to use a highway?",
+        "options": [
+            "Class I mopeds",
+            "Buses",
+            "Trucks",
+            "Cars"
+        ],
+        "answer": "Class I mopeds"
+    },
+    {
+        "id": 162,
+        "question": "What is a major risk when driving in a tunnel?",
+        "options": [
+            "Poor visibility due to darkness",
+            "Slippery road surface",
+            "Longer braking distance",
+            "Ventilation deficiencies"
+        ],
+        "answer": "Ventilation deficiencies"
+    },
+    {
+        "id": 163,
+        "question": "Which type of intersection has no road signs or traffic lights?",
+        "options": [
+            "Roundabout",
+            "Uncontrolled intersection",
+            "Signal intersection",
+            "Main road"
+        ],
+        "answer": "Uncontrolled intersection"
+    },
+    {
+        "id": 164,
+        "question": "What should you do if an animal suddenly runs in front of your car on a country road?",
+        "options": [
+            "Brake hard and steer straight ahead",
+            "Swerve quickly",
+            "Accelerate to pass in time",
+            "Honk and flash your lights"
+        ],
+        "answer": "Brake hard and steer straight ahead"
+    },
+    {
+        "id": 165,
+        "question": "What does a yellow road marking in the middle of the road mean?",
+        "options": [
+            "Warning for temporary road changes",
+            "Mandatory lane",
+            "Bus lane",
+            "Only to be used by cyclists"
+        ],
+        "answer": "Warning for temporary road changes"
+    },
+    {
+        "id": 166,
+        "question": "What is the biggest risk of driving on a bridge during winter?",
+        "options": [
+            "Increased speed limit",
+            "Risk of ice",
+            "Less traffic",
+            "Better visibility"
+        ],
+        "answer": "Risk of ice"
+    },
+    {
+        "id": 167,
+        "question": "What should you do if you see a cyclist on the road ahead of you?",
+        "options": [
+            "Drive close to the cyclist to quickly overtake",
+            "Keep your distance and wait for a safe opportunity to overtake",
+            "Honk to warn the cyclist",
+            "Accelerate quickly to pass"
+        ],
+        "answer": "Keep your distance and wait for a safe opportunity to overtake"
+    },
+    {
+        "id": 168,
+        "question": "When is it forbidden to use rear fog lights?",
+        "options": [
+            "In heavy fog",
+            "In clear weather",
+            "During snowfall",
+            "On highways"
+        ],
+        "answer": "In clear weather"
+    },
+    {
+        "id": 169,
+        "question": "What does a blue sign with a white arrow pointing downward mean?",
+        "options": [
+            "Mandatory driving direction",
+            "Oncoming traffic has priority",
+            "Road work",
+            "Mandatory left turn"
+        ],
+        "answer": "Mandatory driving direction"
+    },
+    {
+        "id": 170,
+        "question": "What is the biggest risk of driving too fast in a curve?",
+        "options": [
+            "Reduced tire wear",
+            "Higher fuel consumption",
+            "Poor road grip and risk of losing control",
+            "Shorter braking distance"
+        ],
+        "answer": "Poor road grip and risk of losing control"
+    },
+    {
+        "id": 171,
+        "question": "What does a sign with a red circle and a bicycle inside mean?",
+        "options": [
+            "No bicycles",
+            "Only bicycles may pass",
+            "Bicycle path",
+            "Bicycle parking"
+        ],
+        "answer": "No bicycles"
+    },
+    {
+        "id": 172,
+        "question": "What should you do if your car starts to hydroplane?",
+        "options": [
+            "Brake hard",
+            "Swerve quickly to the side",
+            "Release the gas and hold the steering wheel steady",
+            "Accelerate to regain grip"
+        ],
+        "answer": "Release the gas and hold the steering wheel steady"
+    },
+    {
+        "id": 173,
+        "question": "What is the biggest risk when driving in city traffic?",
+        "options": [
+            "Increased fuel consumption",
+            "More unexpected events and obstacles",
+            "Less traffic",
+            "Better road visibility"
+        ],
+        "answer": "More unexpected events and obstacles"
+    },
+    {
+        "id": 174,
+        "question": "What does a red triangle with a black car and curves behind it mean?",
+        "options": [
+            "Risk of slippery road",
+            "Highway",
+            "Bus lane",
+            "Only for heavy vehicles"
+        ],
+        "answer": "Risk of slippery road"
+    },
+    {
+        "id": 175,
+        "question": "What is the most important thing to consider when driving in a tunnel?",
+        "options": [
+            "To drive as fast as possible",
+            "To keep a longer distance to the vehicle in front",
+            "To drive with fog lights",
+            "To use high beam"
+        ],
+        "answer": "To keep a longer distance to the vehicle in front"
+    },
+    {
+        "id": 176,
+        "question": "What is a certain consequence of driving with too low tire pressure?",
+        "options": [
+            "Better grip",
+            "Lower fuel consumption",
+            "Increased risk of puncture",
+            "Better braking distance"
+        ],
+        "answer": "Increased risk of puncture"
+    },
+    {
+        "id": 177,
+        "question": "What should you do if you drive into dense fog?",
+        "options": [
+            "Increase speed to get through quickly",
+            "Use high beam to see better",
+            "Reduce speed and use fog lights",
+            "Stay close to the center line"
+        ],
+        "answer": "Reduce speed and use fog lights"
+    },
+    {
+        "id": 178,
+        "question": "What does a yellow sign with a red border and a black exclamation mark mean?",
+        "options": [
+            "General warning",
+            "Main road",
+            "No parking",
+            "Pedestrian street"
+        ],
+        "answer": "General warning"
+    },
+    {
+        "id": 179,
+        "question": "What is the biggest risk when driving on a narrow country road?",
+        "options": [
+            "Higher fuel consumption",
+            "Poor visibility when meeting other vehicles",
+            "Longer braking distance",
+            "Better grip"
+        ],
+        "answer": "Poor visibility when meeting other vehicles"
+    },
+    {
+        "id": 180,
+        "question": "What does a white sign with a red border and a black truck mean?",
+        "options": [
+            "No trucks",
+            "Only trucks allowed",
+            "Warning sign for heavy traffic",
+            "Heavy traffic allowed"
+        ],
+        "answer": "No trucks"
+    },
+    {
+        "id": 181,
+        "question": "What does a red circle with a car symbol inside mean?",
+        "options": [
+            "No motor vehicles",
+            "Only motor vehicles allowed",
+            "No parking",
+            "Main road"
+        ],
+        "answer": "No motor vehicles"
+    },
+    {
+        "id": 182,
+        "question": "How should you act if you see a car driving aggressively behind you?",
+        "options": [
+            "Brake to warn them",
+            "Increase your speed",
+            "Stay calm and possibly change lanes if possible",
+            "Honk to warn"
+        ],
+        "answer": "Stay calm and possibly change lanes if possible"
+    },
+    {
+        "id": 183,
+        "question": "What is the biggest risk of driving too close to the car in front?",
+        "options": [
+            "Better aerodynamics",
+            "Risk of collision if sudden braking occurs",
+            "Lower fuel consumption",
+            "Better visibility"
+        ],
+        "answer": "Risk of collision if sudden braking occurs"
+    },
+    {
+        "id": 184,
+        "question": "What is the best method to reduce fuel consumption?",
+        "options": [
+            "Quick accelerations",
+            "Engine braking and smooth driving",
+            "Keeping a low gear all the time",
+            "Driving with higher RPM"
+        ],
+        "answer": "Engine braking and smooth driving"
+    },
+    {
+        "id": 185,
+        "question": "When should you dim your high beams when meeting other traffic?",
+        "options": [
+            "When you see a car 300 meters away",
+            "When the oncoming driver starts flashing",
+            "As soon as you see another car's lights",
+            "At about 200 meters distance"
+        ],
+        "answer": "At about 200 meters distance"
+    },
+    {
+        "id": 186,
+        "question": "What should you do if your engine stalls at a railway crossing?",
+        "options": [
+            "Try to start the car immediately",
+            "Leave the car and call 112",
+            "Wave to nearby cars",
+            "Try to push the car off the tracks"
+        ],
+        "answer": "Leave the car and call 112"
+    },
+    {
+        "id": 187,
+        "question": "Which of the following factors most affects a car's braking distance?",
+        "options": [
+            "Vehicle weight",
+            "Tire condition",
+            "Number of passengers",
+            "Road markings"
+        ],
+        "answer": "Tire condition"
+    },
+    {
+        "id": 188,
+        "question": "What does a blue sign with a white arrow pointing upward mean?",
+        "options": [
+            "Mandatory driving direction",
+            "Pedestrian street",
+            "Bicycle path",
+            "Parking allowed"
+        ],
+        "answer": "Mandatory driving direction"
+    },
+    {
+        "id": 189,
+        "question": "Which type of vehicle is NOT allowed to drive in an environmental zone?",
+        "options": [
+            "Electric cars",
+            "Cars with high emissions",
+            "Hybrid cars",
+            "Bicycles"
+        ],
+        "answer": "Cars with high emissions"
+    },
+    {
+        "id": 190,
+        "question": "What is the biggest risk of driving with too high tire pressure?",
+        "options": [
+            "Increased fuel consumption",
+            "Poorer grip on the road",
+            "Reduced top speed",
+            "Increased braking distance"
+        ],
+        "answer": "Poorer grip on the road"
+    },
+    {
+        "id": 191,
+        "question": "What is the greatest danger of driving on a narrow country road?",
+        "options": [
+            "Risk of ice",
+            "Poor visibility at curves",
+            "Longer braking distance",
+            "More traffic lights"
+        ],
+        "answer": "Poor visibility at curves"
+    },
+    {
+        "id": 192,
+        "question": "What should you do if you see a child standing at a pedestrian crossing?",
+        "options": [
+            "Slow down and be ready to stop",
+            "Continue at the same speed",
+            "Honk to warn",
+            "Increase speed to pass before"
+        ],
+        "answer": "Slow down and be ready to stop"
+    },
+    {
+        "id": 193,
+        "question": "Which type of vehicle always has priority in a roundabout?",
+        "options": [
+            "Bicycles",
+            "Mopeds",
+            "Vehicles already in the roundabout",
+            "Heavy trucks"
+        ],
+        "answer": "Vehicles already in the roundabout"
+    },
+    {
+        "id": 194,
+        "question": "What does a sign with a red triangle and a car skidding mean?",
+        "options": [
+            "Risk of slippery road",
+            "Mandatory winter equipment",
+            "Bus lane",
+            "Road under construction"
+        ],
+        "answer": "Risk of slippery road"
+    },
+    {
+        "id": 195,
+        "question": "Which lights should be used during heavy rain during daytime?",
+        "options": [
+            "Low beam",
+            "Parking lights",
+            "Fog lights",
+            "High beam"
+        ],
+        "answer": "Low beam"
+    },
+    {
+        "id": 196,
+        "question": "What is the greatest danger of using a mobile phone while driving?",
+        "options": [
+            "Longer braking distance",
+            "Reduced concentration",
+            "Higher fuel consumption",
+            "Poorer road grip"
+        ],
+        "answer": "Reduced concentration"
+    },
+    {
+        "id": 197,
+        "question": "What is the biggest risk when driving on a bridge in winter?",
+        "options": [
+            "Strong winds",
+            "Lower speed limit",
+            "Rapid ice formation and slipperiness",
+            "Reduced visibility"
+        ],
+        "answer": "Rapid ice formation and slipperiness"
+    },
+    {
+        "id": 198,
+        "question": "What does a white sign with a red border and a black truck mean?",
+        "options": [
+            "No trucks",
+            "Only trucks allowed",
+            "Warning sign for heavy traffic",
+            "Heavy traffic allowed"
+        ],
+        "answer": "No trucks"
+    },
+    {
+        "id": 199,
+        "question": "What does a yellow sign with a red border and a black arrow pointing downward mean?",
+        "options": [
+            "Main road",
+            "Oncoming traffic has priority",
+            "Traffic signal ahead",
+            "No parking"
+        ],
+        "answer": "Oncoming traffic has priority"
+    },
+    {
+        "id": 200,
+        "question": "How should you act when driving in a foggy curve?",
+        "options": [
+            "Increase speed to get through quickly",
+            "Turn on high beams",
+            "Slow down and use low beam",
+            "Follow the center line carefully"
+        ],
+        "answer": "Slow down and use low beam"
+    },
+    {
+        "id": 201,
+        "question": "What is the greatest danger of driving on gravel roads?",
+        "options": [
+            "Poorer braking grip and risk of stone chips",
+            "Higher noise level",
+            "Fewer road signs",
+            "Increased fuel consumption"
+        ],
+        "answer": "Poorer braking grip and risk of stone chips"
+    },
+    {
+        "id": 202,
+        "question": "What is important to consider when driving on a 2+1 road?",
+        "options": [
+            "To always drive in the left lane",
+            "To change lanes quickly when overtaking",
+            "To adjust your speed and plan overtaking in advance",
+            "To always overtake other vehicles"
+        ],
+        "answer": "To adjust your speed and plan overtaking in advance"
+    },
+    {
+        "id": 203,
+        "question": "What is the biggest risk when driving in a residential area?",
+        "options": [
+            "Meeting larger vehicles",
+            "Children and vulnerable road users",
+            "Steep hills",
+            "Many traffic lights"
+        ],
+        "answer": "Children and vulnerable road users"
+    },
+    {
+        "id": 204,
+        "question": "What should you do if you get a flat tire while driving?",
+        "options": [
+            "Brake hard",
+            "Hold the steering wheel steady and slow down",
+            "Release the steering wheel and let the car slow down by itself",
+            "Swerve sharply to the side"
+        ],
+        "answer": "Hold the steering wheel steady and slow down"
+    },
+    {
+        "id": 205,
+        "question": "What is a risk of driving on a country road at night?",
+        "options": [
+            "Poor lighting and risk of wild animals",
+            "Lower speed limits",
+            "Fewer traffic lights",
+            "More speed cameras"
+        ],
+        "answer": "Poor lighting and risk of wild animals"
+    },
+    {
+        "id": 206,
+        "question": "What does a yellow sign with a red border and a black car turning mean?",
+        "options": [
+            "Warning for sharp curve",
+            "No left turn",
+            "Main road",
+            "Mandatory turn"
+        ],
+        "answer": "Warning for sharp curve"
+    },
+    {
+        "id": 207,
+        "question": "What does a blue sign with a white pedestrian symbol mean?",
+        "options": [
+            "Pedestrian street",
+            "No parking",
+            "Warning for pedestrians",
+            "Mandatory bicycle path"
+        ],
+        "answer": "Pedestrian street"
+    },
+    {
+        "id": 208,
+        "question": "What is the biggest risk when driving on a road with many leaves in autumn?",
+        "options": [
+            "Poorer road grip",
+            "Higher fuel consumption",
+            "Poor visibility",
+            "Reduced acceleration"
+        ],
+        "answer": "Poorer road grip"
+    },
+    {
+        "id": 209,
+        "question": "Which measure reduces the risk of hydroplaning?",
+        "options": [
+            "Driving slower",
+            "Having worn tires",
+            "Increasing speed",
+            "Avoiding using the brakes"
+        ],
+        "answer": "Driving slower"
+    },
+    {
+        "id": 210,
+        "question": "What does it mean if you see a traffic sign with a red circle and a blue background with a red diagonal line?",
+        "options": [
+            "No parking",
+            "Yield",
+            "Oncoming traffic has priority",
+            "Only motorcycles allowed"
+        ],
+        "answer": "No parking"
+    },
+    {
+        "id": 211,
+        "question": "What should you do if you see a pedestrian hesitating at an uncontrolled crosswalk?",
+        "options": [
+            "Slow down and be prepared to stop",
+            "Honk to signal that they can cross",
+            "Continue without changing speed",
+            "Stop and wave them across"
+        ],
+        "answer": "Slow down and be prepared to stop"
+    },
+    {
+        "id": 212,
+        "question": "What is the greatest risk of driving in fog?",
+        "options": [
+            "Reduced field of vision and longer braking distance",
+            "Fewer cars on the road",
+            "Better fuel economy",
+            "Fewer traffic lights"
+        ],
+        "answer": "Reduced field of vision and longer braking distance"
+    },
+    {
+        "id": 213,
+        "question": "Which measure is most important when driving on a slippery road?",
+        "options": [
+            "Keeping a longer distance to other cars",
+            "Driving faster for better grip",
+            "Braking hard frequently",
+            "Shifting to a higher gear"
+        ],
+        "answer": "Keeping a longer distance to other cars"
+    },
+    {
+        "id": 214,
+        "question": "What does a red triangle with a black bicycle mean?",
+        "options": [
+            "Warning for cyclists",
+            "Bicycle path begins",
+            "No cycling",
+            "Pedestrian path"
+        ],
+        "answer": "Warning for cyclists"
+    },
+    {
+        "id": 215,
+        "question": "What should you do if you drive into dense fog?",
+        "options": [
+            "Reduce speed and use fog lights",
+            "Turn on high beams",
+            "Stay close to other cars",
+            "Increase speed to get through faster"
+        ],
+        "answer": "Reduce speed and use fog lights"
+    },
+    {
+        "id": 216,
+        "question": "What does a blue sign with a white bus symbol mean?",
+        "options": [
+            "Only buses may drive here",
+            "Parking for buses",
+            "No buses",
+            "Warning sign for public transport"
+        ],
+        "answer": "Only buses may drive here"
+    },
+    {
+        "id": 217,
+        "question": "What is the biggest risk when driving in a roundabout?",
+        "options": [
+            "Not signaling when exiting",
+            "Keeping the engine RPM too low",
+            "Driving too slowly",
+            "Changing lanes quickly"
+        ],
+        "answer": "Not signaling when exiting"
+    },
+    {
+        "id": 218,
+        "question": "How should you act if you approach an animal on the road?",
+        "options": [
+            "Slow down and be prepared to stop",
+            "Dim your lights and honk",
+            "Accelerate to pass before it",
+            "Swerve quickly to the side"
+        ],
+        "answer": "Slow down and be prepared to stop"
+    },
+    {
+        "id": 219,
+        "question": "What should you do if a car suddenly turns in front of you?",
+        "options": [
+            "Brake gently and keep your distance",
+            "Accelerate to overtake",
+            "Honk and drive close",
+            "Flash your high beams"
+        ],
+        "answer": "Brake gently and keep your distance"
+    },
+    {
+        "id": 220,
+        "question": "What is the greatest risk of driving in rain after a long dry period?",
+        "options": [
+            "Risk of slipping due to oil and dirt",
+            "Fewer cars on the road",
+            "Better tire grip",
+            "Lower speed limits"
+        ],
+        "answer": "Risk of slipping due to oil and dirt"
+    },
+    {
+        "id": 221,
+        "question": "What does a red circle with a blue background and a white 'P' mean?",
+        "options": [
+            "No parking",
+            "Parking allowed",
+            "Short-term parking",
+            "Paid parking"
+        ],
+        "answer": "No parking"
+    },
+    {
+        "id": 222,
+        "question": "What should you do if your car skids on an icy road?",
+        "options": [
+            "Ease off the gas and steer in the direction of the skid",
+            "Brake hard",
+            "Turn in the opposite direction",
+            "Accelerate to regain grip"
+        ],
+        "answer": "Ease off the gas and steer in the direction of the skid"
+    },
+    {
+        "id": 223,
+        "question": "What is the biggest risk of using cruise control on an icy road?",
+        "options": [
+            "Increased risk of skidding",
+            "Lower fuel consumption",
+            "Better road grip",
+            "Higher acceleration"
+        ],
+        "answer": "Increased risk of skidding"
+    },
+    {
+        "id": 224,
+        "question": "What does a blue sign with a white arrow pointing to the right mean?",
+        "options": [
+            "Mandatory right turn",
+            "Right-hand rule applies",
+            "Main road",
+            "Warning for oncoming traffic"
+        ],
+        "answer": "Mandatory right turn"
+    },
+    {
+        "id": 225,
+        "question": "What does a yellow sign with a black arrow and a red line across it mean?",
+        "options": [
+            "Oncoming traffic has priority",
+            "Only bicycles allowed",
+            "End of main road",
+            "No parking"
+        ],
+        "answer": "Oncoming traffic has priority"
+    },
+    {
+        "id": 226,
+        "question": "What is the best way to reduce the risk of tire blowout?",
+        "options": [
+            "Driving at higher speeds",
+            "Checking tire pressure regularly",
+            "Using worn tires",
+            "Always having low tire pressure"
+        ],
+        "answer": "Checking tire pressure regularly"
+    },
+    {
+        "id": 227,
+        "question": "Which factor affects fuel consumption the most?",
+        "options": [
+            "Car color",
+            "Tire pressure",
+            "Wind direction",
+            "Driving with windows open"
+        ],
+        "answer": "Tire pressure"
+    },
+    {
+        "id": 228,
+        "question": "What does a red and yellow sign with a black truck mean?",
+        "options": [
+            "No truck traffic",
+            "Warning sign for heavy vehicles",
+            "Mandatory route for trucks",
+            "Parking allowed for trucks"
+        ],
+        "answer": "No truck traffic"
+    },
+    {
+        "id": 229,
+        "question": "Which measure helps reduce the risk of skidding in a curve?",
+        "options": [
+            "Accelerating in the curve",
+            "Braking hard in the curve",
+            "Maintaining steady speed and steering smoothly",
+            "Turning sharply"
+        ],
+        "answer": "Maintaining steady speed and steering smoothly"
+    },
+    {
+        "id": 230,
+        "question": "Which of the following factors most affects braking distance?",
+        "options": [
+            "Road gradient",
+            "Number of passengers",
+            "Car color",
+            "Whether the AC is on"
+        ],
+        "answer": "Road gradient"
+    },
+    {
+        "id": 231,
+        "question": "What does a yellow sign with a black pedestrian mean?",
+        "options": [
+            "Warning for pedestrians",
+            "No pedestrians",
+            "Pedestrian crossing",
+            "Parking area"
+        ],
+        "answer": "Warning for pedestrians"
+    },
+    {
+        "id": 232,
+        "question": "What is the biggest risk when driving with a heavily loaded car?",
+        "options": [
+            "Shorter braking distance",
+            "Increased fuel consumption and longer braking distance",
+            "Lower risk of skidding",
+            "Better road grip"
+        ],
+        "answer": "Increased fuel consumption and longer braking distance"
+    },
+    {
+        "id": 233,
+        "question": "What does a red and white sign with a black X mean?",
+        "options": [
+            "Railway crossing without barriers",
+            "Mandatory stop",
+            "No parking",
+            "Road with high speed"
+        ],
+        "answer": "Railway crossing without barriers"
+    },
+    {
+        "id": 234,
+        "question": "Which vehicle is allowed to drive in a public transport lane?",
+        "options": [
+            "Only buses",
+            "Only taxis",
+            "Buses, bicycles and taxis",
+            "All vehicles during rush hour"
+        ],
+        "answer": "Buses, bicycles and taxis"
+    },
+    {
+        "id": 235,
+        "question": "What is one of the risks of driving in an area with a lot of loose gravel?",
+        "options": [
+            "Better grip",
+            "Increased risk of stone chips and poorer road grip",
+            "Shorter braking distance",
+            "Lower risk of skidding"
+        ],
+        "answer": "Increased risk of stone chips and poorer road grip"
+    },
+    {
+        "id": 236,
+        "question": "What does a white sign with a black arrow and a red cross over it mean?",
+        "options": [
+            "Oncoming traffic has priority",
+            "Prohibited driving direction",
+            "Warning sign for oncoming vehicles",
+            "End of main road"
+        ],
+        "answer": "Oncoming traffic has priority"
+    },
+    {
+        "id": 237,
+        "question": "What should you do if you see smoke coming from the hood?",
+        "options": [
+            "Open the hood immediately",
+            "Stop the car, turn off the engine and keep your distance",
+            "Pour water on the engine",
+            "Continue driving until the smoke subsides"
+        ],
+        "answer": "Stop the car, turn off the engine and keep your distance"
+    },
+    {
+        "id": 238,
+        "question": "How can you reduce the risk of hydroplaning?",
+        "options": [
+            "Increase speed",
+            "Drive with worn tires",
+            "Maintain correct tire pressure and reduce speed in rain",
+            "Drive close to the middle of the road"
+        ],
+        "answer": "Maintain correct tire pressure and reduce speed in rain"
+    },
+    {
+        "id": 239,
+        "question": "What does a blue sign with a white car and a downward arrow mean?",
+        "options": [
+            "Parking area",
+            "Lane for vehicles",
+            "Road toll required",
+            "One-way street"
+        ],
+        "answer": "Parking area"
+    },
+    {
+        "id": 240,
+        "question": "Which vehicle always has priority?",
+        "options": [
+            "Police car with blue lights and siren",
+            "Motorcycles",
+            "Private ambulances",
+            "Cars driving on a main road"
+        ],
+        "answer": "Police car with blue lights and siren"
+    },
+    {
+        "id": 241,
+        "question": "What is one of the risks of driving on a narrow country road?",
+        "options": [
+            "Less traffic",
+            "Increased risk of wildlife accidents and oncoming traffic",
+            "More traffic lights",
+            "Higher speed limits"
+        ],
+        "answer": "Increased risk of wildlife accidents and oncoming traffic"
+    },
+    {
+        "id": 242,
+        "question": "What does a yellow sign with a black symbol of a vehicle driving downhill mean?",
+        "options": [
+            "Steep downhill",
+            "Warning for stone chips",
+            "Only buses allowed",
+            "Road work"
+        ],
+        "answer": "Steep downhill"
+    },
+    {
+        "id": 243,
+        "question": "What should you do if you drive into an area with fog?",
+        "options": [
+            "Reduce speed and use fog lights",
+            "Increase speed to get through faster",
+            "Keep high beams on",
+            "Drive close to other vehicles"
+        ],
+        "answer": "Reduce speed and use fog lights"
+    },
+    {
+        "id": 244,
+        "question": "What does a blue sign with a white arrow and a bicycle mean?",
+        "options": [
+            "Bicycle path",
+            "Warning for cyclists",
+            "Bicycle crossing",
+            "No bicycles"
+        ],
+        "answer": "Bicycle path"
+    },
+    {
+        "id": 245,
+        "question": "What should you do if you see a moose at the roadside?",
+        "options": [
+            "Slow down and be prepared to stop",
+            "Flash your high beams to scare it away",
+            "Honk and accelerate to pass quickly",
+            "Drive as close to the median barrier as possible"
+        ],
+        "answer": "Slow down and be prepared to stop"
+    },
+    {
+        "id": 246,
+        "question": "What is the greatest danger of driving with incorrect tire pressure?",
+        "options": [
+            "Poorer fuel economy",
+            "Increased risk of hydroplaning",
+            "Longer braking distance",
+            "All of the above"
+        ],
+        "answer": "All of the above"
+    },
+    {
+        "id": 247,
+        "question": "What does a blue sign with a white truck mean?",
+        "options": [
+            "Only trucks allowed",
+            "No trucks",
+            "Parking for trucks",
+            "Heavy traffic must follow this road"
+        ],
+        "answer": "Heavy traffic must follow this road"
+    },
+    {
+        "id": 248,
+        "question": "Which of the following behaviors is most dangerous in a roundabout?",
+        "options": [
+            "Signaling right when exiting",
+            "Changing lanes quickly without looking",
+            "Driving at low speed",
+            "Driving slowly and keeping distance"
+        ],
+        "answer": "Changing lanes quickly without looking"
+    },
+    {
+        "id": 249,
+        "question": "What does a sign with a red circle and a car inside mean?",
+        "options": [
+            "No motor vehicles",
+            "No parking",
+            "Mandatory road for cars",
+            "Main road"
+        ],
+        "answer": "No motor vehicles"
+    },
+    {
+        "id": 250,
+        "question": "What should you do if you approach a school bus that has stopped at the roadside?",
+        "options": [
+            "Reduce speed and be prepared to stop",
+            "Overtake quickly",
+            "Honk to warn children",
+            "Maintain speed but be prepared to brake"
+        ],
+        "answer": "Reduce speed and be prepared to stop"
+    },
+    {
+        "id": 251,
+        "question": "How is the braking distance affected if you double your speed?",
+        "options": [
+            "It doubles",
+            "It triples",
+            "It quadruples",
+            "It halves"
+        ],
+        "answer": "It quadruples"
+    },
+    {
+        "id": 252,
+        "question": "What does a white sign with a red border and an arrow pointing upward mean?",
+        "options": [
+            "Oncoming traffic has priority",
+            "Mandatory driving direction",
+            "Warning for oncoming vehicles",
+            "Road with one-way traffic only"
+        ],
+        "answer": "Oncoming traffic has priority"
+    },
+    {
+        "id": 253,
+        "question": "What does a red triangle with a black car skidding mean?",
+        "options": [
+            "Warning for slippery road surface",
+            "Warning for steep hill",
+            "Vehicles must have winter tires",
+            "Studded tires prohibited"
+        ],
+        "answer": "Warning for slippery road surface"
+    },
+    {
+        "id": 254,
+        "question": "How can you reduce fuel consumption?",
+        "options": [
+            "Maintain constant speed and avoid heavy braking",
+            "Drive in the highest gear all the time",
+            "Accelerate quickly and brake hard",
+            "Use the car's cruise control regardless of road conditions"
+        ],
+        "answer": "Maintain constant speed and avoid heavy braking"
+    },
+    {
+        "id": 255,
+        "question": "Which of the following factors affects reaction distance?",
+        "options": [
+            "Driver fatigue and intoxication",
+            "Road conditions and temperature",
+            "Tire condition",
+            "Vehicle weight"
+        ],
+        "answer": "Driver fatigue and intoxication"
+    },
+    {
+        "id": 256,
+        "question": "What is the greatest danger of driving close to a semi-truck?",
+        "options": [
+            "Limited visibility and blind spots",
+            "High fuel consumption",
+            "Semi-trucks have shorter braking distance",
+            "Semi-trucks always drive slowly"
+        ],
+        "answer": "Limited visibility and blind spots"
+    },
+    {
+        "id": 257,
+        "question": "What does a yellow sign with a black silhouette of a walking person mean?",
+        "options": [
+            "Warning for pedestrians",
+            "Pedestrian street",
+            "No pedestrians",
+            "Pedestrian crossing"
+        ],
+        "answer": "Warning for pedestrians"
+    },
+    {
+        "id": 258,
+        "question": "Which factor most affects a car's emissions?",
+        "options": [
+            "How the car is driven",
+            "The car's color",
+            "How often the car is washed",
+            "The number of passengers"
+        ],
+        "answer": "How the car is driven"
+    },
+    {
+        "id": 259,
+        "question": "What should you do if your car starts to hydroplane?",
+        "options": [
+            "Release the gas and steer straight ahead",
+            "Brake hard",
+            "Turn the steering wheel quickly to the side",
+            "Accelerate to regain grip"
+        ],
+        "answer": "Release the gas and steer straight ahead"
+    },
+    {
+        "id": 260,
+        "question": "What does a blue sign with a white arrow and a bicycle mean?",
+        "options": [
+            "Bicycle path",
+            "No cyclists",
+            "Warning for bicycles",
+            "Bicycle parking"
+        ],
+        "answer": "Bicycle path"
+    },
+    {
+        "id": 261,
+        "question": "What is the biggest risk when driving on a road with snow and ice?",
+        "options": [
+            "Longer braking distance and increased risk of skidding",
+            "Lower fuel consumption",
+            "Better tire grip",
+            "Shorter reaction distance"
+        ],
+        "answer": "Longer braking distance and increased risk of skidding"
+    },
+    {
+        "id": 262,
+        "question": "What does a red circle with a truck inside mean?",
+        "options": [
+            "No trucks",
+            "Warning for heavy vehicles",
+            "Mandatory road for trucks",
+            "Truck traffic allowed"
+        ],
+        "answer": "No trucks"
+    },
+    {
+        "id": 263,
+        "question": "What should you do if a pedestrian hesitates at a crosswalk?",
+        "options": [
+            "Slow down and signal that the person can cross",
+            "Continue driving at the same speed",
+            "Honk for the person to hurry",
+            "Accelerate to pass before"
+        ],
+        "answer": "Slow down and signal that the person can cross"
+    },
+    {
+        "id": 264,
+        "question": "What is the danger of driving too close to a car in front of you?",
+        "options": [
+            "Risk of collision if sudden braking occurs",
+            "Lower fuel consumption",
+            "Better visibility of the road",
+            "Shorter stopping distance"
+        ],
+        "answer": "Risk of collision if sudden braking occurs"
+    },
+    {
+        "id": 265,
+        "question": "What does a red sign with a white diagonal line through a P mean?",
+        "options": [
+            "No parking",
+            "Parking allowed",
+            "Short-term parking",
+            "Parking only for electric cars"
+        ],
+        "answer": "No parking"
+    },
+    {
+        "id": 266,
+        "question": "How can you avoid being blinded by oncoming traffic at night?",
+        "options": [
+            "Look to the right at the edge of the road",
+            "Keep your gaze straight ahead",
+            "Turn on high beams",
+            "Stop the car and wait for better lighting conditions"
+        ],
+        "answer": "Look to the right at the edge of the road"
+    },
+    {
+        "id": 267,
+        "question": "What does a blue sign with a white pedestrian symbol mean?",
+        "options": [
+            "Walking speed area",
+            "Pedestrian crossing",
+            "Pedestrian street",
+            "Warning for pedestrians"
+        ],
+        "answer": "Pedestrian street"
+    },
+    {
+        "id": 268,
+        "question": "What is the biggest risk when driving with worn brakes?",
+        "options": [
+            "Reduced braking effect",
+            "Better fuel economy",
+            "Better grip on slippery roads",
+            "Shorter braking distance"
+        ],
+        "answer": "Reduced braking effect"
+    },
+    {
+        "id": 269,
+        "question": "Which factor most affects your reaction distance?",
+        "options": [
+            "Tire condition",
+            "Weather conditions",
+            "Your attention and speed",
+            "Brake quality"
+        ],
+        "answer": "Your attention and speed"
+    },
+    {
+        "id": 270,
+        "question": "What should you do if you see a car driving in the wrong direction on the highway?",
+        "options": [
+            "Honk and flash your high beams",
+            "Stop your car immediately",
+            "Notify the police and keep away",
+            "Accelerate to get away"
+        ],
+        "answer": "Notify the police and keep away"
+    },
+    {
+        "id": 271,
+        "question": "What does a sign with a red circle and a white background mean?",
+        "options": [
+            "Prohibition",
+            "Warning sign",
+            "Information",
+            "Mandatory driving direction"
+        ],
+        "answer": "Prohibition"
+    },
+    {
+        "id": 272,
+        "question": "What does a blue sign with a white arrow pointing downward mean?",
+        "options": [
+            "Oncoming traffic has priority",
+            "Mandatory driving direction",
+            "Warning for steep hill",
+            "Bicycle path"
+        ],
+        "answer": "Mandatory driving direction"
+    },
+    {
+        "id": 273,
+        "question": "What most affects road grip in rain?",
+        "options": [
+            "Tire tread depth",
+            "Number of passengers in the car",
+            "Vehicle weight",
+            "Brake quality"
+        ],
+        "answer": "Tire tread depth"
+    },
+    {
+        "id": 274,
+        "question": "What is the danger of using cruise control on a wet road?",
+        "options": [
+            "Increased risk of hydroplaning",
+            "Better fuel economy",
+            "Better control of the car",
+            "No impact at all"
+        ],
+        "answer": "Increased risk of hydroplaning"
+    },
+    {
+        "id": 275,
+        "question": "What does a white sign with a red border and an arrow pointing downward mean?",
+        "options": [
+            "Oncoming traffic has priority",
+            "Mandatory driving direction",
+            "Warning for oncoming vehicles",
+            "One-way traffic"
+        ],
+        "answer": "Oncoming traffic has priority"
+    },
+    {
+        "id": 276,
+        "question": "Which measure can reduce the risk of tire blowout?",
+        "options": [
+            "Maintaining correct tire pressure",
+            "Accelerating hard",
+            "Increasing the car's weight",
+            "Avoiding engine braking"
+        ],
+        "answer": "Maintaining correct tire pressure"
+    },
+    {
+        "id": 277,
+        "question": "What does a yellow road marking in the middle of the road mean?",
+        "options": [
+            "Temporary road marking",
+            "No parking",
+            "Warning line",
+            "Main road"
+        ],
+        "answer": "Temporary road marking"
+    },
+    {
+        "id": 278,
+        "question": "What is the biggest risk of driving too close to a semi-truck?",
+        "options": [
+            "Reduced visibility and blind spots",
+            "The semi-truck has a shorter braking distance",
+            "Better fuel economy",
+            "Lower risk of accidents"
+        ],
+        "answer": "Reduced visibility and blind spots"
+    },
+    {
+        "id": 279,
+        "question": "What does a red triangle with a black car skidding mean?",
+        "options": [
+            "Warning for slippery road surface",
+            "Warning for steep hill",
+            "Mandatory winter tires",
+            "Studded tires prohibited"
+        ],
+        "answer": "Warning for slippery road surface"
+    },
+    {
+        "id": 280,
+        "question": "What should you do if your car starts to hydroplane?",
+        "options": [
+            "Release the gas and steer straight ahead",
+            "Brake hard",
+            "Turn the steering wheel quickly to the side",
+            "Accelerate to regain grip"
+        ],
+        "answer": "Release the gas and steer straight ahead"
+    },
+    {
+        "id": 281,
+        "question": "What is the biggest risk when driving on a road with snow and ice?",
+        "options": [
+            "Longer braking distance and increased risk of skidding",
+            "Lower fuel consumption",
+            "Better tire grip",
+            "Shorter reaction distance"
+        ],
+        "answer": "Longer braking distance and increased risk of skidding"
+    },
+    {
+        "id": 282,
+        "question": "Which of the following is a defensive driving style?",
+        "options": [
+            "Keeping distance and planning your driving",
+            "Driving as fast as possible",
+            "Avoiding using turn signals",
+            "Braking hard at every intersection"
+        ],
+        "answer": "Keeping distance and planning your driving"
+    },
+    {
+        "id": 283,
+        "question": "What is the biggest risk when driving in the dark?",
+        "options": [
+            "Poorer visibility and longer reaction time",
+            "Lower speeds",
+            "Better road awareness",
+            "Fewer cars on the road"
+        ],
+        "answer": "Poorer visibility and longer reaction time"
+    },
+    {
+        "id": 284,
+        "question": "What does a blue sign with a white arrow and a bicycle mean?",
+        "options": [
+            "Bicycle path",
+            "No cyclists",
+            "Warning for bicycles",
+            "Bicycle parking"
+        ],
+        "answer": "Bicycle path"
+    },
+    {
+        "id": 285,
+        "question": "What does a sign with a yellow circle and a black X mean?",
+        "options": [
+            "No parking",
+            "End of main road",
+            "Stop",
+            "Warning sign"
+        ],
+        "answer": "No parking"
+    },
+    {
+        "id": 286,
+        "question": "What does a sign with a red circle and a car mean?",
+        "options": [
+            "No motor vehicles",
+            "No parking",
+            "Warning sign",
+            "Main road"
+        ],
+        "answer": "No motor vehicles"
+    },
+    {
+        "id": 287,
+        "question": "How does alcohol affect driving ability?",
+        "options": [
+            "It reduces judgment and impairs reaction time",
+            "It improves reaction ability",
+            "It has no effect",
+            "It increases attention"
+        ],
+        "answer": "It reduces judgment and impairs reaction time"
+    },
+    {
+        "id": 288,
+        "question": "Which factor most affects fuel consumption?",
+        "options": [
+            "Driving style and speed",
+            "Using AC",
+            "Having windows open",
+            "Car color"
+        ],
+        "answer": "Driving style and speed"
+    },
+    {
+        "id": 289,
+        "question": "What should you do if a police officer waves you to drive despite a red light?",
+        "options": [
+            "Follow the police officer's instructions",
+            "Stop and wait for the green light",
+            "Ignore the police officer",
+            "Honk"
+        ],
+        "answer": "Follow the police officer's instructions"
+    },
+    {
+        "id": 290,
+        "question": "What does a blue sign with a white pedestrian symbol mean?",
+        "options": [
+            "Pedestrian street",
+            "Pedestrian crossing",
+            "Bicycle path",
+            "No pedestrians"
+        ],
+        "answer": "Pedestrian street"
+    },
+    {
+        "id": 291,
+        "question": "What is the biggest risk of using cruise control on a wet road?",
+        "options": [
+            "Increased risk of hydroplaning",
+            "Lower fuel consumption",
+            "Increased control of the car",
+            "Higher speed"
+        ],
+        "answer": "Increased risk of hydroplaning"
+    },
+    {
+        "id": 292,
+        "question": "What rule applies at a railway crossing without barriers?",
+        "options": [
+            "Always stop before crossing",
+            "Slow down and look around",
+            "Continue immediately if you don't see a train",
+            "Maintain high speed to pass quickly"
+        ],
+        "answer": "Slow down and look around"
+    },
+    {
+        "id": 293,
+        "question": "What is the biggest risk when driving in a curve on wet road?",
+        "options": [
+            "The car may understeer or oversteer",
+            "The brakes work worse",
+            "The car goes faster",
+            "The car gets better grip"
+        ],
+        "answer": "The car may understeer or oversteer"
+    },
+    {
+        "id": 294,
+        "question": "What should you do if an animal runs onto the road in front of you?",
+        "options": [
+            "Brake hard and maintain straight course",
+            "Swerve immediately",
+            "Honk loudly and accelerate",
+            "Turn on high beams to scare the animal"
+        ],
+        "answer": "Brake hard and maintain straight course"
+    },
+    {
+        "id": 295,
+        "question": "Which of the following most affects stopping distance?",
+        "options": [
+            "Tire condition",
+            "Car color",
+            "Number of passengers",
+            "Noise level in the car"
+        ],
+        "answer": "Tire condition"
+    },
+    {
+        "id": 296,
+        "question": "What does a yellow road marking that is striped diagonally mean?",
+        "options": [
+            "Temporary road marking",
+            "Solid line",
+            "Parking space",
+            "Warning line"
+        ],
+        "answer": "Temporary road marking"
+    },
+    {
+        "id": 297,
+        "question": "Which vehicle has priority when meeting in a hill?",
+        "options": [
+            "The vehicle that can reverse most easily",
+            "The vehicle driving fastest",
+            "Always the smallest car",
+            "The one with the largest vehicle"
+        ],
+        "answer": "The vehicle that can reverse most easily"
+    },
+    {
+        "id": 298,
+        "question": "How should you act if a pedestrian steps onto an uncontrolled crosswalk?",
+        "options": [
+            "Stop and give way",
+            "Honk and continue",
+            "Slow down but continue",
+            "Overtake on the right side"
+        ],
+        "answer": "Stop and give way"
+    },
+    {
+        "id": 299,
+        "question": "What does a road sign with a red circle and a black car mean?",
+        "options": [
+            "No motor vehicles",
+            "Meeting point",
+            "No parking",
+            "Mandatory driving direction"
+        ],
+        "answer": "No motor vehicles"
+    },
+    {
+        "id": 300,
+        "question": "How does a heavy load affect a car's braking distance?",
+        "options": [
+            "It increases",
+            "It decreases",
+            "It is not affected",
+            "It becomes shorter on slippery roads"
+        ],
+        "answer": "It increases"
+    },
+    {
+        "id": 301,
+        "question": "Which road sign indicates that you are approaching a railway crossing?",
+        "options": [
+            "A red triangle with a train",
+            "A blue sign with a white arrow",
+            "A yellow sign with a downward arrow",
+            "A green sign with a bicycle"
+        ],
+        "answer": "A red triangle with a train"
+    },
+    {
+        "id": 302,
+        "question": "What is the biggest risk when driving on a narrow country road?",
+        "options": [
+            "Oncoming traffic",
+            "Better visibility",
+            "Fewer road signs",
+            "Lower speed"
+        ],
+        "answer": "Oncoming traffic"
+    },
+    {
+        "id": 303,
+        "question": "What should you do if an oncoming car blinds you at night?",
+        "options": [
+            "Look toward the edge of the road",
+            "Honk to remind about high beams",
+            "Flash back with high beams",
+            "Look directly into the light"
+        ],
+        "answer": "Look toward the edge of the road"
+    },
+    {
+        "id": 304,
+        "question": "Which factor affects your reaction distance?",
+        "options": [
+            "Your speed and attention",
+            "Brake condition",
+            "Tire tread depth",
+            "Number of passengers"
+        ],
+        "answer": "Your speed and attention"
+    },
+    {
+        "id": 305,
+        "question": "What color is an information sign on a highway?",
+        "options": [
+            "Blue",
+            "Green",
+            "Red",
+            "Yellow"
+        ],
+        "answer": "Blue"
+    },
+    {
+        "id": 306,
+        "question": "Which of the following most affects fuel consumption?",
+        "options": [
+            "Driving style and speed",
+            "Tire color",
+            "Having windows open",
+            "Number of suitcases in the trunk"
+        ],
+        "answer": "Driving style and speed"
+    },
+    {
+        "id": 307,
+        "question": "How does a low tire profile affect a car's comfort?",
+        "options": [
+            "The car becomes bumpier",
+            "The car gets softer suspension",
+            "No difference",
+            "Better grip at high speeds"
+        ],
+        "answer": "The car becomes bumpier"
+    },
+    {
+        "id": 308,
+        "question": "How does a fully loaded car affect its driving characteristics?",
+        "options": [
+            "Longer braking distance and poorer steering ability",
+            "Shorter braking distance",
+            "Better acceleration",
+            "No impact"
+        ],
+        "answer": "Longer braking distance and poorer steering ability"
+    },
+    {
+        "id": 309,
+        "question": "What is the greatest danger of driving on a country road during autumn?",
+        "options": [
+            "Slippery wet leaves",
+            "More pedestrians",
+            "Less traffic",
+            "Fewer road signs"
+        ],
+        "answer": "Slippery wet leaves"
+    },
+    {
+        "id": 310,
+        "question": "What does a blue sign with a white person leading a bicycle mean?",
+        "options": [
+            "Pedestrian and bicycle path",
+            "No bicycles",
+            "No mopeds",
+            "Pedestrian crossing"
+        ],
+        "answer": "Pedestrian and bicycle path"
+    },
+    {
+        "id": 311,
+        "question": "What is the biggest risk of using cruise control on a highway?",
+        "options": [
+            "Impaired reaction ability",
+            "Lower fuel consumption",
+            "Better control",
+            "No difference"
+        ],
+        "answer": "Impaired reaction ability"
+    },
+    {
+        "id": 312,
+        "question": "Which factor most affects hydroplaning?",
+        "options": [
+            "Tire condition and speed",
+            "Car color",
+            "Road gradient",
+            "Brake strength"
+        ],
+        "answer": "Tire condition and speed"
+    },
+    {
+        "id": 313,
+        "question": "Which part of the car do you check to see if it has the right power steering?",
+        "options": [
+            "The steering wheel",
+            "The exhaust system",
+            "The brakes",
+            "The cooling system"
+        ],
+        "answer": "The steering wheel"
+    },
+    {
+        "id": 314,
+        "question": "What should you do if your engine stalls at a railway crossing?",
+        "options": [
+            "Leave the car and warn others",
+            "Stay in the car and try to restart",
+            "Call for towing first",
+            "Try to push the car away"
+        ],
+        "answer": "Leave the car and warn others"
+    },
+    {
+        "id": 315,
+        "question": "Which of the following vehicles may drive on a highway?",
+        "options": [
+            "Only cars and trucks",
+            "All vehicles",
+            "Bicycles and mopeds",
+            "Tractors"
+        ],
+        "answer": "Only cars and trucks"
+    },
+    {
+        "id": 316,
+        "question": "Which of the following factors most affects a car's braking distance?",
+        "options": [
+            "Car weight",
+            "Tire condition",
+            "Number of passengers",
+            "Car color"
+        ],
+        "answer": "Tire condition"
+    },
+    {
+        "id": 317,
+        "question": "What does a sign with a yellow circle and a black X mean?",
+        "options": [
+            "No parking",
+            "End of main road",
+            "Stop",
+            "Warning sign"
+        ],
+        "answer": "No parking"
+    },
+    {
+        "id": 318,
+        "question": "How often should you check the engine oil level in your car?",
+        "options": [
+            "Every week",
+            "Every month",
+            "Every year",
+            "Only during service"
+        ],
+        "answer": "Every month"
+    },
+    {
+        "id": 319,
+        "question": "What should you do if your car skids on a slippery road?",
+        "options": [
+            "Brake hard",
+            "Ease off the gas and steer in the direction of the skid",
+            "Let go of the steering wheel",
+            "Accelerate quickly"
+        ],
+        "answer": "Ease off the gas and steer in the direction of the skid"
+    },
+    {
+        "id": 320,
+        "question": "Which document must you always have with you when driving a car?",
+        "options": [
+            "Registration certificate",
+            "Driver's license",
+            "Service book",
+            "Insurance policy"
+        ],
+        "answer": "Driver's license"
+    },
+    {
+        "id": 321,
+        "question": "What does a blue sign with a white arrow pointing straight ahead mean?",
+        "options": [
+            "One-way street",
+            "Mandatory driving direction",
+            "No turning",
+            "Main road"
+        ],
+        "answer": "Mandatory driving direction"
+    },
+    {
+        "id": 322,
+        "question": "Which lights should you use in heavy fog?",
+        "options": [
+            "Low beam",
+            "Parking lights",
+            "Fog lights",
+            "High beam"
+        ],
+        "answer": "Fog lights"
+    },
+    {
+        "id": 323,
+        "question": "What does a red circle with a white horizontal line in the middle mean?",
+        "options": [
+            "No entry",
+            "Main road",
+            "Yield",
+            "Pedestrian street"
+        ],
+        "answer": "No entry"
+    },
+    {
+        "id": 324,
+        "question": "How does a heavy load affect a car's driving characteristics?",
+        "options": [
+            "Shorter braking distance",
+            "Longer braking distance",
+            "No impact",
+            "Better acceleration"
+        ],
+        "answer": "Longer braking distance"
+    },
+    {
+        "id": 325,
+        "question": "What is the purpose of a median barrier on a road?",
+        "options": [
+            "Reduce the risk of head-on collisions",
+            "Increase speed",
+            "Reduce fuel consumption",
+            "Reduce tire wear"
+        ],
+        "answer": "Reduce the risk of head-on collisions"
+    },
+    {
+        "id": 326,
+        "question": "What does a blue sign with a white bicycle mean?",
+        "options": [
+            "Bicycle crossing",
+            "Bicycle path",
+            "No bicycles",
+            "Pedestrian street"
+        ],
+        "answer": "Bicycle path"
+    },
+    {
+        "id": 327,
+        "question": "What is the biggest risk of using a mobile phone while driving?",
+        "options": [
+            "Lower speed",
+            "Reduced concentration",
+            "Better driving ability",
+            "Better reaction time"
+        ],
+        "answer": "Reduced concentration"
+    },
+    {
+        "id": 328,
+        "question": "What does a road sign with a blue background and a white truck mean?",
+        "options": [
+            "No heavy traffic",
+            "Mandatory route for trucks",
+            "Parking for trucks",
+            "Environmental zone for trucks"
+        ],
+        "answer": "Mandatory route for trucks"
+    },
+    {
+        "id": 329,
+        "question": "What should you do if your engine stalls at a railway crossing?",
+        "options": [
+            "Leave the car and warn others",
+            "Stay in the car and try to restart",
+            "Call for towing first",
+            "Try to push the car away"
+        ],
+        "answer": "Leave the car and warn others"
+    },
+    {
+        "id": 330,
+        "question": "Which factor most affects stopping distance?",
+        "options": [
+            "Tire condition",
+            "Car color",
+            "Number of passengers",
+            "Noise level in the car"
+        ],
+        "answer": "Tire condition"
+    },
+    {
+        "id": 331,
+        "question": "What should you do if you see a warning triangle on the road?",
+        "options": [
+            "Slow down and be prepared to stop",
+            "Speed up and pass quickly",
+            "Ignore the sign",
+            "Brake hard"
+        ],
+        "answer": "Slow down and be prepared to stop"
+    },
+    {
+        "id": 332,
+        "question": "What is the greatest danger of driving on gravel roads?",
+        "options": [
+            "Poorer braking grip and risk of stone chips",
+            "Lower speed limits",
+            "More road signs",
+            "Better visibility"
+        ],
+        "answer": "Poorer braking grip and risk of stone chips"
+    },
+    {
+        "id": 333,
+        "question": "What does a blue sign with a white person leading a bicycle mean?",
+        "options": [
+            "Pedestrian and bicycle path",
+            "Bicycle crossing",
+            "Pedestrian path",
+            "No cycling"
+        ],
+        "answer": "Pedestrian and bicycle path"
+    },
+    {
+        "id": 334,
+        "question": "Which factor most affects hydroplaning?",
+        "options": [
+            "Tire condition and speed",
+            "Car color",
+            "Road gradient",
+            "Brake strength"
+        ],
+        "answer": "Tire condition and speed"
+    },
+    {
+        "id": 335,
+        "question": "Which vehicle always has priority in a roundabout?",
+        "options": [
+            "Cars",
+            "Bicycles",
+            "Vehicles in the roundabout",
+            "Mopeds"
+        ],
+        "answer": "Vehicles in the roundabout"
+    },
+    {
+        "id": 336,
+        "question": "What color is a warning sign in Sweden?",
+        "options": [
+            "Blue",
+            "Yellow",
+            "Red",
+            "White"
+        ],
+        "answer": "Yellow"
+    },
+    {
+        "id": 337,
+        "question": "What should you do if a police officer waves you to drive despite a red light?",
+        "options": [
+            "Ignore the police officer",
+            "Stop and wait for the green light",
+            "Follow the police officer's instructions",
+            "Honk"
+        ],
+        "answer": "Follow the police officer's instructions"
+    },
+    {
+        "id": 338,
+        "question": "What does a road sign with a blue background and a white arrow mean?",
+        "options": [
+            "One-way street",
+            "Oncoming traffic",
+            "Warning sign",
+            "Main road"
+        ],
+        "answer": "One-way street"
+    },
+    {
+        "id": 339,
+        "question": "How can you reduce the risk of hydroplaning?",
+        "options": [
+            "By driving faster",
+            "By keeping tires worn",
+            "By maintaining correct tire pressure and speed",
+            "By using low beam"
+        ],
+        "answer": "By maintaining correct tire pressure and speed"
+    },
+    {
+        "id": 340,
+        "question": "What is the biggest risk of using cruise control on a highway?",
+        "options": [
+            "Impaired reaction ability",
+            "Lower fuel consumption",
+            "Better control",
+            "No difference"
+        ],
+        "answer": "Impaired reaction ability"
+    },
+    {
+        "id": 341,
+        "question": "Which road sign warns of a railway crossing without barriers?",
+        "options": [
+            "A red and yellow sign with a train",
+            "A red and white cross",
+            "A blue sign with a white arrow",
+            "A red sign with an exclamation mark"
+        ],
+        "answer": "A red and yellow sign with a train"
+    },
+    {
+        "id": 342,
+        "question": "Which lighting is forbidden to use simultaneously with low beam?",
+        "options": [
+            "Parking lights",
+            "Daytime running lights",
+            "Fog lights",
+            "High beam"
+        ],
+        "answer": "Fog lights"
+    },
+    {
+        "id": 343,
+        "question": "What traffic rule applies at an uncontrolled bicycle crossing?",
+        "options": [
+            "Motorists always have priority",
+            "Cyclists always have priority",
+            "Motorists should adjust speed but have no obligation to yield",
+            "Cyclists must stop completely before crossing"
+        ],
+        "answer": "Motorists should adjust speed but have no obligation to yield"
+    },
+    {
+        "id": 344,
+        "question": "Which vehicle may drive in a public transport lane unless otherwise indicated?",
+        "options": [
+            "Only buses",
+            "Buses and taxis",
+            "Buses, taxis, and motorcycles",
+            "All vehicles"
+        ],
+        "answer": "Buses and taxis"
+    },
+    {
+        "id": 345,
+        "question": "What is the biggest risk of driving too close to a truck on the highway?",
+        "options": [
+            "Poor forward visibility",
+            "Increased air resistance",
+            "Lower fuel consumption",
+            "Faster acceleration"
+        ],
+        "answer": "Poor forward visibility"
+    },
+    {
+        "id": 346,
+        "question": "What does it mean if a police officer stands at an intersection with right arm raised?",
+        "options": [
+            "Stop in all directions",
+            "Only right-hand traffic may proceed",
+            "Free passage for all",
+            "Traffic from the police officer's left side may proceed"
+        ],
+        "answer": "Stop in all directions"
+    },
+    {
+        "id": 347,
+        "question": "Which of the following options is correct if a railway crossing lacks barriers and light signals?",
+        "options": [
+            "Reduce speed and look around",
+            "Cross the track as quickly as possible",
+            "Let only vehicles in the opposite direction pass first",
+            "Honk before crossing"
+        ],
+        "answer": "Reduce speed and look around"
+    },
+    {
+        "id": 348,
+        "question": "Which license is required to operate a heavy motorcycle?",
+        "options": [
+            "B license",
+            "A license",
+            "AM license",
+            "C license"
+        ],
+        "answer": "A license"
+    },
+    {
+        "id": 349,
+        "question": "What is the purpose of ABS brakes?",
+        "options": [
+            "To increase braking power",
+            "To reduce brake wear",
+            "To prevent wheel lock during braking",
+            "To reduce fuel consumption"
+        ],
+        "answer": "To prevent wheel lock during braking"
+    },
+    {
+        "id": 350,
+        "question": "How is the braking distance affected if speed is doubled?",
+        "options": [
+            "It becomes twice as long",
+            "It becomes three times as long",
+            "It becomes four times as long",
+            "It is not affected"
+        ],
+        "answer": "It becomes four times as long"
+    },
+    {
+        "id": 351,
+        "question": "Which vehicle is not allowed to drive on a highway?",
+        "options": [
+            "Car",
+            "Motorcycle",
+            "Class I moped",
+            "Light truck"
+        ],
+        "answer": "Class I moped"
+    },
+    {
+        "id": 352,
+        "question": "What should you do if you see a moose at the roadside?",
+        "options": [
+            "Flash your high beams",
+            "Slow down and be prepared to stop",
+            "Honk and drive on",
+            "Accelerate to pass quickly"
+        ],
+        "answer": "Slow down and be prepared to stop"
+    },
+    {
+        "id": 353,
+        "question": "Which type of intersection requires you to always stop regardless of traffic?",
+        "options": [
+            "Right-hand rule intersection",
+            "Stop sign",
+            "Yield sign",
+            "Roundabout"
+        ],
+        "answer": "Stop sign"
+    },
+    {
+        "id": 354,
+        "question": "How can you reduce fuel consumption when driving?",
+        "options": [
+            "By accelerating hard",
+            "By driving in higher gear at lower RPM",
+            "By braking hard and often",
+            "By driving with full throttle"
+        ],
+        "answer": "By driving in higher gear at lower RPM"
+    },
+    {
+        "id": 355,
+        "question": "What should you do if you approach a school bus that has stopped and has warning lights on?",
+        "options": [
+            "Pass at normal speed",
+            "Slow down and be prepared to stop",
+            "Honk to warn the children",
+            "Overtake quickly to avoid stopping"
+        ],
+        "answer": "Slow down and be prepared to stop"
+    },
+    {
+        "id": 356,
+        "question": "Which type of road has the highest risk of ice when the temperature is around freezing?",
+        "options": [
+            "Highway",
+            "Country road",
+            "Bridges and viaducts",
+            "Gravel roads"
+        ],
+        "answer": "Bridges and viaducts"
+    },
+    {
+        "id": 357,
+        "question": "What should you do if you get a flat tire on a highway?",
+        "options": [
+            "Continue driving to the next exit",
+            "Slow down and drive on the shoulder to a safe place",
+            "Stop immediately in the lane and turn on hazard lights",
+            "Call police immediately"
+        ],
+        "answer": "Slow down and drive on the shoulder to a safe place"
+    },
+    {
+        "id": 358,
+        "question": "How can you as a driver reduce the risk of collision in poor visibility?",
+        "options": [
+            "Maintain high speed",
+            "Use low beam and keep distance",
+            "Drive in the middle of the lane",
+            "Trust that others see you"
+        ],
+        "answer": "Use low beam and keep distance"
+    },
+    {
+        "id": 359,
+        "question": "What is true about a pedestrian crossing with a traffic signal showing green for pedestrians?",
+        "options": [
+            "Vehicles always have priority",
+            "Pedestrians must stop",
+            "Pedestrians have priority",
+            "Only cyclists may pass"
+        ],
+        "answer": "Pedestrians have priority"
+    },
+    {
+        "id": 360,
+        "question": "How is the car affected by heavy load on the roof?",
+        "options": [
+            "Lower fuel consumption",
+            "Better road grip",
+            "Higher center of gravity and worse stability",
+            "Better braking ability"
+        ],
+        "answer": "Higher center of gravity and worse stability"
+    },
+    {
+        "id": 361,
+        "question": "Which of the following situations requires you to immediately stop the car?",
+        "options": [
+            "If you are driving at high speed",
+            "If the engine light is yellow",
+            "If a police officer signals stop",
+            "If you hear an unusual sound from the engine"
+        ],
+        "answer": "If a police officer signals stop"
+    },
+    {
+        "id": 362,
+        "question": "What does it mean if a vehicle has a red triangle at the back?",
+        "options": [
+            "That it is an emergency vehicle",
+            "That the vehicle is slow-moving",
+            "That it is a taxi",
+            "That it is an electric car"
+        ],
+        "answer": "That the vehicle is slow-moving"
+    },
+    {
+        "id": 363,
+        "question": "What should you do if you become tired while driving?",
+        "options": [
+            "Drink coffee and continue driving",
+            "Increase speed to arrive faster",
+            "Stop and rest",
+            "Lower the windows to get fresh air"
+        ],
+        "answer": "Stop and rest"
     }
 ]
-
-

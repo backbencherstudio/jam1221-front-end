@@ -45,22 +45,22 @@ export default function LoginForm() {
 
           {/* Buttons */}
           <div className="flex space-x-4">
-            <button
-              type="submit"
-              className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300"
-            >
-              <Link href="/about">
-                Logga in        
-              </Link>
-            </button>
-            <button
-              type="button"
-              className="w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold rounded-lg transition-all duration-300"
-            >
-              <Link href="/signup" className="py-2 px-4 ">
+            <Link href="/about">
+              <button
+                type="submit"
+                className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300"
+              >
+                Logga in
+              </button>
+            </Link>
+            <Link href="/signup" className="py-2 px-4 ">
+              <button
+                type="button"
+                className="w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold rounded-lg transition-all duration-300"
+              >
                 Register
-              </Link>
-            </button>
+              </button>
+            </Link>
           </div>
         </form>
       </div>
