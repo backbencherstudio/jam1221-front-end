@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeoriMaster</title>
+    <link rel="stylesheet" href="1.css">
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .comment-section {
+            max-height: 50vh;
+            overflow-y: auto;
+            background-color: #004aad;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .comment {
+            background-color: white;
+            color: black;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="payment.html">Gå vidare</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Välkommen till TeoriMaster, Sveriges bästa körkortsapp!</h1>
+        <div class="image-container">
+            <img src="IMG_0473 (1).jpeg" alt="TeoriMaster Bild">
+        </div>
+        
+        <canvas id="canvas"></canvas>
+
+        <h2>Kommentarer</h2>
+        <div class="comment-section">
+            
+            <div class="comment">"Lär dig reglerna nu, så slipper du lära dig dem av en polis senare!" 🚓💨</div>
+            <div class="comment">"Teorin är bara en checkpoint – målet är körkortet!" 🏆🚗</div>
+            <div class="comment">"Ju fler frågor du pluggar, desto färre misstag på vägen!" 📚🔥</div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+        canvas.width = 400;
+        canvas.height = 200;
+        ctx.fillStyle = "lightgray";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "blue";
+        ctx.font = "20px Arial";
+        ctx.fillText("Välkommen till TeoriMaster!", 50, 100);
+    </script>
+</body>
+</html>

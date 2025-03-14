@@ -1,0 +1,78 @@
+/* Gör att hela sidan täcker hela skärmen och håller innehållet centrerat */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Full höjd av skärmen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: relative;
+    text-align: center;
+}
+
+/* Bakgrundsbild */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('IMG_0473 (1).jpeg') no-repeat center center/cover;
+    filter: brightness(0.5); /* Gör bilden mörkare för bättre läsbarhet */
+    z-index: -1; /* Ser till att bilden ligger bakom texten */
+}
+
+/* Stil för huvudrubrik */
+h1 {
+    font-size: 50px; /* Stor och tydlig rubrik */
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7); /* Skugga för bättre kontrast */
+    padding: 20px;
+}
+
+/* Justera textens placering så den inte klipps */
+.container {
+    background: rgba(0, 0, 0, 0.4); /* Halvtransparent svart bakgrund */
+    padding: 30px 50px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    max-width: 800px; /* Gör boxen bredare */
+}
+
+/* Navigationsstil */
+nav {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Stil för "Gå vidare"-knappen */
+nav li {
+    list-style: none;
+}
+
+nav a {
+    display: inline-block;
+    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Snygg gradient */
+    color: white;
+    text-decoration: none;
+    font-size: 22px; /* Större text */
+    font-weight: bold;
+    padding: 15px 40px; /* Gör knappen större */
+    border-radius: 30px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Lägg till skugga */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover-effekt för knappen */
+nav a:hover {
+    background: linear-gradient(to right, #ff9966, #ff5e62); /* Ändra färg vid hover */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+    transform: scale(1.1); /* Liten förstoring vid hover */
+}

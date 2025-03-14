@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teoriquiz</title>
+    <link rel="stylesheet" href="q.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="p.html" class="back-button">Gå Tillbaka</a></li>
+        </ul>
+    </nav>
+    
+    <div class="quiz-container">
+        <h1 id="quiz-title">Teoriquiz</h1>
+
+        <!-- Språkval -->
+        <div class="language-selector">
+            <label for="language">Välj språk:</label>
+            <select id="language" onchange="startQuiz()">
+                <option value="" selected disabled>Välj...</option>
+                <option value="sv">Svenska</option>
+                <option value="ar">العربية</option>
+                <option value="en">English</option>
+            </select>
+        </div>
+
+        <!-- Frågor (Dolda från början) -->
+        <div id="quiz" class="hidden"></div>
+
+        <!-- Navigeringsknappar -->
+        <button id="prevButton" class="hidden" onclick="prevQuestion()">Tillbaka</button>
+        <button id="nextButton" class="hidden" onclick="nextQuestion()">Nästa</button>
+        <button id="submitButton" class="hidden" onclick="showScore()">Visa resultat</button>
+
+        <!-- Resultatområde -->
+        <div id="result" class="hidden"></div>
+    </div>
+
+    <script src="q.js"></script>
+</body>
+</html>

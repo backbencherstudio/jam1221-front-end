@@ -1,0 +1,80 @@
+/* Grundläggande stil */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #ffdde1);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+/* Animation för bakgrunden */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Stil för navigeringslänken (Gå tillbaka) */
+nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(to right, #ffcc00, #ff9900);
+    border-radius: 30px;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    background: linear-gradient(to right, #ffdb4d, #ff8000);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+}
+
+/* Quiz-container */
+.quiz-container {
+    width: 90%;
+    max-width: 600px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Stil för resultat */
+#result {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    padding: 15px;
+    margin-top: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}

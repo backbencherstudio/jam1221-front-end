@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrering med Google Pay</title>
+    <link rel="stylesheet" href="payment.css">
+    <script src="https://pay.google.com/gp/p/js/pay.js"></script>
+    <script defer src="payment.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="selection">
+            <button id="choose-login">Logga in</button>
+            <button id="choose-register">Registrera</button>
+        </div>
+
+        <div class="forms" id="form-container" style="display: none;">
+            <div class="form-content">
+                <!-- Registreringsformulär -->
+                <div class="signup-form" id="signup-section" style="display: none;">
+                    <div class="title">Registrering</div>
+                    <form id="registration-form">
+                        <div class="input-box">
+                            <input type="text" id="signup-name" placeholder="Ditt namn" required>
+                        </div>
+                        <div class="input-box">
+                            <input type="email" id="signup-email" placeholder="E-post" required>
+                        </div>
+                        <div class="input-box">
+                            <input type="password" id="signup-password" placeholder="Lösenord" required>
+                        </div>
+
+                        <div class="payment-options">
+                            <label>
+                                <input type="radio" name="plan" value="99" required> 99 kr/mån
+                            </label>
+                            <label>
+                                <input type="radio" name="plan" value="299" required> 299 kr/år
+                            </label>
+                        </div>
+
+                        <!-- Betala-knappen -->
+                        <div id="google-pay-container" style="margin-top: 20px;">
+                            <button id="pay-button" type="button">Betala</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("choose-register").addEventListener("click", function() {
+            document.getElementById("form-container").style.display = "block";
+            document.getElementById("signup-section").style.display = "block";
+        });
+
+        document.getElementById("pay-button").addEventListener("click", function() {
+            processRegistration();
+        });
+
+        function processRegistration() {
+            const name = document.getElementById("signup-name").value;
+            const email = document.getElementById("signup-email").value;
+            const password = document.getElementById("signup-password").value;
+            const plan = document.querySelector('input[name="plan"]:checked');
+
+            if (!name || !email || !password || !plan) {
+                alert("Vänligen fyll i alla fält och välj en betalningsplan.");
+                return;
+            }
+
+            const selectedPlanPrice = plan.value;
+            startGooglePay(selectedPlanPrice);
+        }
+    </script>
+    
+</body>
+</html>

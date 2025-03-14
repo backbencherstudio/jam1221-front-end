@@ -50,7 +50,7 @@ export default function LoginForm() {
               className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300"
             >
               <Link href="/about">
-                Logga in
+                Logga in        
               </Link>
             </button>
             <button

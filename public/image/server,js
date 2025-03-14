@@ -1,0 +1,27 @@
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+
+const app = express();
+app.use(cors());
+app.use(bodyParser.json());
+
+app.post("/process-payment", async (req, res) => {
+    const { token, amount, currency } = req.body;
+
+    console.log("Mottagen betalningstoken:", token);
+    console.log(`Belopp: ${amount} ${currency}`);
+
+    // Simulerad betalningsprocess (Här skickar du token till din betalningsleverantör, t.ex. Stripe eller Adyen)
+    const paymentSuccess = Math.random() > 0.1; // Simulerad 90% framgångsrate
+
+    if (paymentSuccess) {
+        res.json({ success: true, message: "Betalning genomförd!" });
+    } else {
+        res.json({ success: false, message: "Betalning misslyckades!" });
+    }
+});
+
+app.listen(3000, () => {
+    console.log("Servern körs på http://localhost:3000");
+});
