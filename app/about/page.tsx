@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { LanguageProvider, useLanguage } from '../_components/LanguageContext';
-import { LanguageSwitcher } from '../_components/LanguageSwitcher';
+// import Lang from "@/app/_components/Lang"
 
 const AboutPage: React.FC = () => {
 
@@ -30,15 +30,14 @@ const AboutPage: React.FC = () => {
           <div className="flex justify-center mb-6">
             <div className="flex items-center">
               <span className="mr-2 text-white md:text-2xl text-lg">Select language:</span>
-              {/* <select
+              <select
                value={language}
                onChange={(e) => setLanguage(e.target.value as "en" | "sv" | "ar")}
                 className="bg-red-800 text-white border focus:outline-none focus:ring-1 border-white rounded-[5px]  font-semibold px-[15px] py-[10px]">
                 <option value="en">EN</option>
                 <option value="ar">Arabic</option>
                 <option value="sv">Swedish</option>
-              </select> */}
-              <LanguageSwitcher/>
+              </select>
             </div>
           </div>
 

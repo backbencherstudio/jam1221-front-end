@@ -16,19 +16,34 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-        <head>
-        <Script src="/assets/lang-config.js" strategy="beforeInteractive" />
-        <Script src="/assets/translation.js" strategy="beforeInteractive" />
-        <Script 
-          src="https://translate.google.com/translate_a/element.js?cb=TranslateInit" 
-          strategy="afterInteractive" 
-        />
+      <head>
       </head>
       <body
         className=""
       >
+        {/* Hidden dropdown */}
+        <div id="google_translate_element" style={{ display: "hidden" }}></div>
+
+        {/* Google Translate Init Script */}
+        <Script id="google-translate-init" strategy="afterInteractive">
+          {`
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,sv,ar',
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  `}
+        </Script>
+
+        {/* Google Translate External JS */}
+        <Script
+          src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+          strategy="afterInteractive"
+        />
         <LanguageProvider>
-        <div id="google_translate_element"></div>
+          <div id="google_translate_element"></div>
           {children}
         </LanguageProvider>
       </body>
