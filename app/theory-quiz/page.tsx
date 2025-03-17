@@ -34,7 +34,7 @@ export default function TheoryQuiz() {
 
       <div className="flex justify-center mb-6">
         <div className="flex items-center">
-          <span className="mr-2 text-white md:text-2xl text-lg ">Välj språk:</span>
+          <span className="mr-2  md:text-2xl text-lg font-bold text-[#1E1E33]">Välj språk:</span>
           <LanguageSwitcher />
         </div>
       </div>

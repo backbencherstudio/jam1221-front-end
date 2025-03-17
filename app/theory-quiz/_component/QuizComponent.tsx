@@ -153,7 +153,7 @@ const QuizComponent = () => {
 
 
     return (
-        <div className="bg-white rounded-lg shadow-lg w-full max-w-[800px] p-6 ">
+        <div className="bg-white rounded-lg shadow-lg w-full max-w-[800px] p-6 mt-10">
             <div className={`${showResult && "hidden"}`}>
                 <div className="flex justify-end mb-4">
                     <span className="text-sm text-gray-500">

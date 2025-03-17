@@ -92,11 +92,11 @@ const LanguageSwitcher = () => {
         {/* Language Dropdown */}
         <div ref={languageDropdownRef} className='relative w-[120px] inline-block text-left  '>
           <button
-            className='flex justify-between cursor-pointer items-center w-full  px-4 py-2 gap-x-1.5 rounded-md bg-white text-sm font-semibold text-gray-900 mt-2'
+            className='flex justify-between cursor-pointer items-center w-full  px-4 py-2 gap-x-1.5 rounded-md bg-white text-sm font-semibold text-gray-900 '
             onClick={handleDropdownToggle('language')}
           >
             {/* <img src={languageLogo} alt='Language' className='w-6 h-6' /> */}
-            <div className=''>
+            <div className='text-base md:text-lg'>
               {language}
             </div>
             <svg
@@ -113,22 +113,22 @@ const LanguageSwitcher = () => {
           </button>
           {languageDropDown && (
             <div className={`absolute  right-0 z-10 w-full rounded-md bg-white shadow-lg ring-1 ring-black/5  `}>
-              <div className='py-1'>
+              <div className='py-1 '>
                 <button
                   onClick={() => handleLanguageChange('English')}
-                  className='block cursor-pointer px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full notranslate'
+                  className='block cursor-pointer px-4 py-2  text-gray-700  text-base hover:bg-gray-100 w-full notranslate'
                 >
                   English
                 </button>
                 <button
                   onClick={() => handleLanguageChange('Swedish')}
-                  className='block cursor-pointer px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full notranslate'
+                  className='block cursor-pointer px-4 py-2  text-base text-gray-700 hover:bg-gray-100 w-full notranslate'
                 >
                  Svenska
                 </button>
                 <button
                   onClick={() => handleLanguageChange('Arabic')}
-                  className='block cursor-pointer px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full notranslate'
+                  className='block cursor-pointer px-4 py-2  text-base text-gray-700 hover:bg-gray-100 w-full notranslate'
                 >
                   عربي
                 </button>
