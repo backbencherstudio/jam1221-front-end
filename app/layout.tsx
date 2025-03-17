@@ -29,7 +29,7 @@ export default function RootLayout({
           {`
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
-        pageLanguage: 'en',
+        pageLanguage: 'sv',
         includedLanguages: 'en,sv,ar',
         autoDisplay: false
       }, 'google_translate_element');
