@@ -28,9 +28,13 @@ const PricingTier: React.FC<PricingTierProps> = ({
     const handleSubscribe = async () => {
         try {
             let response = await fetch('http://localhost:4000/api/payment/subscribe?plan=pro');
-            console.log(response,"asdhhhhhhhhhhhhhhhhhhfk")
             if (!response.ok) {
               throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            console.log(data.url);
+            if(data.url){
+                router.push(data.url);
             }
             
     if (response.redirected) {
