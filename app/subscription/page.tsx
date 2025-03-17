@@ -1,8 +1,8 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, {  } from 'react';
 import type { NextPage } from 'next';
-import Link from 'next/link';
+
 import { useRouter } from 'next/navigation';
 
 interface PricingTierProps {
@@ -16,7 +16,6 @@ interface PricingTierProps {
 
 const PricingTier: React.FC<PricingTierProps> = ({ 
   title, 
-  description, 
   price, 
   iconType, 
   isPopular = false ,
@@ -28,7 +27,7 @@ const PricingTier: React.FC<PricingTierProps> = ({
     const handleSubscribe = async (plan:string) => {
  
         try {
-            let response = await fetch(`http://localhost:4000/api/payment/subscribe?plan=${plan === "month" ? "starter":"pro"}`);
+            const response = await fetch(`http://localhost:4000/api/payment/subscribe?plan=${plan === "month" ? "starter":"pro"}`);
             if (!response.ok) {
               throw new Error('Network response was not ok');
             }

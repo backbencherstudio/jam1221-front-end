@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { LanguageProvider, useLanguage } from '../_components/LanguageContext';
+import {  useLanguage } from '../_components/LanguageContext';
 // import Lang from "@/app/_components/Lang"
 
 const AboutPage: React.FC = () => {
