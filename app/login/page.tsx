@@ -1,14 +1,57 @@
 "use client"
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function LoginForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const router = useRouter();
+
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log({ email, password });
+
+
+
+    try {
+      const res = await fetch(`http://localhost:4000/api/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+      const data = await res.json()
+      if (data?.success) {
+        toast.success(data.message);
+
+        if (data?.authorization?.token) {
+          localStorage.setItem('token', data?.authorization?.token);
+          console.log('Token saved:', data?.authorization?.token);
+        }
+
+        setTimeout(() => {
+          router.push('/subscription');
+        }, 600); // small delay to let the toast appear
+      } else {
+        toast.error(data?.message?.message || 'Login failed!');
+      }
+
+    }
+
+    catch (err) {
+      console.error('Submission failed:', err);
+    }
+
+    console.log(formData);
   };
 
   return (
@@ -22,10 +65,11 @@ export default function LoginForm() {
             <label className="block text-gray-600 mb-1">Användarnamn eller E-post</label>
             <input
               type="email"
+              name="email"
               className="w-full px-4 text-gray-700 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
               placeholder="E-post"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={formData.email}
+              onChange={handleChange}
               required
             />
           </div>
@@ -35,24 +79,23 @@ export default function LoginForm() {
             <label className="block text-gray-600 mb-1">Lösenord</label>
             <input
               type="password"
+              name="password"
               className="w-full px-4 py-2 border text-gray-700 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
               placeholder="••••••••"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={formData.password}
+              onChange={handleChange}
               required
             />
           </div>
 
           {/* Buttons */}
           <div className="flex space-x-4">
-            <Link href="/subscription" className="w-full"> 
-              <button
-                type="submit"
-                className=" bg-blue-500 cursor-pointer w-full hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300"
-              >
-                Logga in
-              </button>
-            </Link>
+            <button
+              type="submit"
+              className=" bg-blue-500 cursor-pointer w-full hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300"
+            >
+              Logga in
+            </button>
             <Link href="/signup" className=" w-full">
               <button
                 type="button"
@@ -64,6 +107,8 @@ export default function LoginForm() {
           </div>
         </form>
       </div>
+
+      <ToastContainer position="top-right" autoClose={2000} />
     </div>
   );
 }
