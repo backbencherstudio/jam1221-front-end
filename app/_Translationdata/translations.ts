@@ -9,6 +9,8 @@ export interface Translation {
   // File: src/data/translations.ts
   export const translations: Translations = {
     "sv": {
+      "home":"Hem",
+      "languageSelect":"Välj språk:",
       "pageTitle": "Teorimaster",
       "homeLink": "Hem",
       "continueLink": "Gå vidare",
@@ -27,9 +29,11 @@ export interface Translation {
       "videoText": "Här kommer bra videos för att få in grunderna.",
       "videoButton": "Klicka här",
       "nextText": "För att gå vidare till övningar klicka på nästa.",
-      "nextButton": "Nästa"
+      "nextButton": "Nästa",
     },
     "en": {
+      "home":"Home",
+      "languageSelect":"Select Language",
       "pageTitle": "Theory Master",
       "homeLink": "Home",
       "continueLink": "Continue",
@@ -48,9 +52,12 @@ export interface Translation {
       "videoText": "Here are some great videos to help you understand the basics.",
       "videoButton": "Click here",
       "nextText": "To proceed to exercises, click next.",
-      "nextButton": "Next"
+      "nextButton": "Next",
+
     },
     "ar": {
+      "home":"الرئيسية",
+      "languageSelect":"اختر اللغة",
       "pageTitle": "تيوري ماستر",
       "homeLink": "الرئيسية",
       "continueLink": "متابعة",

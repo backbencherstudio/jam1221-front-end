@@ -11,13 +11,13 @@ const AboutPage: React.FC = () => {
 
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen notranslate">
       {/* Header */}
       <header className="w-full bg-[#007BFF] text-white p-[10px]">
         <div className="container mx-auto text-center ">
           <Link href="/">
             <button className="bg-[#0056b3] shadow-md cursor-pointer hover:scale-105 duration-300 scale-100 text-white text-lg py-3 px-6 rounded">
-              Home
+              {t("home")}
             </button>
           </Link>
         </div>
@@ -29,7 +29,7 @@ const AboutPage: React.FC = () => {
           {/* Language Selector */}
           <div className="flex justify-center mb-6">
             <div className="flex items-center">
-              <span className="mr-2 text-white md:text-2xl text-lg">Select language:</span>
+              <span className="mr-2 text-white md:text-2xl text-lg">{t("languageSelect")}</span>
               <select
                value={language}
                onChange={(e) => setLanguage(e.target.value as "en" | "sv" | "ar")}

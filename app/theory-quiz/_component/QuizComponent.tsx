@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect, useState } from 'react';
 import getAllQuestion from '../getAllQuestion';
 import Link from 'next/link';
@@ -20,18 +22,24 @@ const QuizComponent = () => {
     const [isAnswerSubmitted, setIsAnswerSubmitted] = useState(false);
     const [loading, setLoading] = useState(true);
 
-//     const getAllQuestion = async () => {
+//     const getAllQuestion2 = async () => {
 //         const response = await fetch('http://localhost:4000/api/quiz-test/questions');
 //         const data = await response.json();
+
+//         // const qusrespone = await fetch('')
+
 //         console.log(data.questions)
 //         return data.questions;
 //       };
-// getAllQuestion()
+// getAllQuestion2()
     // ✅ Fetch questions when the component mounts
 
     const fetchQuestions = async () => {
         try {
-          const allQuestions = await getAllQuestion();
+            const response = await fetch('http://localhost:4000/api/quiz-test/questions');
+            const data = await response.json();
+          const allQuestions = data.questions;
+        //   const allQuestions = await getAllQuestion();
           const selectedQuestions = [];
           const usedIndexes = new Set();
       
@@ -119,10 +127,10 @@ const QuizComponent = () => {
     const getResultOptionStyle = (option: string, question: QuizQuestion, index: number) => {
         const selectedOption = selectedOptions[index];
 
-        if (option === question.answer) {
+        if (option === question?.answer) {
             // Correct answer
             return "border border-blue-500 bg-blue-100 rounded p-3";
-        } else if (option === selectedOption && option !== question.answer) {
+        } else if (option === selectedOption && option !== question?.answer) {
             // Wrong selected option
             return "border border-red-500 bg-red-100 rounded p-3";
         } else {
@@ -133,7 +141,7 @@ const QuizComponent = () => {
     const calculateScore = () => {
         let correct = 0;
         questions.forEach((question, index) => {
-          if (selectedOptions[index] === question.answer) {
+          if (selectedOptions[index] === question?.answer) {
             correct++;
           }
         });
