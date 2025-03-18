@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import getAllQuestion from "../getAllQuestion"
 
 
 interface QuizQuestion {
@@ -10,6 +11,20 @@ interface QuizQuestion {
     options: string[];
     answer: string;
 }
+interface SubmissionResult {
+    success: boolean
+    correctCount: number
+    incorrectCount: number
+    totalQuestions: number
+    percentageScore: number
+    skippedQuestions: number
+    detailedResults: {
+      questionNumber: number
+      correctAnswer: string
+      userAnswer: string
+      isCorrect: boolean
+    }[]
+  }
 
 const QuizComponent = () => {
 
@@ -20,6 +35,7 @@ const QuizComponent = () => {
     const [selectedOptions, setSelectedOptions] = useState<(string | null)[]>([]);
     const [isAnswerSubmitted, setIsAnswerSubmitted] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [submissionResult, setSubmissionResult] = useState<SubmissionResult | null>(null)
 
 
     // ✅ Fetch questions when the component mounts
@@ -30,16 +46,20 @@ const QuizComponent = () => {
             const data = await response.json();
           const allQuestions = data.questions;
         //   const allQuestions = await getAllQuestion();
-          const selectedQuestions = [];
-          const usedIndexes = new Set();
+        const selectedQuestions = JSON.parse(JSON.stringify(allQuestions.slice(0,5)));
+        //   const usedIndexes = new Set();
       
-          while (selectedQuestions.length < 40) {
-            const randomIndex = Math.floor(Math.random() * allQuestions.length);
-            if (!usedIndexes.has(randomIndex)) {
-              selectedQuestions.push(allQuestions[randomIndex]);
-              usedIndexes.add(randomIndex);
-            }
-          }
+        //   while (selectedQuestions.length < 5) {
+            // const randomIndex = Math.floor(Math.random() * allQuestions.length);
+            // if (!usedIndexes.has(randomIndex)) {
+            //   selectedQuestions.push(allQuestions[randomIndex]);
+            //   usedIndexes.add(randomIndex);
+            // }
+
+
+
+        //   }
+        console.log(selectedQuestions,"hdskaaaaaaaaaaaaaaf")
       
           setQuestions(selectedQuestions);
           setSelectedOptions(Array(selectedQuestions.length).fill(null)); // Reset options
@@ -79,6 +99,8 @@ const QuizComponent = () => {
         setIsAnswerSubmitted(true);
     };
 
+   
+
     // ✅ Handle Next Question
     const handleNextQuestion = () => {
         if (currentQuestionIndex < questions.length - 1 && isAnswerSubmitted) {
@@ -112,41 +134,84 @@ const QuizComponent = () => {
 
 
 
-    // calculateScore()
+    // after submeting wrong and right answet style ===================
 
     const getResultOptionStyle = (option: string, question: QuizQuestion, index: number) => {
         const selectedOption = selectedOptions[index];
 
-        if (option === question?.answer) {
+        if (option === submissionResult?.detailedResults?.[index].correctAnswer) {
             // Correct answer
             return "border border-blue-500 bg-blue-100 rounded p-3";
-        } else if (option === selectedOption && option !== question?.answer) {
+        } else if (option  === submissionResult?.detailedResults?.[index].userAnswer ) {
             // Wrong selected option
             return "border border-red-500 bg-red-100 rounded p-3";
         } else {
             return "border border-gray-300 rounded p-3 opacity-50";
         }
     };
+console.log(submissionResult) 
+    //calculateScore===================
 
-    const calculateScore = () => {
-        let correct = 0;
-        questions.forEach((question, index) => {
-          if (selectedOptions[index] === question?.answer) {
-            correct++;
-          }
-        });
-        const percentage = Math.round((correct / questions.length) * 100);
-        return { correct, percentage };
-      };
+    // const calculateScore = () => {
+        
+    //     let correct = 0;
+    //     questions.forEach((question, index) => {
+    //       if (selectedOptions[index] === question?.answer) {
+    //         correct++;
+    //       }
+    //     });
+    //     const percentage = Math.round((correct / questions.length) * 100);
+    //     return { correct, percentage };
+    //   };
 
-    const { correct, percentage } = calculateScore();
+    // const { correct, percentage } = calculateScore();
+
+
+
+
+// Function to submit answers to backend
+    const submitAnswers = async () => {
+        setShowResult(!showResult)
+        try {
+            // Prepare the data to be sent
+            const submissionData = {
+                "answers": selectedOptions.map(answer => {
+                    // You can transform each answer here if needed
+                    return answer;
+                  })
+              };
+
+            console.log(submissionData)
+
+            const response = await fetch('http://localhost:4000/api/quiz-test/submit-answers', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                
+                body: JSON.stringify(submissionData),
+            });
+            const data = await response.json()
+            setSubmissionResult(data)
+            if (data.success) {
+                console.log('Answers submitted successfully!');
+                setShowResult(true); // Show result after submission
+            } else {
+                console.error('Error submitting answers:', await response.text());
+            }
+        } catch (error) {
+            console.error('Error submitting answers:', error);
+        }
+    };
+
+    console.log(selectedOptions)
 
 
     return (
         <div className="bg-white rounded-lg shadow-lg w-full max-w-[800px] p-6 mt-10">
             <div className={`${showResult && "hidden"}`}>
                 <div className="flex justify-end mb-4">
-                    <span className="text-sm text-gray-500">
+                    <span className="text-sm text-gray-500 notranslate">
                         {currentQuestionIndex + 1} / {questions.length}
                     </span>
                 </div>
@@ -203,13 +268,13 @@ const QuizComponent = () => {
                 </div>
 
                 <div className="flex justify-center">
-                    {currentQuestionIndex === 39 ?
+                    {currentQuestionIndex === (questions.length - 1) ?
                         <div
                             className={`${isAnswerSubmitted ? "bg-blue-400 hover:ring-1 cursor-pointer" : "bg-gray-300 "
                                 } `}
                         >
-                            {isAnswerSubmitted ? <button onClick={() => setShowResult(!showResult)} className='text-white font-bold py-2 block cursor-pointer  px-12 rounded'>
-                                Show Your Result
+                            {isAnswerSubmitted ? <button onClick={submitAnswers}  className='text-white font-bold py-2 block cursor-pointer  px-12 rounded'>
+                                Submit All Answer
                             </button> : <button className='text-white font-bold py-2 px-12 rounded cursor-not-allowed' onClick={handleNextQuestion} disabled={!isAnswerSubmitted}>
                                 Next
                             </button>}
@@ -231,8 +296,8 @@ const QuizComponent = () => {
             <div className={`${showResult ? "block" : "hidden"}`}>
                 <div className="text-center my-6">
                     <h2 className="text-2xl text-black font-bold">Your Result</h2>
-                    <p className="mt-2 text-black text-lg">
-                        Correct Answers: {correct} / {questions.length}
+                    <p className="mt-2 text-black text-lg notranslate">
+                        Correct Answers: {submissionResult?.correctCount} / {questions.length}
                     </p>
                     <p className="mt-2 text-black text-lg mb-10">Score: {percentage}%</p>
                     <Link href="/theory-quiz" onClick={allReset} className='px-8 py-4 bg-blue-300 scale-100 hover:scale-105 text-2xl mt-5 rounded-md'>
