@@ -1,9 +1,12 @@
-
+"use client"
 
 import Head from 'next/head';
 import Link from 'next/link';
 import LanguageSwitcher from '../_components/LanguageSwitcher';
 import QuizComponent from './_component/QuizComponent';
+import { useEffect, useState } from 'react';
+import Loading from './loading';
+import { useRouter } from 'next/navigation';
 
 
 
@@ -11,9 +14,23 @@ import QuizComponent from './_component/QuizComponent';
 
 export default function TheoryQuiz() {
 
+  const route = useRouter()
 
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      route.push("/login");
+    } else {
+      setIsAuthenticated(true);
+    }
+  }, [route]);
 
+  // Show nothing until authentication check is done
+  if (isAuthenticated === null) {
+    return <Loading /> // or you can return a loader
+  }
 
 
   return (

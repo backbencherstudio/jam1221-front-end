@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import { ToastContainer, toast } from 'react-toastify';
@@ -8,9 +8,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function RegisterForm() {
 
-    const router = useRouter()
-
-
+    const route = useRouter()
+    
     const [formData, setFormData] = useState({
         first_name: "",
         last_name: "",
@@ -18,7 +17,37 @@ export default function RegisterForm() {
         password: "",
         confirmPassword: "",
     });
+    const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null); // null indicates loading state
 
+    // Authentication check useEffect
+    useEffect(() => {
+      const token = localStorage.getItem('token');
+      if (token) {
+        setIsAuthenticated(true); // User is already authenticated, redirect
+      } else {
+        setIsAuthenticated(false); // No token found, user is not authenticated
+      }
+    }, []);
+  
+    // Redirect to the about page if authenticated
+    useEffect(() => {
+      if (isAuthenticated === true) {
+        route.push('/');
+      } else if (isAuthenticated === false) {
+        route.push('/signup'); // You can adjust this if you don't want to allow signup when logged in
+      }
+    }, [isAuthenticated, route]);
+  
+    // If authentication state is still being determined, show a loading spinner
+    if (isAuthenticated === null) {
+      return (
+        <div className="flex justify-center items-center h-screen">
+          <div className="w-12 h-12 border-4 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
+        </div>
+      );
+    }
+
+   
     // const [passwordError, setPasswordError] = useState("");
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -93,7 +122,7 @@ export default function RegisterForm() {
             if (data?.success) {
                 toast.success('Registration Successful!');
                 setTimeout(() => {
-                    router.push('/login');
+                    route.push('/login');
                 }, 500); // small delay to let the toast appear
             }else{
                 toast.error(data?.message)

@@ -1,18 +1,51 @@
 "use client"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { IoIosEyeOff } from "react-icons/io";
+import { IoIosEye } from "react-icons/io";
 
 export default function LoginForm() {
 
-  const router = useRouter();
+  const route = useRouter();
+  const [showPassword,setShowPassword] = useState(false)
 
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+  
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+
+  // Authentication check useEffect
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      setIsAuthenticated(true); // User is already authenticated, redirect
+    } else {
+      setIsAuthenticated(false); // No token found, user is not authenticated
+    }
+  }, []);
+
+  // Redirect to the about page if authenticated
+  useEffect(() => {
+    if (isAuthenticated === true) {
+      route.push('/');
+    } else if (isAuthenticated === false) {
+      route.push('/signup'); // You can adjust this if you don't want to allow signup when logged in
+    }
+  }, [isAuthenticated, route]);
+
+  // If authentication state is still being determined, show a loading spinner
+  if (isAuthenticated === null) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="w-12 h-12 border-4 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
+      </div>
+    );
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -39,8 +72,8 @@ export default function LoginForm() {
         }
 
         setTimeout(() => {
-          router.push('/subscription');
-        }, 600); // small delay to let the toast appear
+          route.push('/subscription');
+        }, 300); // small delay to let the toast appear
       } else {
         toast.error(data?.message?.message || 'Login failed!');
       }
@@ -53,6 +86,10 @@ export default function LoginForm() {
 
     console.log(formData);
   };
+
+
+
+
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -75,10 +112,10 @@ export default function LoginForm() {
           </div>
 
           {/* Password Input */}
-          <div>
+          <div className="relative">
             <label className="block text-gray-600 mb-1">Lösenord</label>
             <input
-              type="password"
+             type={showPassword ? "text" : "password"}
               name="password"
               className="w-full px-4 py-2 border text-gray-700 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
               placeholder="••••••••"
@@ -86,12 +123,15 @@ export default function LoginForm() {
               onChange={handleChange}
               required
             />
+            <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute  text-2xl text-gray-800/60 top-[70%]  -translate-y-1/2 cursor-pointer -translate-x-8  ">
+              {showPassword ?  <IoIosEyeOff /> :  <IoIosEye  />  }
+            </button>
           </div>
 
           {/* Buttons */}
           <div className="flex space-x-4">
             <button
-              type="submit"
+              type="submit" 
               className=" bg-blue-500 cursor-pointer w-full hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300"
             >
               Logga in

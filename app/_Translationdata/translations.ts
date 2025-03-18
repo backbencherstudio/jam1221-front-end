@@ -10,6 +10,7 @@ export interface Translation {
   export const translations: Translations = {
     "sv": {
       "home":"Hem",
+      "logout":"Logga ut",
       "languageSelect":"Välj språk:",
       "pageTitle": "Teorimaster",
       "homeLink": "Hem",
@@ -33,6 +34,7 @@ export interface Translation {
     },
     "en": {
       "home":"Home",
+      "logout":"Log out",
       "languageSelect":"Select Language",
       "pageTitle": "Theory Master",
       "homeLink": "Home",
@@ -57,6 +59,7 @@ export interface Translation {
     },
     "ar": {
       "home":"الرئيسية",
+      "logout":"تسجيل الخروج",
       "languageSelect":"اختر اللغة",
       "pageTitle": "تيوري ماستر",
       "homeLink": "الرئيسية",
