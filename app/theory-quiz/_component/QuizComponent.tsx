@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useEffect, useState } from 'react';
-import getAllQuestion from '../getAllQuestion';
 import Link from 'next/link';
 
 
@@ -22,16 +21,7 @@ const QuizComponent = () => {
     const [isAnswerSubmitted, setIsAnswerSubmitted] = useState(false);
     const [loading, setLoading] = useState(true);
 
-//     const getAllQuestion2 = async () => {
-//         const response = await fetch('http://localhost:4000/api/quiz-test/questions');
-//         const data = await response.json();
 
-//         // const qusrespone = await fetch('')
-
-//         console.log(data.questions)
-//         return data.questions;
-//       };
-// getAllQuestion2()
     // ✅ Fetch questions when the component mounts
 
     const fetchQuestions = async () => {
@@ -103,7 +93,7 @@ const QuizComponent = () => {
         //   return "border border-gray-300 rounded p-3 hover:bg-gray-50 cursor-pointer";
         // }
 
-        const currentQuestion = questions[currentQuestionIndex];
+        // const currentQuestion = questions[currentQuestionIndex];
         const selectedOption = selectedOptions[currentQuestionIndex];
 
         if (selectedOption === option) {
@@ -153,7 +143,7 @@ const QuizComponent = () => {
 
 
     return (
-        <div className="bg-white rounded-lg shadow-lg w-full max-w-[800px] p-6 ">
+        <div className="bg-white rounded-lg shadow-lg w-full max-w-[800px] p-6 mt-10">
             <div className={`${showResult && "hidden"}`}>
                 <div className="flex justify-end mb-4">
                     <span className="text-sm text-gray-500">

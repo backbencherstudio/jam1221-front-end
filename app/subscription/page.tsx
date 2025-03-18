@@ -1,8 +1,8 @@
 "use client"
 
-import React from 'react';
+import React, {  } from 'react';
 import type { NextPage } from 'next';
-import Link from 'next/link';
+
 import { useRouter } from 'next/navigation';
 
 interface PricingTierProps {
@@ -16,7 +16,6 @@ interface PricingTierProps {
 
 const PricingTier: React.FC<PricingTierProps> = ({ 
   title, 
-  description, 
   price, 
   iconType, 
   isPopular = false ,
@@ -25,9 +24,10 @@ const PricingTier: React.FC<PricingTierProps> = ({
 
     const router = useRouter()
 
-    const handleSubscribe = async () => {
+    const handleSubscribe = async (plan:string) => {
+ 
         try {
-            let response = await fetch('http://localhost:4000/api/payment/subscribe?plan=pro');
+            const response = await fetch(`http://localhost:4000/api/payment/subscribe?plan=${plan === "month" ? "starter":"pro"}`);
             if (!response.ok) {
               throw new Error('Network response was not ok');
             }
@@ -42,15 +42,11 @@ const PricingTier: React.FC<PricingTierProps> = ({
         router.push(response.url);
         return; // Exit here, no need to parse JSON
       }
-            // let data = await response.json();
-            // console.log(response.url,"ahfdkksssssssssss");
-            // if(data.url){
-            //     router.push(data.url);
-            // }
           } catch (error) {
             console.error('Fetch error:', error);
           }
       };
+      
       
       
 
@@ -112,7 +108,7 @@ const PricingTier: React.FC<PricingTierProps> = ({
         </span>
       </div>
 
-      <button onClick={handleSubscribe} className="w-full bg-teal-700 text-white rounded py-3 px-4 hover:bg-teal-600 transition">
+      <button onClick={() => handleSubscribe(validity)} className="w-full bg-teal-700 text-white rounded py-3 px-4 hover:bg-teal-600 transition">
         Subscribe
       </button>
     </div>
