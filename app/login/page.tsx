@@ -99,7 +99,7 @@ export default function LoginForm() {
         <form onSubmit={handleSubmit} className="space-y-5">
           {/* Email Input */}
           <div>
-            <label className="block text-gray-600 mb-1">Användarnamn eller E-postsa</label>
+            <label className="block text-gray-600 mb-1">Användarnamn eller E-post</label>
             <input
               type="email"
               name="email"
