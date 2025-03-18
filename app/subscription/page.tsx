@@ -25,14 +25,21 @@ const PricingTier: React.FC<PricingTierProps> = ({
     const router = useRouter()
 
     const handleSubscribe = async (plan:string) => {
- 
+      const token = localStorage.getItem('token');
+      console.log(token)
         try {
-            const response = await fetch(`http://localhost:4000/api/payment/subscribe?plan=${plan === "month" ? "starter":"pro"}`);
+            const response = await fetch(`http://localhost:4000/api/payment/subscribe?plan=${plan === "month" ? "starter":"pro"}`,{
+              headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+              }
+            });
             if (!response.ok) {
               throw new Error('Network response was not ok');
             }
+            console.log(response.url)
             const data = await response.json();
-            console.log(data.url);
+            console.log("dd",data);
             if(data.url){
                 router.push(data.url);
             }

@@ -34,7 +34,7 @@ export default function LoginForm() {
     if (isAuthenticated === true) {
       route.push('/');
     } else if (isAuthenticated === false) {
-      route.push('/signup'); // You can adjust this if you don't want to allow signup when logged in
+      route.push('/login'); // You can adjust this if you don't want to allow signup when logged in
     }
   }, [isAuthenticated, route]);
 
