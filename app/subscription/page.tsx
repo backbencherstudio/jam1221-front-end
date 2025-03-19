@@ -1,8 +1,7 @@
 "use client"
 
-import React, {  } from 'react';
+import React, { useEffect, useState } from 'react';
 import type { NextPage } from 'next';
-
 import { useRouter } from 'next/navigation';
 
 interface PricingTierProps {
@@ -123,8 +122,49 @@ const PricingTier: React.FC<PricingTierProps> = ({
 };
 
 const PricingPage: NextPage = () => {
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    const checkSubscription = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        if (!token) {
+          router.push('/login');
+          return;
+        }
 
+        const response = await fetch('http://localhost:4000/api/payment/subscription/status', {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        });
+        console.log(response)
+        const data = await response.json();
+        
+        if (data.isSubscribed) {
+          router.push('/about');
+          return;
+        }
+
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Error checking subscription:', error);
+        setIsLoading(false);
+      }
+    };
+
+    checkSubscription();
+  }, [router]);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-teal-500 flex items-center justify-center">
+        <div className="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-teal-500 flex items-center justify-center p-4">
