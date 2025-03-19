@@ -44,15 +44,19 @@ const QuizComponent = () => {
 
     const fetchQuestions = async () => {
         try {
-            const response = await fetch('http://localhost:4000/api/quiz-test/questions');
+            const token = localStorage.getItem('token');
+            const response = await fetch('http://localhost:4000/api/quiz-test/questions', {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            });
             const data = await response.json();
             const allQuestions = data.questions;
-            //   const allQuestions = await getAllQuestion();
             const selectedQuestions = JSON.parse(JSON.stringify(allQuestions.slice(0,2)));
 
-
             setQuestions(selectedQuestions);
-            setSelectedOptions(Array(selectedQuestions.length).fill(null)); // Reset options
+            setSelectedOptions(Array(selectedQuestions.length).fill(null));
             setCurrentQuestionIndex(0);
             setIsAnswerSubmitted(false);
             setShowResult(false);
@@ -137,22 +141,19 @@ const QuizComponent = () => {
     const submitAnswers = async () => {
         setShowResult(!showResult)
         try {
-            // Prepare the data to be sent
+            const token = localStorage.getItem('token');
             const submissionData = {
                 "answers": selectedOptions.map(answer => {
-                    // You can transform each answer here if needed
                     return answer;
                 })
             };
 
-            console.log(submissionData)
-
             const response = await fetch('http://localhost:4000/api/quiz-test/submit-answers', {
                 method: 'POST',
                 headers: {
+                    'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json',
                 },
-
                 body: JSON.stringify(submissionData),
             });
             const data = await response.json()
@@ -160,7 +161,7 @@ const QuizComponent = () => {
             setPercentage(data?.percentageScore)
             if (data.success) {
                 console.log('Answers submitted successfully!');
-                setShowResult(true); // Show result after submission
+                setShowResult(true);
             } else {
                 console.error('Error submitting answers:', await response.text());
             }
