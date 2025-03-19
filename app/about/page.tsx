@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useLanguage } from '../_components/LanguageContext';
 import { useRouter } from 'next/navigation';
 import Loading from '../theory-quiz/loading';
+import CancelSubsCription from '../subscription/_cancel-subscription/CancelSubsCription';
 ;
 // import Lang from "@/app/_components/Lang"
 
@@ -17,24 +18,24 @@ const AboutPage: React.FC = () => {
     route.push("/")
   }
 
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+  // const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      route.push("/login");
-    } else {
-      setIsAuthenticated(true);
-    }
-  }, [route]);
+  // useEffect(() => {
+  //   const token = localStorage.getItem("token");
+  //   if (!token) {
+  //     route.push("/login");
+  //   } else {
+  //     setIsAuthenticated(true);
+  //   }
+  // }, [route]);
 
-  // Show nothing until authentication check is done
-  if (isAuthenticated === null) {
-    return <Loading /> // or you can return a loader
-  }
+  // // Show nothing until authentication check is done
+  // if (isAuthenticated === null) {
+  //   return <Loading /> // or you can return a loader
+  // }
 
-  const token = localStorage.getItem("token")
-  console.log(token)
+  // const token = localStorage.getItem("token")
+  // console.log(token)
 
   // const handleLogout = () => {
   //   if (typeof window !== "undefined") {
@@ -42,6 +43,10 @@ const AboutPage: React.FC = () => {
   //     route.push("/login"); // Redirect to login page (optional)
   //   }
   // };
+
+  // const handleCancelSubscription = () => {
+  //   route.push("../subscription/_cancel-subscription")
+  // }
 
   return (
     <div className="flex flex-col min-h-screen notranslate">
@@ -51,17 +56,23 @@ const AboutPage: React.FC = () => {
           <button onClick={handleRoute} className="bg-[#0056b3] border  justify-self-center shadow-md cursor-pointer hover:scale-105 duration-300 scale-100 text-white text-lg py-3 px-6 rounded">
             {t("home")}
           </button>
-          <button  onClick={() => {
-              localStorage.removeItem("token");
-              route.push("/login");
-            }}
+          <button onClick={() => {
+            localStorage.removeItem("token");
+            route.push("/login");
+          }}
             className="bg-gradient-to-r from-red-500 via-orange-400 to-pink-500 shadow-md cursor-pointer hover:scale-105 duration-300 scale-100 text-white text-lg py-3 px-6 rounded flex items-center justify-center justify-self-end gap-2 transform transition-all ease-in-out hover:from-red-600 hover:to-pink-600 "
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
             </svg>
-           {t("logout")}
+            {t("logout")}
           </button>
+          <Link href={"../subscription/_cancel-subscription"}
+            className="bg-red-600/90 text-white py-2 px-6 rounded-lg font-semibold text-lg transition duration-300 ease-in-out hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500"
+            // onClick={handleCancelSubscription}
+          >
+            Cancel Subscription
+          </Link>
         </div>
       </header>
 
