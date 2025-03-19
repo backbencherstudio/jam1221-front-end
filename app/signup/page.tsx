@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function RegisterForm() {
 
     const route = useRouter()
-    
+    const [passwordError, setPasswordError] = useState("");
     const [formData, setFormData] = useState({
         first_name: "",
         last_name: "",
@@ -48,44 +48,43 @@ export default function RegisterForm() {
     }
 
    
-    // const [passwordError, setPasswordError] = useState("");
-
+    
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
 
          // {for final result comment out this---------------------------}
         // Reset password error when typing
-        // if (e.target.name === "password") {
-        //     validatePassword(e.target.value);
-        //   }
+        if (e.target.name === "password") {
+            validatePassword(e.target.value);
+          }
     };
 
- // {for final result comment out this---------------------------}
-    // const validatePassword = (password: string) => {
-    //     const errors = [];
+//  {for final result comment out this---------------------------}
+    const validatePassword = (password: string) => {
+        const errors = [];
     
-    //     if (password.length < 8) {
-    //       errors.push("At least 8 characters");
-    //     }
-    //     if (!/[A-Z]/.test(password)) {
-    //       errors.push("One uppercase letter");
-    //     }
-    //     if (!/[a-z]/.test(password)) {
-    //       errors.push("One lowercase letter");
-    //     }
-    //     if (!/\d/.test(password)) {
-    //       errors.push("One number");
-    //     }
-    //     if (!/[\W_]/.test(password)) {
-    //       errors.push("One special character");
-    //     }
+        if (password.length < 8) {
+          errors.push("At least 8 characters");
+        }
+        if (!/[A-Z]/.test(password)) {
+          errors.push("One uppercase letter");
+        }
+        if (!/[a-z]/.test(password)) {
+          errors.push("One lowercase letter");
+        }
+        if (!/\d/.test(password)) {
+          errors.push("One number");
+        }
+        if (!/[\W_]/.test(password)) {
+          errors.push("One special character");
+        }
     
-    //     if (errors.length > 0) {
-    //       setPasswordError(`Password must contain: ${errors.join(", ")}`);
-    //     } else {
-    //       setPasswordError("");
-    //     }
-    //   };
+        if (errors.length > 0) {
+          setPasswordError(`Password must contain: ${errors.join(", ")}`);
+        } else {
+          setPasswordError("");
+        }
+      };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -93,17 +92,17 @@ export default function RegisterForm() {
 
         // {for final result comment out this---------------------------}
 
-        // validatePassword(formData.password);
+        validatePassword(formData.password);
 
-        // if (passwordError) {
-        //   return;
-        // }
+        if (passwordError) {
+          return;
+        }
     
         // Confirm password match check
-        // if (formData.password !== formData.confirmPassword) {
-        //   setPasswordError("Passwords do not match!");
-        //   return;
-        // }
+        if (formData.password !== formData.confirmPassword) {
+          setPasswordError("Passwords do not match!");
+          return;
+        }
 
 
         try {
@@ -208,9 +207,9 @@ export default function RegisterForm() {
                     </div>
 
                     {/* // {for final result comment out this---------------------------} */}
-                    {/* {passwordError && (
+                    {passwordError && (
                         <p className="text-red-500 text-sm">{passwordError}</p>
-                    )} */}
+                    )}
                     {/* Register Button */}
                     <div className="flex justify-evenly">
                         <button

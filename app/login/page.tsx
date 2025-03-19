@@ -20,32 +20,32 @@ export default function LoginForm() {
   });
 
   // Authentication check useEffect
-  // useEffect(() => {
-  //   const token = localStorage.getItem('token');
-  //   if (token) {
-  //     setIsAuthenticated(true); // User is already authenticated, redirect
-  //   } else {
-  //     setIsAuthenticated(false); // No token found, user is not authenticated
-  //   }
-  // }, []);
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      setIsAuthenticated(true); // User is already authenticated, redirect
+    } else {
+      setIsAuthenticated(false); // No token found, user is not authenticated
+    }
+  }, []);
 
-  // // Redirect to the about page if authenticated
-  // useEffect(() => {
-  //   if (isAuthenticated === true) {
-  //     route.push('/');
-  //   } else if (isAuthenticated === false) {
-  //     route.push('/login'); // You can adjust this if you don't want to allow signup when logged in
-  //   }
-  // }, [isAuthenticated, route]);
+  // Redirect to the about page if authenticated
+  useEffect(() => {
+    if (isAuthenticated === true) {
+      route.push('/');
+    } else if (isAuthenticated === false) {
+      route.push('/login'); // You can adjust this if you don't want to allow signup when logged in
+    }
+  }, [isAuthenticated, route]);
 
-  // // If authentication state is still being determined, show a loading spinner
-  // if (isAuthenticated === null) {
-  //   return (
-  //     <div className="flex justify-center items-center h-screen">
-  //       <div className="w-12 h-12 border-4 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
-  //     </div>
-  //   );
-  // }
+  // If authentication state is still being determined, show a loading spinner
+  if (isAuthenticated === null) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="w-12 h-12 border-4 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
+      </div>
+    );
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -57,38 +57,37 @@ export default function LoginForm() {
     route.push("/about")
 
 
-  //   try {
-  //     const res = await fetch(`http://localhost:4000/api/auth/login`, {
-  //       method: 'POST',
-  //       headers: { 'Content-Type': 'application/json' },
-  //       body: JSON.stringify(formData),
-  //     })
-  //     const data = await res.json()
-  //     if (data?.success) {
-  //       toast.success(data.message);
+    try {
+      const res = await fetch(`http://localhost:4000/api/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+      const data = await res.json()
+      if (data?.success) {
+        toast.success(data.message);
 
-  //       if (data?.authorization?.token) {
-  //         localStorage.setItem('token', data?.authorization?.token);
-  //         console.log('Token saved:', data?.authorization?.token);
-  //       }
+        if (data?.authorization?.token) {
+          localStorage.setItem('token', data?.authorization?.token);
+          console.log('Token saved:', data?.authorization?.token);
+        }
 
-  //       setTimeout(() => {
-  //         route.push('/subscription');
-  //       }, 300); // small delay to let the toast appear
-  //     } else {
-  //       toast.error(data?.message?.message || 'Login failed!');
-  //     }
+        setTimeout(() => {
+          route.push('/subscription');
+        }, 300); // small delay to let the toast appear
+      } else {
+        toast.error(data?.message?.message || 'Login failed!');
+      }
 
-  //   }
+    }
 
-  //   catch (err) {
-  //     console.error('Submission failed:', err);
-  //   }
+    catch (err) {
+      console.error('Submission failed:', err);
+    }
 
-  //   console.log(formData);
-  // };
-
+    console.log(formData);
   }
+
 
 
 

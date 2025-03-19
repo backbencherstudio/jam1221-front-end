@@ -53,7 +53,7 @@ const QuizComponent = () => {
             });
             const data = await response.json();
             const allQuestions = data.questions;
-            const selectedQuestions = JSON.parse(JSON.stringify(allQuestions.slice(0,2)));
+            const selectedQuestions = JSON.parse(JSON.stringify(allQuestions));
 
             setQuestions(selectedQuestions);
             setSelectedOptions(Array(selectedQuestions.length).fill(null));
