@@ -137,7 +137,7 @@ const PricingPage: NextPage = () => {
         const response = await fetch('http://localhost:4000/api/payment/subscription/status', {
           headers: {
             'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json' 
           }
         });
         console.log(response)
