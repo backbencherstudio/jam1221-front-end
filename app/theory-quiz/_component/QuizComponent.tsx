@@ -51,6 +51,7 @@ const QuizComponent = () => {
                     'Content-Type': 'application/json'
                 }
             });
+            console.log(response)
             const data = await response.json();
             const allQuestions = data.questions;
             const selectedQuestions = JSON.parse(JSON.stringify(allQuestions));
