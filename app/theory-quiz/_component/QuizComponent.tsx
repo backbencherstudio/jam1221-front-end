@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { RiResetRightFill } from "react-icons/ri";
+import Link from 'next/link';
 
 
 interface QuizQuestion {
@@ -44,23 +45,48 @@ const QuizComponent = () => {
 
     const fetchQuestions = async () => {
         try {
+            setLoading(true);
             const token = localStorage.getItem('token');
-            const response = await fetch('http://localhost:4000/api/quiz-test/questions', {
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json'
-                }
-            });
-            console.log(response)
-            const data = await response.json();
-            const allQuestions = data.questions;
-            const selectedQuestions = JSON.parse(JSON.stringify(allQuestions));
-
-            setQuestions(selectedQuestions);
-            setSelectedOptions(Array(selectedQuestions.length).fill(null));
+    
+            // ✅ Run both API calls in parallel (better performance)
+            const [questionsRes, subscriptionRes] = await Promise.all([
+                fetch('http://localhost:4000/api/quiz-test/questions', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                }),
+                fetch('http://localhost:4000/api/payment/subscription/status', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                })
+            ]);
+    
+            // ✅ Check for API success before parsing JSON
+            if (!questionsRes.ok || !subscriptionRes.ok) {
+                throw new Error('Failed to fetch data');
+            }
+    
+            const [questionsData, subscriptionData] = await Promise.all([
+                questionsRes.json(),
+                subscriptionRes.json()
+            ]);
+    
+            // ✅ Validate subscription status before setting questions
+            if (subscriptionData?.subscription?.status) {
+                setQuestions(questionsData.questions || []);
+                setSelectedOptions(Array(questionsData.questions.length).fill(null));
+            } else {
+                setQuestions([]);
+            }
+    
+            // ✅ Reset UI state
             setCurrentQuestionIndex(0);
             setIsAnswerSubmitted(false);
             setShowResult(false);
+    
         } catch (error) {
             console.error('Error fetching questions:', error);
         } finally {
@@ -82,7 +108,14 @@ const QuizComponent = () => {
     if (loading) return <p>Loading...</p>;
 
     if (questions.length === 0) {
-        return <p className="text-center text-red-500 text-lg">No questions available.</p>;
+        return <div className='flex flex-col items-center'>
+        <p className="text-center text-red-500 text-2xl font-medium">
+            Access to questions requires an active subscription. Please subscribe to continue.
+        </p>
+        <Link href={"/subscription"} className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-all">
+            Upgrade Subscription
+        </Link>
+    </div>
     }
 
 
