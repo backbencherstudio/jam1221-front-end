@@ -9,61 +9,42 @@ import { IoIosEye } from "react-icons/io";
 
 export default function LoginForm() {
 
-  const route = useRouter();
-  const [showPassword,setShowPassword] = useState(false)
-
+  const router = useRouter();
+  const [showPassword, setShowPassword] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
-  
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
+  const [formData, setFormData] = useState({ email: "", password: "" });
 
-  // Authentication check useEffect
+  /** ✅ Check authentication status once when the component mounts */
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      setIsAuthenticated(true); // User is already authenticated, redirect
+      setIsAuthenticated(true);
+      router.replace('/'); // Redirect immediately if already logged in
     } else {
-      setIsAuthenticated(false); // No token found, user is not authenticated
+      setIsAuthenticated(false);
     }
   }, []);
 
-  // Redirect to the about page if authenticated
-  useEffect(() => {
-    if (isAuthenticated === true) {
-      route.push('/');
-    } else if (isAuthenticated === false) {
-      route.push('/login'); // You can adjust this if you don't want to allow signup when logged in
-    }
-  }, [isAuthenticated, route]);
-
-  // If authentication state is still being determined, show a loading spinner
-  if (isAuthenticated === null) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="w-12 h-12 border-4 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
-      </div>
-    );
-  }
-
+  /** ✅ Handle Input Change */
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  }
+  };
 
+  /** ✅ Handle Login Submission */
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    route.push("/about")
-
-
+    
     try {
       const res = await fetch(`http://localhost:4000/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
-      })
-      const data = await res.json()
+      });
+
+      if (!res.ok) throw new Error("Login request failed"); // ✅ Handle network errors
+
+      const data = await res.json();
+
       if (data?.success) {
         toast.success(data.message);
 
@@ -72,23 +53,28 @@ export default function LoginForm() {
           console.log('Token saved:', data?.authorization?.token);
         }
 
-        setTimeout(() => {
-          route.push('/subscription');
-        }, 300); // small delay to let the toast appear
+        setTimeout(() => router.push('/subscription'), 300); // ✅ Redirect to subscription page
       } else {
         toast.error(data?.message?.message || 'Login failed!');
       }
 
+    } catch (err) {
+      console.error('Login error:', err);
+      toast.error('Something went wrong. Please try again.');
     }
+  };
 
-    catch (err) {
-      console.error('Submission failed:', err);
-    }
-
-    console.log(formData);
+  /** ✅ Show loading spinner if authentication status is unknown */
+  if (isAuthenticated === null) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="w-12 h-12 border-4 border-t-blue-500 border-gray-300 border-solid rounded-full animate-spin"></div>
+      </div>
+    );
   }
 
-
+  /** ✅ If authenticated, do not show login form */
+  if (isAuthenticated) return null;
 
 
   return (
