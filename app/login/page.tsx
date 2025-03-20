@@ -12,10 +12,11 @@ export default function LoginForm() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
   const [loading, setLoading] = useState(false); // ✅ Add Loading State
   const [formData, setFormData] = useState({ email: "", password: "" });
+  const [success,setSuccess] = useState(false)
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    if (token) {
+    if (token && success) {
       setIsAuthenticated(true);
       router.replace('/');
     } else {
@@ -33,21 +34,22 @@ export default function LoginForm() {
     setLoading(true); // ✅ Show Loader
 
     try {
-      const start = Date.now(); // ✅ Start time tracking
+
       const res = await fetch(`http://localhost:4000/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-      const end = Date.now(); // ✅ End time tracking
-      console.log(`API Response Time: ${end - start}ms`); // ✅ Print response time
+
       // if (!res.ok) throw new Error("Login request failed");
 
       const data = await res.json();
       
+
       if (data?.success) {
         toast.success(data.message);
         localStorage.setItem('token', data?.authorization?.token);
+        setSuccess(data?.success)
         router.push("/subscription");
       } else {
         setTimeout(() => {
