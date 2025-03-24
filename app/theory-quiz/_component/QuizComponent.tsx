@@ -105,7 +105,9 @@ const QuizComponent = () => {
     };
 
 
-    if (loading) return <p>Loading...</p>;
+    if (loading){
+        return <div className='flex items-center gap-2 bg-blue-500 rounded-md px-2 text-white text-lg font-bold py-1'><p className="w-6 h-6 border-4 border-t-blue-500 border-gray-300 border-solid rounded-full animate-spin"></p>loading...</div>
+    } 
 
     if (questions.length === 0) {
         return <div className='flex flex-col items-center'>

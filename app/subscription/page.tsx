@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 interface PricingTierProps {
   title: string;
@@ -167,7 +168,8 @@ const PricingPage: NextPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-teal-500 flex items-center justify-center p-4">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-teal-500 ">
+      <div className='flex w-full justify-center p-4'>
       <div className="w-full max-w-6xl flex flex-col md:flex-row gap-8 justify-center">
        <div className='w-full'>
        <PricingTier
@@ -194,6 +196,14 @@ const PricingPage: NextPage = () => {
           </div>
         </div>
       </div>
+      </div>
+        <div>
+          <button className='px-4 rounded-md md:text-2xl text-lg scale-100 hover:scale-105 duration-200 font-medium text-white py-2 mt-4 bg-amber-500/90 block'>
+            <Link href="/">
+                Continue without Subscription
+            </Link>
+          </button>
+        </div>
     </div>
   );
 };
