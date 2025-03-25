@@ -27,7 +27,7 @@ interface SubmissionResult {
     }[]
 }
 
-const QuizComponent = () => {
+const TheoryQuizComponent = () => {
 
     const route = useRouter()
 
@@ -44,6 +44,7 @@ const QuizComponent = () => {
     // ✅ Fetch questions when the component mounts
 
     const fetchQuestions = async () => {
+
         try {
             setLoading(true);
             const token = localStorage.getItem('token');
@@ -76,7 +77,7 @@ const QuizComponent = () => {
     
             // ✅ Validate subscription status before setting questions
             if (subscriptionData?.subscription?.status) {
-                setQuestions(questionsData.questions || []);
+                setQuestions(questionsData.questions.slice(0,5) || []);
                 setSelectedOptions(Array(questionsData.questions.length).fill(null));
             } else {
                 setQuestions([]);
@@ -101,12 +102,12 @@ const QuizComponent = () => {
     const allReset = () => {
         setLoading(true);
         fetchQuestions();
-        route.push("/theory-quiz")
+        // route.push("/quiz-platform/theory-quiz")
     };
 
 
     if (loading){
-        return <div className='flex items-center gap-2 bg-blue-500 rounded-md px-2 text-white text-lg font-bold py-1'><p className="w-6 h-6 border-4 border-t-blue-500 border-gray-300 border-solid rounded-full animate-spin"></p>loading...</div>
+        return <div className='flex justify-center max-w-[250px] mx-auto items-center gap-2 bg-blue-500 rounded-md px-2 text-white text-lg font-bold py-1'><p className="w-6 h-6 border-4 border-t-blue-500 border-gray-300 border-solid rounded-full animate-spin"></p>loading...</div>
     } 
 
     if (questions.length === 0) {
@@ -168,7 +169,7 @@ const QuizComponent = () => {
             return "border border-gray-300 rounded p-3 opacity-50";
         }
     };
-    console.log(submissionResult)
+    // console.log(submissionResult)
 
 
 
@@ -330,4 +331,4 @@ const QuizComponent = () => {
     );
 };
 
-export default QuizComponent;
+export default TheoryQuizComponent;

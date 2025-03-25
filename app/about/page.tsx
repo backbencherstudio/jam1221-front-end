@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useLanguage } from '../_components/LanguageContext';
 import { useRouter } from 'next/navigation';
-import Loading from '../theory-quiz/loading';
+import Loading from '../quiz-platform/loading';
 import { CiMenuFries } from "react-icons/ci";
 
 
@@ -178,7 +178,7 @@ const AboutPage: React.FC = () => {
             </p>
 
             <div className="flex justify-center">
-              <Link href="/theory-quiz">
+              <Link href="/quiz-platform">
                 <button className="bg-blue-600 cursor-pointer scale-100 hover:scale-105 duration-300 text-lg hover:bg-blue-700 text-white py-2 px-4 rounded">
                   {t("nextButton")}
                 </button>
