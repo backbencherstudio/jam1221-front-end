@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useAuth } from "../_components/AuthProviderContext";
 
 export default function RegisterForm() {
 
@@ -18,17 +19,25 @@ export default function RegisterForm() {
     password: "",
     confirmPassword: "",
   });
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null); // null indicates loading state
+  // const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null); // null indicates loading state
+   const {isAuthenticated } = useAuth();
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      setIsAuthenticated(true);
-      route.replace('/');
-    } else {
-      setIsAuthenticated(false);
+
+   useEffect(() => {
+    if (isAuthenticated) {
+      route.replace("/"); // or wherever you want to send authenticated users
     }
-  }, []);
+  }, [isAuthenticated]);
+
+  // useEffect(() => {
+  //   const token = localStorage.getItem('token');
+  //   if (token) {
+  //     setIsAuthenticated(true);
+  //     route.replace('/');
+  //   } else {
+  //     setIsAuthenticated(false);
+  //   }
+  // }, []);
 
   // If authentication state is still being determined, show a loading spinner
   if (isAuthenticated === null) {

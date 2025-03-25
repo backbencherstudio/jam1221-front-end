@@ -6,6 +6,8 @@ import { useLanguage } from '../_components/LanguageContext';
 import { useRouter } from 'next/navigation';
 import Loading from '../quiz-platform/loading';
 import { CiMenuFries } from "react-icons/ci";
+import { useAuth } from '../_components/AuthProviderContext';
+
 
 
 
@@ -15,30 +17,27 @@ const AboutPage: React.FC = () => {
   const [sidebar, setSidebar] = useState(false)
   const { t, language, setLanguage } = useLanguage()
 
+
   const handleRoute = () => {
     route.push("/")
   }
 
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+  const {isAuthenticated,logout } = useAuth();
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      route.push("/login");
-    } else {
-      setIsAuthenticated(true);
-    }
-  }, [route]);
-
-  // Show nothing until authentication check is done
-  if (isAuthenticated === null) {
-    return <Loading /> // or you can return a loader
-  }
-
-  const token = localStorage.getItem("token")
-  console.log(token)
+        if(isAuthenticated === (false || null)){
+            return <Loading />
+        }
+        useEffect(() => {
+            if (isAuthenticated === false ) {
+                route.replace("/login"); // or wherever you want to send authenticated users
+            }
+        }, [isAuthenticated]);
 
 
+const handleLogOut = () => {
+  logout()
+  route.push("/login")
+}
 
 
 
@@ -51,8 +50,10 @@ const AboutPage: React.FC = () => {
             {t("home")}
           </button>
           <button onClick={() => {
-            localStorage.removeItem("token");
-            route.push("/login");
+            // localStorage.removeItem("token");
+            // route.push("/login");
+            handleLogOut()
+
           }}
             className="bg-blue-300 border shadow-md cursor-pointer hover:scale-105 duration-300 scale-100 text-black text-lg py-3 px-6 rounded-lg flex items-center justify-center justify-self-end gap-2 transform transition-all ease-in-out  "
           >

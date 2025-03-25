@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { useAuth } from '../_components/AuthProviderContext';
 
 interface PricingTierProps {
   title: string;
@@ -39,7 +40,7 @@ const PricingTier: React.FC<PricingTierProps> = ({
             }
             console.log(response.url)
             const data = await response.json();
-            console.log("dd",data);
+            console.log("dddasssssssssssssssssssfffffffffffffffffff",data);
             if(data.url){
                 router.push(data.url);
             }
@@ -125,16 +126,14 @@ const PricingTier: React.FC<PricingTierProps> = ({
 const PricingPage: NextPage = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
-
+  const {token} = useAuth()
+  
+  
   useEffect(() => {
+    if (!token) return; // wait for token to be set
+  
     const checkSubscription = async () => {
       try {
-        const token = localStorage.getItem('token');
-        if (!token) {
-          router.push('/login');
-          return;
-        }
-
         const response = await fetch('http://localhost:4000/api/payment/subscription/status', {
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -142,22 +141,22 @@ const PricingPage: NextPage = () => {
           }
         });
         const data = await response.json();
-        console.log(data)
-        
+        console.log(data);
+  
         if (data.isSubscribed) {
           router.push('/about');
-          return;
+        } else {
+          setIsLoading(false);
         }
-
-        setIsLoading(false);
       } catch (error) {
         console.error('Error checking subscription:', error);
         setIsLoading(false);
       }
     };
-
+  
     checkSubscription();
-  }, [router]);
+  }, [token]); // ✅ re-run when token is ready
+  
 
   if (isLoading) {
     return (

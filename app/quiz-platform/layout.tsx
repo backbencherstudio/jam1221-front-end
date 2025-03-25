@@ -5,7 +5,7 @@ import React from 'react';
 import LanguageSwitcher from '../_components/LanguageSwitcher';
 import { useRouter } from 'next/navigation';
 
-export default function ({
+export default function QuizPlatformLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;

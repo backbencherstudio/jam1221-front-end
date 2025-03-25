@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Loading from './loading';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { useAuth } from '../_components/AuthProviderContext';
 
 
 
@@ -13,19 +14,26 @@ export default function QuizPlatform() {
 
   const route = useRouter()
 
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+  // const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+  const {isAuthenticated } = useAuth();
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      route.push("/login");
-    } else {
-      setIsAuthenticated(true);
+    // const token = localStorage.getItem("token");
+    // if (!token) {
+    //   route.push("/login");
+    // } else {
+    //   setIsAuthenticated(true);
+    // }
+
+    if(!isAuthenticated){
+      route.replace("/login");
     }
+
+
   }, [route]);
 
   // Show nothing until authentication check is done
-  if (isAuthenticated === null) {
+  if (!isAuthenticated) {
     return <Loading /> // or you can return a loader
   }
 

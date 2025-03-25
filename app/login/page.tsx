@@ -5,25 +5,45 @@ import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { IoIosEyeOff, IoIosEye } from "react-icons/io";
+import { isTokenValid } from "../utils/_tokenVerify/DecodeToken";
+import { useAuth } from "../_components/AuthProviderContext";
 
 export default function LoginForm() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+  // const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
   const [loading, setLoading] = useState(false); // ✅ Add Loading State
   const [formData, setFormData] = useState({ email: "", password: "" });
-  const [success,setSuccess] = useState(false)
+
+
+  const {isAuthenticated,login } = useAuth();
+
+  // if (!isAuthenticated) return <p>You are not logged in.</p>;
+
+  // useEffect(() => {
+  //   const token = localStorage.getItem("token");
+  
+  //   if (!token || !isTokenValid(token)) {
+  //     localStorage.removeItem("token");
+  //     router.push("/login");
+  //     return;
+  //   }else if(token && isTokenValid(token)){
+  //     setIsAuthenticated(true); 
+  //     router.replace('/')
+  //   }
+  
+  //   // Token exists and is not expired
+  //   // You can also decode the payload if you want
+  //   // const payload = jwtDecode(token);
+  //   // console.log("Logged in as:", payload);
+  // }, []);
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token && success) {
-      setIsAuthenticated(true);
-      router.replace('/');
-    } else {
-      setIsAuthenticated(false);
+    console.log(isAuthenticated)
+    if (isAuthenticated) {
+      router.replace("/"); // or wherever you want to send authenticated users
     }
-  }, []);
-
+  }, [isAuthenticated]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -48,8 +68,8 @@ export default function LoginForm() {
 
       if (data?.success) {
         toast.success(data.message);
-        localStorage.setItem('token', data?.authorization?.token);
-        setSuccess(data?.success)
+        // localStorage.setItem('token', data?.authorization?.token);
+        login(data?.authorization?.token);
         router.push("/subscription");
       } else {
         setTimeout(() => {
@@ -66,7 +86,7 @@ export default function LoginForm() {
 
 
 
-  if (isAuthenticated === null) {
+  if (isAuthenticated === (false || null)) {
     return (
       <div className="flex justify-center items-center h-screen">
         <div className="w-12 h-12 border-4 border-t-blue-500 border-gray-300 border-solid rounded-full animate-spin"></div>
@@ -74,7 +94,7 @@ export default function LoginForm() {
     );
   }
 
-  if (isAuthenticated) return null;
+  // if (isAuthenticated) return null;
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
