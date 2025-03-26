@@ -4,8 +4,10 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useLanguage } from '../_components/LanguageContext';
 import { useRouter } from 'next/navigation';
-import Loading from '../theory-quiz/loading';
+import Loading from '../quiz-platform/loading';
 import { CiMenuFries } from "react-icons/ci";
+import { useAuth } from '../_components/AuthProviderContext';
+
 
 
 
@@ -14,31 +16,40 @@ const AboutPage: React.FC = () => {
   const route = useRouter()
   const [sidebar, setSidebar] = useState(false)
   const { t, language, setLanguage } = useLanguage()
+    const { isAuthenticated, loading,logout } = useAuth();
+
+
+    useEffect(() => {
+      if (!loading && isAuthenticated === false) {
+        route.replace("/login");
+      }
+    }, [loading, isAuthenticated, route]);
 
   const handleRoute = () => {
     route.push("/")
   }
 
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+  // const {isAuthenticated,logout } = useAuth();
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      route.push("/login");
-    } else {
-      setIsAuthenticated(true);
-    }
-  }, [route]);
+        // if(isAuthenticated === false || isAuthenticated === null){
+        //     return <Loading />
+        // }
 
-  // Show nothing until authentication check is done
-  if (isAuthenticated === null) {
-    return <Loading /> // or you can return a loader
-  }
-
-  const token = localStorage.getItem("token")
-  console.log(token)
+        
+  if (loading) return <div className="flex justify-center gap-2.5"><span className="w-6 h-6 border-4 border-t-blue-500 border-gray-300 border-solid rounded-full animate-spin"></span> Loading...</div> ;
 
 
+  
+
+
+  
+
+
+
+const handleLogOut = () => {
+  logout()
+  route.push("/login")
+}
 
 
 
@@ -51,8 +62,10 @@ const AboutPage: React.FC = () => {
             {t("home")}
           </button>
           <button onClick={() => {
-            localStorage.removeItem("token");
-            route.push("/login");
+            // localStorage.removeItem("token");
+            // route.push("/login");
+            handleLogOut()
+
           }}
             className="bg-blue-300 border shadow-md cursor-pointer hover:scale-105 duration-300 scale-100 text-black text-lg py-3 px-6 rounded-lg flex items-center justify-center justify-self-end gap-2 transform transition-all ease-in-out  "
           >
@@ -178,7 +191,7 @@ const AboutPage: React.FC = () => {
             </p>
 
             <div className="flex justify-center">
-              <Link href="/theory-quiz">
+              <Link href="/quiz-platform">
                 <button className="bg-blue-600 cursor-pointer scale-100 hover:scale-105 duration-300 text-lg hover:bg-blue-700 text-white py-2 px-4 rounded">
                   {t("nextButton")}
                 </button>
