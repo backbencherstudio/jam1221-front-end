@@ -6,18 +6,8 @@ import React, { useEffect } from 'react';
 import Loading from '../loading'; // Your loading component
 
 const HumanQuestionPage = () => {
-  const { isAuthenticated, loading } = useAuth();
-  const router = useRouter();
 
-  useEffect(() => {
-    if (!loading && isAuthenticated === false) {
-      router.replace("/login");
-    }
-  }, [loading, isAuthenticated, router]);
-
-  if (loading) {
-    return <Loading />;
-  }
+  
 
   return (
     <div>

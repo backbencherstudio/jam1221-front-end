@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { RiResetRightFill } from "react-icons/ri";
 import Link from "next/link";
-import Loading from "../loading";
 import { useAuth } from "@/app/_components/AuthProviderContext";
 
 interface QuizQuestion {
@@ -30,8 +29,10 @@ interface SubmissionResult {
 }
 
 const TheoryQuizComponent = () => {
+
   const router = useRouter();
-  const { isAuthenticated, loading } = useAuth();
+
+  const { isAuthenticated, loading,token } = useAuth();
 
   const [questions, setQuestions] = useState<QuizQuestion[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -40,18 +41,20 @@ const TheoryQuizComponent = () => {
   const [showResult, setShowResult] = useState(false);
   const [submissionResult, setSubmissionResult] = useState<SubmissionResult | null>(null);
   const [percentage, setPercentage] = useState(0);
+  const [loadingQuestions, setLoadingQuestions] = useState(true); // NEW
 
-  useEffect(() => {
-    if (!loading && isAuthenticated === false) {
-      router.replace("/login");
-    }
-  }, [loading, isAuthenticated, router]);
+
+
+  // useEffect(() => {
+  //   if (!loading && isAuthenticated === false) {
+  //     router.replace("/login");
+  //   }
+  // }, [loading, isAuthenticated, router]);
 
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const token = localStorage.getItem("token");
-
+        setLoadingQuestions(true); // start loading
         const [questionsRes, subscriptionRes] = await Promise.all([
           fetch("http://localhost:4000/api/quiz-test/questions", {
             headers: {
@@ -66,38 +69,50 @@ const TheoryQuizComponent = () => {
             },
           }),
         ]);
-
+    
         if (!questionsRes.ok || !subscriptionRes.ok) {
           throw new Error("Failed to fetch data");
         }
-
+    
         const [questionsData, subscriptionData] = await Promise.all([
           questionsRes.json(),
           subscriptionRes.json(),
         ]);
-
+    
         if (subscriptionData?.subscription?.status) {
           const quizQuestions = questionsData.questions || [];
           setQuestions(quizQuestions.slice(0, 5));
           setSelectedOptions(Array(quizQuestions.length).fill(null));
         } else {
-          setQuestions([]);
+          setQuestions([]); // will trigger "no subscription" view
         }
-
+    
         setCurrentQuestionIndex(0);
         setIsAnswerSubmitted(false);
         setShowResult(false);
       } catch (error) {
         console.error("Error fetching questions:", error);
+      } finally {
+        setLoadingQuestions(false); // stop loading
       }
     };
-
+    
     if (!loading && isAuthenticated) {
       fetchQuestions();
     }
   }, [loading, isAuthenticated]);
 
-  if (loading) return <Loading />;
+  // if (loading) return <div className="flex justify-center gap-2.5"><span className="w-6 h-6 border-4 border-t-blue-500 border-gray-300 border-solid rounded-full animate-spin"></span> Loading...</div> ;
+
+  if (loadingQuestions) {
+    return (
+      <div className="flex items-center gap-2 bg-blue-500 rounded-md px-3 text-white text-lg font-bold py-2">
+        <span className="w-6 h-6 border-4 border-t-blue-500 border-gray-300 border-solid rounded-full animate-spin"></span>
+        Loading Questions...
+      </div>
+    );
+  }
+  
 
   if (questions.length === 0) {
     return (
@@ -148,7 +163,7 @@ const TheoryQuizComponent = () => {
   const submitAnswers = async () => {
     setShowResult(true);
     try {
-      const token = localStorage.getItem("token");
+      // const token = localStorage.getItem("token");
       const response = await fetch("http://localhost:4000/api/quiz-test/submit-answers", {
         method: "POST",
         headers: {
@@ -166,8 +181,7 @@ const TheoryQuizComponent = () => {
   };
 
   const allReset = () => {
-    console.log("dkjfaaaaaaas")
-    router.push("/quiz-platform/theory-quiz");
+    router.replace("/quiz-platform");
   };
 
 //   const allReset = () => {

@@ -16,22 +16,34 @@ const AboutPage: React.FC = () => {
   const route = useRouter()
   const [sidebar, setSidebar] = useState(false)
   const { t, language, setLanguage } = useLanguage()
+    const { isAuthenticated, loading,logout } = useAuth();
 
+
+    useEffect(() => {
+      if (!loading && isAuthenticated === false) {
+        route.replace("/login");
+      }
+    }, [loading, isAuthenticated, route]);
 
   const handleRoute = () => {
     route.push("/")
   }
 
-  const {isAuthenticated,logout } = useAuth();
+  // const {isAuthenticated,logout } = useAuth();
 
-        if(isAuthenticated === (false || null)){
-            return <Loading />
-        }
-        useEffect(() => {
-            if (isAuthenticated === false ) {
-                route.replace("/login"); // or wherever you want to send authenticated users
-            }
-        }, [isAuthenticated]);
+        // if(isAuthenticated === false || isAuthenticated === null){
+        //     return <Loading />
+        // }
+
+        
+  if (loading) return <div className="flex justify-center gap-2.5"><span className="w-6 h-6 border-4 border-t-blue-500 border-gray-300 border-solid rounded-full animate-spin"></span> Loading...</div> ;
+
+
+  
+
+
+  
+
 
 
 const handleLogOut = () => {

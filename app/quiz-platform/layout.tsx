@@ -4,6 +4,7 @@ import Head from 'next/head';
 import React from 'react';
 import LanguageSwitcher from '../_components/LanguageSwitcher';
 import { useRouter } from 'next/navigation';
+import ProtectedRoute from './ProtectedRoute';
 
 export default function QuizPlatformLayout({
     children,
@@ -35,7 +36,9 @@ export default function QuizPlatformLayout({
                     <LanguageSwitcher />
                 </div>
             </div>
+            <ProtectedRoute>
                 {children}
+            </ProtectedRoute>
         </div>
     );
 }
