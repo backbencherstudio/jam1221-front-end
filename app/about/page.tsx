@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useLanguage } from '../_components/LanguageContext';
 import { useRouter } from 'next/navigation';
-import Loading from '../quiz-platform/loading';
+// import Loading from '../quiz-platform/loading';
 import { CiMenuFries } from "react-icons/ci";
 import { useAuth } from '../_components/AuthProviderContext';
 

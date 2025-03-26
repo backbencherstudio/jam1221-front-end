@@ -16,7 +16,7 @@ export const isTokenValid = (token: string): boolean => {
 
     return decoded.exp > currentTime;
   } catch (err) {
-    // console.error("Invalid token", err);
+    console.error("Invalid token", err);
     return false;
   }
 };

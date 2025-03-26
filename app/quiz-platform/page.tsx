@@ -1,7 +1,7 @@
 "use client"
 
-import { useEffect, useState } from 'react';
-import Loading from './loading';
+// import { useEffect, useState } from 'react';
+// import Loading from './loading';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useAuth } from '../_components/AuthProviderContext';
@@ -12,10 +12,10 @@ import { useAuth } from '../_components/AuthProviderContext';
 
 export default function QuizPlatform() {
 
-  const route = useRouter()
+  // const route = useRouter()
 
   // const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
-  const {isAuthenticated } = useAuth();
+  // const {isAuthenticated } = useAuth();
 
   // useEffect(() => {
   //   // const token = localStorage.getItem("token");
