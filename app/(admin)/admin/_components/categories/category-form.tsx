@@ -54,13 +54,13 @@ export function CategoryForm({ categoryId }: { categoryId?: string }) {
     setTimeout(() => {
       console.log(values)
       setIsSubmitting(false)
-
+      console.log(values)
       toast({
         title: categoryId ? "Category updated" : "Category created",
         description: `Successfully ${categoryId ? "updated" : "created"} ${values.name}`,
       })
 
-      router.push("/dashboard/categories")
+      // router.push("/admin/dashboard/categories")
     }, 1000)
   }
 
@@ -122,7 +122,7 @@ export function CategoryForm({ categoryId }: { categoryId?: string }) {
               <Button type="submit" disabled={isSubmitting}>
                 {isSubmitting ? "Saving..." : categoryId ? "Update Category" : "Create Category"}
               </Button>
-              <Button type="button" variant="outline" onClick={() => router.push("/dashboard/categories")}>
+              <Button type="button" variant="outline" onClick={() => router.push("/admin/dashboard/categories")}>
                 Cancel
               </Button>
             </div>

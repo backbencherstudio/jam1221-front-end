@@ -84,7 +84,7 @@ export function QuestionForm({ questionId }: { questionId?: string }) {
         description: `Successfully ${questionId ? "updated" : "created"} question`,
       })
 
-      router.push("/dashboard/questions")
+      router.push("/admin/dashboard/questions")
     }, 1000)
   }
 
@@ -210,7 +210,7 @@ export function QuestionForm({ questionId }: { questionId?: string }) {
               <Button type="submit" disabled={isSubmitting}>
                 {isSubmitting ? "Saving..." : questionId ? "Update Question" : "Create Question"}
               </Button>
-              <Button type="button" variant="outline" onClick={() => router.push("/dashboard/questions")}>
+              <Button type="button" variant="outline" onClick={() => router.push("/admin/dashboard/questions")}>
                 Cancel
               </Button>
             </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { LanguageProvider } from "./_components/LanguageContext";
+import { Providers } from "@/app/providers";
 
 
 import Script from "next/script";
@@ -41,12 +42,14 @@ export default function RootLayout({
           src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
           strategy="afterInteractive"
         />
-        <AuthProvider>
-          <LanguageProvider>
-            <div id="google_translate_element" className="none"></div>
-            {children}
-          </LanguageProvider>
-        </AuthProvider>
+        <Providers>
+          <AuthProvider>
+            <LanguageProvider>
+              <div id="google_translate_element" className="none"></div>
+              {children}
+            </LanguageProvider>
+          </AuthProvider>
+        </Providers>
       </body>
     </html>
   );

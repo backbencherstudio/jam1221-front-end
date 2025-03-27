@@ -3,6 +3,10 @@
 import { useState } from "react"
 import Link from "next/link"
 import { Edit, MoreHorizontal, Trash } from "lucide-react"
+import { useDispatch, useSelector } from "react-redux"
+import { RootState } from "@/store/store"
+import { deleteCategory } from "@/features/category/categorySlice"
+
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -58,7 +62,26 @@ const initialCategories = [
 ]
 
 export function CategoryList() {
-  const [categories, setCategories] = useState(initialCategories)
+  // const [categories, setCategories] = useState(initialCategories)
+  // const [deleteDialogOpen, setDeleteDialogOpen] = useState(false)
+  // const [categoryToDelete, setCategoryToDelete] = useState<string | null>(null)
+
+  // const handleDeleteClick = (categoryId: string) => {
+  //   setCategoryToDelete(categoryId)
+  //   setDeleteDialogOpen(true)
+  // }
+
+  // const confirmDelete = () => {
+  //   if (categoryToDelete) {
+  //     setCategories(categories.filter((category) => category.id !== categoryToDelete))
+  //     setCategoryToDelete(null)
+  //   }
+  //   setDeleteDialogOpen(false)
+  // }
+
+  const categories = useSelector((state: RootState) => state.category.categories)
+  const dispatch = useDispatch()
+
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false)
   const [categoryToDelete, setCategoryToDelete] = useState<string | null>(null)
 
@@ -69,7 +92,7 @@ export function CategoryList() {
 
   const confirmDelete = () => {
     if (categoryToDelete) {
-      setCategories(categories.filter((category) => category.id !== categoryToDelete))
+      dispatch(deleteCategory(categoryToDelete))
       setCategoryToDelete(null)
     }
     setDeleteDialogOpen(false)
@@ -96,7 +119,7 @@ export function CategoryList() {
                   <DropdownMenuLabel>Actions</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem asChild>
-                    <Link href={`/dashboard/categories/${category.id}/edit`}>
+                    <Link href={`/admin/dashboard/categories/${category.id}/edit`}>
                       <Edit className="mr-2 h-4 w-4" />
                       Edit
                     </Link>
@@ -117,7 +140,7 @@ export function CategoryList() {
             <div className="text-sm text-muted-foreground">{category.questionCount} questions</div>
             <div className="mt-4">
               <Button asChild variant="outline" size="sm" className="w-full">
-                <Link href={`/dashboard/questions?category=${category.id}`}>View Questions</Link>
+                <Link href={`/admin/dashboard/questions?category=${category.id}`}>View Questions</Link>
               </Button>
             </div>
           </CardContent>

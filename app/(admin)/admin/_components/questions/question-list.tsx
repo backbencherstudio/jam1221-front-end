@@ -202,13 +202,13 @@ export function QuestionList() {
                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem asChild>
-                          <Link href={`/dashboard/questions/${question.id}`}>
+                          <Link href={`/admin/dashboard/questions/${question.id}`}>
                             <Eye className="mr-2 h-4 w-4" />
                             View
                           </Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem asChild>
-                          <Link href={`/dashboard/questions/${question.id}/edit`}>
+                          <Link href={`/admin/dashboard/questions/${question.id}/edit`}>
                             <Edit className="mr-2 h-4 w-4" />
                             Edit
                           </Link>
