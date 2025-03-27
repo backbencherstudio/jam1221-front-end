@@ -113,7 +113,7 @@ const LanguageSwitcher = () => {
               />
             </svg>
           </button>
-          {languageDropDown && (
+          {languageDropDown ? (
             <div className={`absolute  right-0 z-10 w-full rounded-md bg-white shadow-lg ring-1 ring-black/5  `}>
               <div className='py-1 '>
                 <button
@@ -137,7 +137,7 @@ const LanguageSwitcher = () => {
 
               </div>
             </div>
-          )}
+          ) : ""}
         </div>
       </div>
     </div>

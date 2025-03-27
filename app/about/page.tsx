@@ -36,7 +36,7 @@ const AboutPage: React.FC = () => {
         // }
 
         
-  if (loading) return <div className="flex justify-center gap-2.5"><span className="w-6 h-6 border-4 border-t-blue-500 border-gray-300 border-solid rounded-full animate-spin"></span> Loading...</div> ;
+  if (loading) return <div className="flex h-screen items-center justify-center gap-2.5"><span className="w-6 h-6 border-4 border-t-blue-500 border-gray-300 border-solid rounded-full animate-spin"></span> Loading...</div> ;
 
 
   

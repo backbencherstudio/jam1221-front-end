@@ -18,13 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-      </head>
       <body
-        className=""
       >
         {/* Hidden dropdown */}
-        <div id="google_translate_element" style={{ display: "hidden" }}></div>
+        {/* <div id="google_translate_element" style={{ display: "hidden" }}></div> */}
 
         {/* Google Translate Init Script */}
         <Script id="google-translate-init" strategy="afterInteractive">
@@ -46,7 +43,7 @@ export default function RootLayout({
         />
         <AuthProvider>
           <LanguageProvider>
-            <div id="google_translate_element"></div>
+            <div id="google_translate_element" className="none"></div>
             {children}
           </LanguageProvider>
         </AuthProvider>
