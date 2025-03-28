@@ -10,7 +10,6 @@ export default function DashboardLayout({
   children: React.ReactNode
 }>) {
   return (
-    <>
       <div className="notranslate">
         <div className="flex h-screen bg-background">
           <DashboardSidebar />
@@ -20,6 +19,5 @@ export default function DashboardLayout({
           </div>
         </div>
       </div>
-    </>
   )
 }

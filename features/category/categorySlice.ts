@@ -14,17 +14,32 @@ const initialData: Category[] = [
     id: "1",
     name: "CONCEPT",
     description: "Basic concepts and theory questions",
-    questionCount: 30,
+    questionCount: 10,
     icon: "📚",
   },
   {
     id: "2",
     name: "TRAFFIC SAFETY",
     description: "Questions about traffic safety measures",
-    questionCount: 25,
+    questionCount: 10,
     icon: "🚧",
   },
+  {
+    id: "3",
+    name: "TRAFFIC RULES",
+    description: "Questions about traffic rules and regulations",
+    questionCount: 10,
+    icon: "🚦",
+  },
+  {
+    id: "4",
+    name: "ENVIRONMENT",
+    description: "Questions about environmental impact and regulations",
+    questionCount: 10,
+    icon: "🌍",
+  },
 ]
+
 
 // Slice
 const categorySlice = createSlice({

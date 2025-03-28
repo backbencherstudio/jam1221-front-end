@@ -44,13 +44,12 @@ export default function RootLayout({
         />
         <Providers>
           <AuthProvider>
-            <LanguageProvider>
-              <div id="google_translate_element" className="none"></div>
+              <div id="google_translate_element" className="hidden"></div>
               {children}
-            </LanguageProvider>
           </AuthProvider>
         </Providers>
       </body>
     </html>
   );
 }
+

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useLanguage } from '../_components/LanguageContext';
+import { useLanguage,LanguageProvider } from '../_components/LanguageContext';
 import { useRouter } from 'next/navigation';
 // import Loading from '../quiz-platform/loading';
 import { CiMenuFries } from "react-icons/ci";
@@ -11,7 +11,7 @@ import { useAuth } from '../_components/AuthProviderContext';
 
 
 
-const AboutPage: React.FC = () => {
+const AboutPageContent: React.FC = () => {
 
   const route = useRouter()
   const [sidebar, setSidebar] = useState(false)
@@ -201,6 +201,15 @@ const handleLogOut = () => {
         </div>
       </main>
     </div>
+  );
+};
+
+// ✅ Wrap it in LanguageProvider ONLY for this page
+const AboutPage: React.FC = () => {
+  return (
+    <LanguageProvider>
+      <AboutPageContent />
+    </LanguageProvider>
   );
 };
 

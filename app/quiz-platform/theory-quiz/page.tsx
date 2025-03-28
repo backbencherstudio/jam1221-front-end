@@ -79,7 +79,7 @@ const TheoryQuizComponent = () => {
     
         if (subscriptionData?.subscription?.status) {
           const quizQuestions = questionsData.questions || [];
-          setQuestions(quizQuestions.slice(0, 40));
+          setQuestions(quizQuestions.slice(0, 2));
           setSelectedOptions(Array(quizQuestions.length).fill(null));
         } else {
           setQuestions([]); // will trigger "no subscription" view
@@ -150,13 +150,27 @@ const TheoryQuizComponent = () => {
       : "border border-gray-300 rounded p-3 hover:bg-gray-50 cursor-pointer";
   };
 
-  const getResultOptionStyle = (option: string, index: number) => {
-    const result = submissionResult?.detailedResults?.[index];
-    if (!result) return "border border-gray-300 rounded p-3 opacity-50";
-    if (option === result.correctAnswer) return "border border-blue-500 bg-blue-100 rounded p-3";
-    if (option === result.userAnswer) return "border border-red-500 bg-red-100 rounded p-3";
-    return "border border-gray-300 rounded p-3 opacity-50";
-  };
+  // const getResultOptionStyle = (option: string, index: number) => {
+  //   const result = submissionResult?.detailedResults?.[index];
+  //   if (!result) return "border border-gray-300 rounded p-3 opacity-50";
+  //   if (option === result.correctAnswer) return "border border-blue-500 bg-blue-100 rounded p-3";
+  //   if (option === result.userAnswer) return "border border-red-500 bg-red-100 rounded p-3";
+  //   return "border border-gray-300 rounded p-3 opacity-80";
+  // };
+     const getResultOptionStyle = (option: string, question: QuizQuestion, index: number) => {
+ 
+ 
+         if (option === submissionResult?.detailedResults?.[index].correctAnswer) {
+             // Correct answer
+             return "border border-blue-500 bg-blue-100 rounded p-3";
+         } else if (option === submissionResult?.detailedResults?.[index].userAnswer) {
+             // Wrong selected option
+             return "border border-red-500 bg-red-100 rounded p-3";
+         } else {
+             return "border border-gray-300 rounded p-3 opacity-50";
+         }
+     };
+     console.log(submissionResult)
 
   const submitAnswers = async () => {
     setShowResult(true);
@@ -190,7 +204,7 @@ const TheoryQuizComponent = () => {
 
 
   return (
-    <div className="bg-white rounded-lg shadow-lg w-full max-w-[800px] p-6 mt-10">
+    <span className="bg-white rounded-lg shadow-lg w-full max-w-[800px] p-6 mt-10">
       {!showResult ? (
         <>
           <div className="flex justify-end mb-4">
@@ -288,12 +302,12 @@ const TheoryQuizComponent = () => {
                   {qus.options.map((option, index) => (
                     <div
                       key={index}
-                      className={getResultOptionStyle(option, ind)}
+                      className={getResultOptionStyle(option,qus, ind)}
                     >
                       <label className="flex items-center space-x-3 select-none">
-                        <div className="h-5 w-5 rounded-full border-1 flex items-center justify-center">
+                        <div className="h-5 w-5 bg-white border-blue-500  rounded-full border-2 flex items-center justify-center">
                           {selectedOptions[ind] === option && (
-                            <div className="h-2.5 w-2.5 rounded-full bg-blue-900" />
+                            <div className="h-4 w-4 border-2 border-white  rounded-full bg-blue-900" />
                           )}
                         </div>
                         <span className="text-black font-medium">{option}</span>
@@ -306,7 +320,7 @@ const TheoryQuizComponent = () => {
           </div>
         </>
       )}
-    </div>
+    </span>
   );
 };
 
