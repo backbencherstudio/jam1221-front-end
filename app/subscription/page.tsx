@@ -23,10 +23,10 @@ const PricingTier: React.FC<PricingTierProps> = ({
   validity,
 }) => {
     const router = useRouter();
-    const [isProcessing, setIsProcessing] = useState(false);
+    // const [isProcessing, setIsProcessing] = useState(false);
 
     const handleSubscribe = async (plan: string) => {
-      setIsProcessing(true);
+      // setIsProcessing(true);
       const token = localStorage.getItem('token');
       
       if (!token) {
@@ -58,7 +58,7 @@ const PricingTier: React.FC<PricingTierProps> = ({
       } catch (error) {
         console.error('Fetch error:', error);
       } finally {
-        setIsProcessing(false);
+        // setIsProcessing(false);
       }
     };
 
