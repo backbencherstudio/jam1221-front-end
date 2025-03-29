@@ -56,13 +56,13 @@ const TheoryQuizComponent = () => {
       try {
         setLoadingQuestions(true); // start loading
         const [questionsRes, subscriptionRes] = await Promise.all([
-          fetch("http://localhost:4000/api/quiz-test/questions", {
+          fetch(`${process.env.NEXT_PUBLIC_API_URL}/quiz-test/questions`, {
             headers: {
               Authorization: `Bearer ${token}`,
               "Content-Type": "application/json",
             },
           }),
-          fetch("http://localhost:4000/api/payment/subscription/status", {
+          fetch(`${process.env.NEXT_PUBLIC_API_URL}/payment/subscription/status`, {
             headers: {
               Authorization: `Bearer ${token}`,
               "Content-Type": "application/json",
@@ -164,7 +164,7 @@ const TheoryQuizComponent = () => {
     setShowResult(true);
     try {
       // const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:4000/api/quiz-test/submit-answers", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/quiz-test/submit-answers`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
