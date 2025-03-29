@@ -79,7 +79,7 @@ const TheoryQuizComponent = () => {
     
         if (subscriptionData?.subscription?.status) {
           const quizQuestions = questionsData.questions || [];
-          setQuestions(quizQuestions.slice(0, 2));
+          setQuestions(quizQuestions.slice(0, 40));
           setSelectedOptions(Array(quizQuestions.length).fill(null));
         } else {
           setQuestions([]); // will trigger "no subscription" view
