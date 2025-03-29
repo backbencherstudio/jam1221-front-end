@@ -16,7 +16,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 
     const checkSubscription = async () => {
       try {
-        const res = await fetch("http://localhost:4000/api/payment/subscription/status", {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/payment/subscription/status`, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
