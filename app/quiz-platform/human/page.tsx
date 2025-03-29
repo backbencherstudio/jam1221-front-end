@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect } from "react";
+
 // import { useAuth } from '@/app/_components/AuthProviderContext';
 // import { useRouter } from 'next/navigation';
 // import React, { useEffect } from 'react';
@@ -7,7 +9,9 @@
 
 const HumanQuestionPage = () => {
 
+useEffect(() => {
 
+},[])
 
   return (
     <div>

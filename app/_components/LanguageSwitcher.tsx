@@ -24,16 +24,8 @@ type DropdownType = string
 const LanguageSwitcher = () => {
 
   const [languageDropDown, setLanguageDropDown] = useState(false)
-  const [language,setLanguage] = useState("English")
+  const [language, setLanguage] = useState("English")
   const languageDropdownRef = useRef<HTMLDivElement>(null);
-
-  const handleDropdownToggle = (dropdownType: DropdownType) => (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (dropdownType === 'language') {
-      setLanguageDropDown(!languageDropDown);
-    }
-  };
-
 
   const handleLanguageChange = (lang: string) => {
     const languageMap: Record<string, string> = {
@@ -45,32 +37,60 @@ const LanguageSwitcher = () => {
     const langCode = languageMap[lang];
   
     if (langCode) {
-      const selectElement =
-        document.querySelector('#google_translate_element select.goog-te-combo') ||
-        document.querySelector('.goog-te-combo');
+      try {
+        const selectElement =
+          document.querySelector('#google_translate_element select.goog-te-combo') ||
+          document.querySelector('.goog-te-combo');
   
-      if (selectElement) {
-        // Set language
-        (selectElement as HTMLSelectElement).value = langCode;
-        selectElement.dispatchEvent(new Event('change'));
-  
-        // Wait a bit & fire again (ensures catching up)
-        setTimeout(() => {
+        if (selectElement) {
+          // Create a new change event
+          const event = new Event('change', { bubbles: true });
+          
+          // Set language and dispatch event
           (selectElement as HTMLSelectElement).value = langCode;
-          selectElement.dispatchEvent(new Event('change'));
-        }, 100);
-  
-        // Update display
-        if (langCode === 'en') {
-          setLanguage('English');
-        } else if (langCode === 'sv') {
-          setLanguage('Svenska');
-        } else if (langCode === 'ar') {
-          setLanguage('عربي');
+          selectElement.dispatchEvent(event);
+          
+          // Update local state
+          const displayNames = {
+            'en': 'English',
+            'sv': 'Svenska',
+            'ar': 'عربي'
+          };
+          setLanguage(displayNames[langCode as keyof typeof displayNames]);
+          
+          // Close dropdown after selection
+          setLanguageDropDown(false);
         }
+      } catch (error) {
+        console.error('Error changing language:', error);
       }
     }
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      try {
+        const target = event.target as HTMLElement;
+        if (languageDropdownRef.current && !languageDropdownRef.current.contains(target)) {
+          setLanguageDropDown(false);
+        }
+      } catch (error) {
+        console.error('Error in click handler:', error);
+        setLanguageDropDown(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside, true);
+    return () => document.removeEventListener('click', handleClickOutside, true);
+  }, []);
+
+  const handleDropdownToggle = (dropdownType: DropdownType) => (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (dropdownType === 'language') {
+      setLanguageDropDown(!languageDropDown);
+    }
+  };
+
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {

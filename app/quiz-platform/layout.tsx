@@ -15,6 +15,7 @@ export default function QuizPlatformLayout({
     const router = useRouter();
 
     return (
+        <>
         <div className="bg-[#FAD0C4] min-h-screen flex flex-col items-center p-4">
             <Head>
                 <title>Quiz App</title>
@@ -40,6 +41,7 @@ export default function QuizPlatformLayout({
                 {children}
             </ProtectedRoute>
         </div>
+        </>
     );
 }
 
