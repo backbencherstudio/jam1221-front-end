@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { LanguageProvider } from "./_components/LanguageContext";
 
+
 import Script from "next/script";
+import { AuthProvider } from "./_components/AuthProviderContext";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -42,10 +44,12 @@ export default function RootLayout({
           src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
           strategy="afterInteractive"
         />
-        <LanguageProvider>
-          <div id="google_translate_element"></div>
-          {children}
-        </LanguageProvider>
+        <AuthProvider>
+          <LanguageProvider>
+            <div id="google_translate_element"></div>
+            {children}
+          </LanguageProvider>
+        </AuthProvider>
       </body>
     </html>
   );

@@ -4,10 +4,12 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import img from "@/public/img1.jpeg"
 import { useRouter } from "next/navigation";
+import { useAuth } from "../_components/AuthProviderContext";
 
 const HomePage = () => {
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const {isAuthenticated } = useAuth();
   const route = useRouter()
 
   useEffect(() => {
@@ -27,12 +29,19 @@ const HomePage = () => {
   }, []);
 
   const handleRoute = () => {
-    const token = localStorage.getItem("token")
-    if(token){
+    // const token = localStorage.getItem("token")
+    // if(token){
+    //   route.push("/about")
+    // }else{
+    //   route.push("/login")
+    // }
+    if(isAuthenticated === true){
       route.push("/about")
-    }else{
+    }else{  
       route.push("/login")
     }
+
+
   }
 
   return (
