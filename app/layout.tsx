@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { LanguageProvider } from "./_components/LanguageContext";
+import { Providers } from "@/app/providers";
 
 
 import Script from "next/script";
@@ -18,13 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-      </head>
       <body
-        className=""
       >
         {/* Hidden dropdown */}
-        <div id="google_translate_element" style={{ display: "hidden" }}></div>
+        {/* <div id="google_translate_element" style={{ display: "hidden" }}></div> */}
 
         {/* Google Translate Init Script */}
         <Script id="google-translate-init" strategy="afterInteractive">
@@ -44,13 +42,14 @@ export default function RootLayout({
           src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
           strategy="afterInteractive"
         />
-        <AuthProvider>
-          <LanguageProvider>
-            <div id="google_translate_element"></div>
-            {children}
-          </LanguageProvider>
-        </AuthProvider>
+        <Providers>
+          <AuthProvider>
+              <div id="google_translate_element" className="hidden"></div>
+              {children}
+          </AuthProvider>
+        </Providers>
       </body>
     </html>
   );
 }
+
