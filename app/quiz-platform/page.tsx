@@ -56,17 +56,17 @@ export default function QuizPlatform() {
               { 
                 title: 'Begrepp', 
                 icon: '📚',
-                href: '/quiz-platform/traffic-rules'
+                href: '/quiz-platform/concept'
               },
               { 
                 title: 'Trafiksäkerhet', 
                 icon: '🚧',
-                href: '/quiz-platform/human'
+                href: '/quiz-platform/trafic-safety'
               },
               { 
                 title: 'Trafikregler', 
                 icon: '🚦',
-                href: '/quiz-platform/vehicle'
+                href: '/quiz-platform/traffic-rules'
               },
               { 
                 title: 'Miljö', 

@@ -1,14 +1,7 @@
-import React from 'react';
+import QuestionDesign from "../_component/QuestionDesign";
 
-const EnvironQuestionPages = () => {
-
-    
-
-    return (
-        <div>
-           <h1>Question about Environment</h1> 
-        </div>
-    );
-};
-
-export default EnvironQuestionPages;
+const EnvironmentPage = () => {
+    return <QuestionDesign categoryEndpoint="enviroment" />;
+  };
+  
+  export default EnvironmentPage;

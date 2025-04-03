@@ -43,11 +43,11 @@ const TheoryQuizComponent = () => {
   const [loadingQuestions, setLoadingQuestions] = useState(true); // NEW
 
 
-  useEffect(() => {
-    if (!loading && isAuthenticated === false) {
-      router.replace("/login");
-    }
-  }, [loading, isAuthenticated, router]);
+  // useEffect(() => {
+  //   if (!loading && isAuthenticated === false) {
+  //     router.replace("/login");
+  //   }
+  // }, [loading, isAuthenticated, router]);
 
   useEffect(() => {
     const fetchQuestions = async () => {
@@ -79,7 +79,7 @@ const TheoryQuizComponent = () => {
     
         if (subscriptionData?.subscription?.status) {
           const quizQuestions = questionsData.questions || [];
-          setQuestions(quizQuestions.slice(0, 2));
+          setQuestions(quizQuestions);
           setSelectedOptions(Array(quizQuestions.length).fill(null));
         } else {
           setQuestions([]); // will trigger "no subscription" view
