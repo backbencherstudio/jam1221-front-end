@@ -11,10 +11,11 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
-import { toast } from "@/components/ui/use-toast"
+// import { toast } from "@/components/ui/use-toast"
 import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "@/store/store"
-import { addCategory, updateCategory } from "@/features/category/categorySlice"
+import { addCategory } from "@/features/category/categorySlice"
+// import {  updateCategory } from "@/features/category/categorySlice"
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -53,7 +54,7 @@ export function CategoryForm({ categoryId }: { categoryId?: string }) {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true)
-    let newData = {
+    const newData = {
       id: categoryId ? categoryId : categories.length + 1,
       name: values.name,
       description: values.description,

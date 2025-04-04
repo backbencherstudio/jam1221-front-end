@@ -1,6 +1,4 @@
 
-import { DashboardHeader } from "@/app/(admin)/admin/_components/dashboard/dashboard-header"
-import { DashboardSidebar } from "@/app/(admin)/admin/_components/dashboard/dashboard-sidebar"
 import { QuestionList } from "@/app/(admin)/admin/_components/questions/question-list"
 import { Button } from "@/components/ui/button"
 import { PlusCircle } from "lucide-react"

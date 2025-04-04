@@ -29,37 +29,37 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
 
-// Mock data for categories
-const initialCategories = [
-  {
-    id: "1",
-    name: "CONCEPT",
-    description: "Basic concepts and theory questions",
-    questionCount: 30,
-    icon: "📚",
-  },
-  {
-    id: "2",
-    name: "TRAFFIC SAFETY",
-    description: "Questions about traffic safety measures",
-    questionCount: 25,
-    icon: "🚧",
-  },
-  {
-    id: "3",
-    name: "TRAFFIC RULES",
-    description: "Questions about traffic rules and regulations",
-    questionCount: 40,
-    icon: "🚦",
-  },
-  {
-    id: "4",
-    name: "ENVIRONMENT",
-    description: "Questions about environmental impact and regulations",
-    questionCount: 25,
-    icon: "🌍",
-  },
-]
+// // Mock data for categories
+// const initialCategories = [
+//   {
+//     id: "1",
+//     name: "CONCEPT",
+//     description: "Basic concepts and theory questions",
+//     questionCount: 30,
+//     icon: "📚",
+//   },
+//   {
+//     id: "2",
+//     name: "TRAFFIC SAFETY",
+//     description: "Questions about traffic safety measures",
+//     questionCount: 25,
+//     icon: "🚧",
+//   },
+//   {
+//     id: "3",
+//     name: "TRAFFIC RULES",
+//     description: "Questions about traffic rules and regulations",
+//     questionCount: 40,
+//     icon: "🚦",
+//   },
+//   {
+//     id: "4",
+//     name: "ENVIRONMENT",
+//     description: "Questions about environmental impact and regulations",
+//     questionCount: 25,
+//     icon: "🌍",
+//   },
+// ]
 
 export function CategoryList() {
   // const [categories, setCategories] = useState(initialCategories)

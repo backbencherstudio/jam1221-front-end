@@ -21,7 +21,7 @@ interface QuestionDesignProps {
 const QuestionDesign: React.FC<QuestionDesignProps> = ({ categoryEndpoint }) =>  {
   const [questions, setQuestions] = useState<QuizQuestion[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [userAnswers, setUserAnswers] = useState<(string | null)[]>([]);
   const [showResults, setShowResults] = useState(false);
   // const [isAnswerSubmitted, setIsAnswerSubmitted] = useState(false);
@@ -61,7 +61,7 @@ const QuestionDesign: React.FC<QuestionDesignProps> = ({ categoryEndpoint }) => 
     }
   }, [token, loading]);
 
-  const handleOptionSelect = (option: any) => {
+  const handleOptionSelect = (option: string) => {
     if (selectedOption === null) {
       setSelectedOption(option)
     }

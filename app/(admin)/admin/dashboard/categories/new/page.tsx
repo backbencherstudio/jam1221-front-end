@@ -1,5 +1,4 @@
-import { DashboardHeader } from "@/app/(admin)/admin/_components/dashboard/dashboard-header"
-import { DashboardSidebar } from "@/app/(admin)/admin/_components/dashboard/dashboard-sidebar"
+
 import { CategoryForm } from "@/app/(admin)/admin/_components/categories/category-form"
 
 export default function NewCategoryPage() {

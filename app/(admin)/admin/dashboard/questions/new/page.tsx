@@ -1,5 +1,4 @@
-import { DashboardHeader } from "@/app/(admin)/admin/_components/dashboard/dashboard-header"
-import { DashboardSidebar } from "@/app/(admin)/admin/_components/dashboard/dashboard-sidebar"
+
 import { QuestionForm } from "@/app/(admin)/admin/_components/questions/question-form"
 
 export default function NewQuestionPage() {

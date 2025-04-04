@@ -21,7 +21,7 @@ export default function NotFound() {
             <h1 className="text-2xl font-semibold text-gray-800 mb-2">Page Not Found</h1>
             
             <p className="text-gray-600 mb-6">
-              We couldn't find the page at <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm break-all">{router.asPath}</code>
+              We couldn&apos;t find the page at <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm break-all">{router.asPath}</code>
             </p>
             
             <div className="text-left text-gray-600 mb-8">
@@ -29,7 +29,7 @@ export default function NotFound() {
               <ul className="list-disc pl-5 space-y-1">
                 <li>The page has been moved or deleted</li>
                 <li>There was a typo in the URL</li>
-                <li>You don't have access to this page</li>
+                <li>You don&apos;t have access to this page</li>
               </ul>
             </div>
             
@@ -50,7 +50,7 @@ export default function NotFound() {
             </div>
             
             <p className="text-gray-500">
-              Still can't find what you're looking for?{' '}
+              Still can&apos;t find what you&apos;re looking for?{' '}
               <Link href="/contact" className="text-blue-600 hover:text-blue-700 font-medium">
                 Contact Support
               </Link>

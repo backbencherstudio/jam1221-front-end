@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { LanguageProvider } from "./_components/LanguageContext";
+
 import { Providers } from "@/app/providers";
 
 
