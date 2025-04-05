@@ -1,6 +1,8 @@
 
 "use client";
 import { useAuth } from '@/app/_components/AuthProviderContext';
+import { useSubscription } from '@/app/_hooks/useSubscription';
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
 interface QuizQuestion {
@@ -24,28 +26,24 @@ const QuestionDesign: React.FC<QuestionDesignProps> = ({ categoryEndpoint }) => 
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [userAnswers, setUserAnswers] = useState<(string | null)[]>([]);
   const [showResults, setShowResults] = useState(false);
-  // const [isAnswerSubmitted, setIsAnswerSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(true); // Add loading state
+  const [isLoading, setIsLoading] = useState(true);
   const { token, loading } = useAuth();
-
-  const currentQuestion = questions[currentQuestionIndex];
-  const isLastQuestion = currentQuestionIndex === questions.length - 1;
-
+  const { isSubscribed, loading: subscriptionLoading } = useSubscription();
 
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
         setIsLoading(true);
-        const questionResponse = await fetch(`http://localhost:4000/api/${categoryEndpoint}/questions`, {
+        const questionResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${categoryEndpoint}/questions`, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
           }
         });
         const questionData = await questionResponse.json();
-        console.log(questionData.questions[0])
+        
         if (questionData.success) {
-          setQuestions(questionData.questions); // Adjust based on your API response structure
+          setQuestions(questionData.questions);
         } else {
           throw new Error("Failed to fetch data");
         }
@@ -54,12 +52,34 @@ const QuestionDesign: React.FC<QuestionDesignProps> = ({ categoryEndpoint }) => 
       } finally {
         setIsLoading(false);
       }
-    }
+    };
 
-    if (token && !loading) {
+    if (token && !loading && isSubscribed) {
       fetchQuestions();
     }
-  }, [token, loading]);
+  }, [token, loading, categoryEndpoint, isSubscribed]);
+
+  if (loading || subscriptionLoading || isLoading) {
+    return <div>Loading questions...</div>;
+  }
+
+  if (!isSubscribed) {
+    return (
+      <div className="flex flex-col items-center">
+        <p className="text-center text-red-500 text-2xl font-medium">
+          Access to questions requires an active subscription. Please subscribe to continue.
+        </p>
+        <Link
+          href="/subscription"
+          className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-all"
+        >
+          Upgrade Subscription
+        </Link>
+      </div>
+    );
+  }
+  const currentQuestion = questions[currentQuestionIndex];
+  const isLastQuestion = currentQuestionIndex === questions.length - 1;
 
   const handleOptionSelect = (option: string) => {
     if (selectedOption === null) {
@@ -122,6 +142,9 @@ const QuestionDesign: React.FC<QuestionDesignProps> = ({ categoryEndpoint }) => 
     };
   };
 
+  // Add stable keys for dynamic content
+  const getStableKey = (index: number, type: string) => `${type}-${index}-${currentQuestionIndex}`;
+
   // Results view
   if (showResults) {
     const score = calculateScore();
@@ -149,7 +172,7 @@ const QuestionDesign: React.FC<QuestionDesignProps> = ({ categoryEndpoint }) => 
           const isCorrect = userAnswer === question.answer;
           
           return (
-            <div key={qIndex} className="mb-8">
+            <div key={getStableKey(qIndex, 'question')} className="mb-8">
               <h3 className="text-lg font-medium mb-4">{question.question}</h3>
               <div className="space-y-2">
                 {question.options.map((option, i) => {
@@ -162,7 +185,7 @@ const QuestionDesign: React.FC<QuestionDesignProps> = ({ categoryEndpoint }) => 
                   }
                   
                   return (
-                    <div key={i} className={optionClass}>
+                    <div key={getStableKey(i, 'option')} className={optionClass}>
                       <div className="flex items-center">
                         <div className={`w-6 h-6 rounded-full flex items-center justify-center mr-3 border ${
                           option === userAnswer ? (isCorrect ? 'bg-blue-500 border-blue-500' : 'bg-red-500 border-red-500') :
@@ -193,11 +216,11 @@ const QuestionDesign: React.FC<QuestionDesignProps> = ({ categoryEndpoint }) => 
           {currentQuestionIndex + 1} / {questions.length}
         </h1>
         <div>
-          <h3 className="text-lg font-medium mb-4">{currentQuestion.question}</h3>
-          <div className="space-y-2" key={currentQuestionIndex}>
-            {currentQuestion.options.map((option, i) => (
+          <h3 className="text-lg font-medium mb-4">{currentQuestion?.question}</h3>
+          <div className="space-y-2">
+            {currentQuestion?.options.map((option, i) => (
               <div
-                key={i}
+                key={getStableKey(i, 'current-option')}
                 className={getOptionStyle(option)}
                 onClick={() => handleOptionSelect(option)}
               >
@@ -228,7 +251,6 @@ const QuestionDesign: React.FC<QuestionDesignProps> = ({ categoryEndpoint }) => 
       </div>
     </div>
   );
-
 };
 
 export default QuestionDesign;

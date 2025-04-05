@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { useAuth } from '../_components/AuthProviderContext';
 
 interface PricingTierProps {
   title: string;
@@ -131,12 +132,19 @@ const PricingPage: NextPage = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
   const [isClient, setIsClient] = useState(false);
+  const { user, token } = useAuth();  // Add token from useAuth
 
   useEffect(() => {
     setIsClient(true);
+    
+    // If user is admin, redirect to about page
+    if (user?.type === 'admin') {
+      router.push('/about');
+      return;
+    }
+
     const checkSubscription = async () => {
       try {
-        const token = localStorage.getItem('token');
         if (!token) {
           router.push('/login');
           return;
@@ -149,13 +157,14 @@ const PricingPage: NextPage = () => {
           }
         });
         const data = await response.json();
-      
 
+        // If user is subscribed, redirect to about page
         if (data.isSubscribed) {
           router.push('/about');
           return;
         }
 
+        // If not subscribed, show pricing page
         setIsLoading(false);
       } catch (error) {
         console.error('Error checking subscription:', error);
@@ -164,7 +173,7 @@ const PricingPage: NextPage = () => {
     };
 
     checkSubscription();
-  }, [router]);
+  }, [user, token, router]); // Add dependencies
 
   // Only render content after client-side hydration
   if (!isClient) return null;

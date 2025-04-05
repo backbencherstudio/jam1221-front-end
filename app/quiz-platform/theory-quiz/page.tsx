@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { RiResetRightFill } from "react-icons/ri";
 import Link from "next/link";
 import { useAuth } from "@/app/_components/AuthProviderContext";
+import { useSubscription } from "@/app/_hooks/useSubscription";
 
 interface QuizQuestion {
   id: number;
@@ -31,8 +32,8 @@ interface SubmissionResult {
 const TheoryQuizComponent = () => {
 
   const router = useRouter();
-  const { isAuthenticated, loading,token } = useAuth();
-
+  const { isAuthenticated, loading, token } = useAuth();
+  const { isSubscribed, loading: subscriptionLoading } = useSubscription();
   const [questions, setQuestions] = useState<QuizQuestion[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOptions, setSelectedOptions] = useState<(string | null)[]>([]);
@@ -43,70 +44,68 @@ const TheoryQuizComponent = () => {
   const [loadingQuestions, setLoadingQuestions] = useState(true); // NEW
 
 
-  // useEffect(() => {
-  //   if (!loading && isAuthenticated === false) {
-  //     router.replace("/login");
-  //   }
-  // }, [loading, isAuthenticated, router]);
+
+  useEffect(() => {
+    if (!loading && isAuthenticated === false) {
+      router.replace("/login");
+    }
+  }, [loading, isAuthenticated, router]);
 
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        setLoadingQuestions(true); // start loading
-        const [questionsRes, subscriptionRes] = await Promise.all([
-          fetch(`${process.env.NEXT_PUBLIC_API_URL}/quiz-test/questions`, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "Content-Type": "application/json",
-            },
-          }),
-          fetch(`${process.env.NEXT_PUBLIC_API_URL}/payment/subscription/status`, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "Content-Type": "application/json",
-            },
-          }),
-        ]);
-    
-        if (!questionsRes.ok || !subscriptionRes.ok) {
+        setLoadingQuestions(true);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/quiz-test/questions`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
-    
-        const [questionsData, subscriptionData] = await Promise.all([
-          questionsRes.json(),
-          subscriptionRes.json(),
-        ]);
-    
-        if (subscriptionData?.subscription?.status) {
-          const quizQuestions = questionsData.questions || [];
-          setQuestions(quizQuestions);
-          setSelectedOptions(Array(quizQuestions.length).fill(null));
-        } else {
-          setQuestions([]); // will trigger "no subscription" view
-        }
-    
+
+        const questionsData = await response.json();
+        const quizQuestions = questionsData.questions || [];
+        setQuestions(quizQuestions.slice(0, 40));
+        setSelectedOptions(Array(quizQuestions.length).fill(null));
         setCurrentQuestionIndex(0);
         setIsAnswerSubmitted(false);
         setShowResult(false);
       } catch (error) {
         console.error("Error fetching questions:", error);
       } finally {
-        setLoadingQuestions(false); // stop loading
+        setLoadingQuestions(false);
       }
     };
     
-    if (!loading && isAuthenticated) {
+    if (!loading && isAuthenticated && isSubscribed) {
       fetchQuestions();
     }
-  }, [loading, isAuthenticated]);
+  }, [loading, isAuthenticated, token, isSubscribed]);
 
-  // if (loading) return <div className="flex justify-center gap-2.5"><span className="w-6 h-6 border-4 border-t-blue-500 border-gray-300 border-solid rounded-full animate-spin"></span> Loading...</div> ;
-
-  if (loadingQuestions) {
+  if (loading || subscriptionLoading || loadingQuestions) {
     return (
       <div className="flex items-center gap-2 bg-blue-500 rounded-md px-3 text-white text-lg font-bold py-2">
         <span className="w-6 h-6 border-4 border-t-blue-500 border-gray-300 border-solid rounded-full animate-spin"></span>
-        Loading Questions...
+        Loading...
+      </div>
+    );
+  }
+
+  if (!isSubscribed) {
+    return (
+      <div className="flex flex-col items-center">
+        <p className="text-center text-red-500 text-2xl font-medium">
+          Access to questions requires an active subscription. Please subscribe to continue.
+        </p>
+        <Link
+          href="/subscription"
+          className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-all"
+        >
+          Upgrade Subscription
+        </Link>
       </div>
     );
   }
@@ -150,13 +149,7 @@ const TheoryQuizComponent = () => {
       : "border border-gray-300 rounded p-3 hover:bg-gray-50 cursor-pointer";
   };
 
-  // const getResultOptionStyle = (option: string, index: number) => {
-  //   const result = submissionResult?.detailedResults?.[index];
-  //   if (!result) return "border border-gray-300 rounded p-3 opacity-50";
-  //   if (option === result.correctAnswer) return "border border-blue-500 bg-blue-100 rounded p-3";
-  //   if (option === result.userAnswer) return "border border-red-500 bg-red-100 rounded p-3";
-  //   return "border border-gray-300 rounded p-3 opacity-80";
-  // };
+
      const getResultOptionStyle = (option: string, question: QuizQuestion, index: number) => {
  
  
@@ -204,13 +197,13 @@ const TheoryQuizComponent = () => {
 
 
   return (
-    <span className="bg-white rounded-lg shadow-lg w-full max-w-[800px] p-6 mt-10">
+    <div className="bg-white rounded-lg shadow-lg w-full max-w-[800px] p-6 mt-10">
       {!showResult ? (
         <>
           <div className="flex justify-end mb-4">
-            <span className="text-sm text-gray-500 notranslate">
+            <div className="text-sm text-gray-500 notranslate">
               {currentQuestionIndex + 1} / {questions.length}
-            </span>
+            </div>
           </div>
 
           <h2 className="text-lg font-medium mb-6 text-center text-black">
@@ -320,7 +313,7 @@ const TheoryQuizComponent = () => {
           </div>
         </>
       )}
-    </span>
+    </div>
   );
 };
 

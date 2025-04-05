@@ -2,122 +2,67 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useLanguage,LanguageProvider } from '../_components/LanguageContext';
+import { useLanguage, LanguageProvider } from '../_components/LanguageContext';
 import { useRouter } from 'next/navigation';
-// import Loading from '../quiz-platform/loading';
-import { CiMenuFries } from "react-icons/ci";
 import { useAuth } from '../_components/AuthProviderContext';
 
-
-
-
 const AboutPageContent: React.FC = () => {
+  const router = useRouter();
+  const { t, language, setLanguage } = useLanguage();
+  const { token, loading, logout } = useAuth();
 
-  const route = useRouter()
-  const [sidebar, setSidebar] = useState(false)
-  const { t, language, setLanguage } = useLanguage()
-    const { isAuthenticated, loading,logout } = useAuth();
-
-
-    useEffect(() => {
-      if (!loading && isAuthenticated === false) {
-        route.replace("/login");
+  useEffect(() => {
+    const checkAuth = async () => {
+      if (!loading && !token) {
+        router.replace("/login");
       }
-    }, [loading, isAuthenticated, route]);
+    };
+    checkAuth();
+  }, [loading, token, router]);
 
   const handleRoute = () => {
-    route.push("/")
+    router.push("/");
+  };
+
+  const handleLogOut = async () => {
+    try {
+      await logout();
+      router.push("/login");
+    } catch (error) {
+      console.error('Logout error:', error);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="flex h-screen items-center justify-center gap-2.5">
+        <span className="w-6 h-6 border-4 border-t-blue-500 border-gray-300 border-solid rounded-full animate-spin" />
+        <span>Loading...</span>
+      </div>
+    );
   }
-
-  // const {isAuthenticated,logout } = useAuth();
-
-        // if(isAuthenticated === false || isAuthenticated === null){
-        //     return <Loading />
-        // }
-
-        
-  if (loading) return <div className="flex h-screen items-center justify-center gap-2.5"><span className="w-6 h-6 border-4 border-t-blue-500 border-gray-300 border-solid rounded-full animate-spin"></span> Loading...</div> ;
-
-
-  
-
-
-  
-
-
-
-const handleLogOut = () => {
-  logout()
-  route.push("/login")
-}
-
-
 
   return (
     <div className="flex flex-col min-h-screen notranslate">
-      {/* Header */}
       <header className="w-full bg-[#007BFF] text-white p-[10px]">
-        <div className="w-full justify-end flex text-center  gap-4 ">
-          <button onClick={handleRoute} className="bg-blue-300 border text-black justify-self-center shadow-md cursor-pointer hover:scale-105 duration-300 scale-100 text-lg py-3 px-6 rounded-lg">
+        <div className="w-full justify-end flex text-center gap-4">
+          <button 
+            onClick={handleRoute}
+            className="bg-blue-300 border text-black justify-self-center shadow-md cursor-pointer hover:scale-105 duration-300 scale-100 text-lg py-3 px-6 rounded-lg"
+          >
             {t("home")}
           </button>
-          <button onClick={() => {
-            // localStorage.removeItem("token");
-            // route.push("/login");
-            handleLogOut()
-
-          }}
-            className="bg-blue-300 border shadow-md cursor-pointer hover:scale-105 duration-300 scale-100 text-black text-lg py-3 px-6 rounded-lg flex items-center justify-center justify-self-end gap-2 transform transition-all ease-in-out  "
+          <button 
+            onClick={handleLogOut}
+            className="bg-blue-300 border shadow-md cursor-pointer hover:scale-105 duration-300 scale-100 text-black text-lg py-3 px-6 rounded-lg flex items-center justify-center justify-self-end gap-2 transform transition-all ease-in-out"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
             </svg>
             {t("logout")}
           </button>
-
-          {/* <Button variant="outline"
-            className=" text-black h-full py-3 bg-blue-300 px-6 rounded-lg font-semibold text-lg transition duration-300 ease-in-out  ">
-            <Link href={"../cancel-subscription"}>
-              Cancel Subscription
-            </Link>
-          </Button> */}
         </div>
-        <button className='hidden ml-auto' onClick={() => setSidebar(!sidebar)}>
-          <span className=''>
-            <CiMenuFries className='text-2xl' />
-          </span>
-        </button>
-
-
       </header>
-
-      {/* {sidebar && (
-        <div className='fixed top-0 left-0 min-h-screen bg-gray-300'>
-          <div className="w-[250px] mt-6 justify-end flex flex-col w text-center  gap-4 ">
-            <button onClick={handleRoute} className="border border-red-50 cursor-pointer hover:scale-105 duration-300 scale-100 text-black  py-1 px-2 text-base rounded-sm flex items-center  gap-2 transform transition-all ease-in-out ">
-              {t("home")}
-            </button>
-            <button onClick={() => {
-              localStorage.removeItem("token");
-              route.push("/login");
-            }}
-              className="border border-red-50 cursor-pointer hover:scale-105 duration-300 scale-100 text-black  py-1 px-2 text-base rounded-sm flex items-center  gap-2 transform transition-all ease-in-out "
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
-              </svg>
-              {t("logout")}
-            </button>
-
-            <Button variant="outline"
-              className="border border-red-50 cursor-pointer hover:scale-105 duration-300 scale-100 text-black  py-1 px-2 text-base rounded-sm flex items-center  gap-2 transform transition-all ease-in-out  ">
-              <Link href={"../cancel-subscription"}>
-                Cancel Subscription
-              </Link>
-            </Button>
-          </div>
-        </div>
-      )} */}
 
       {/* Main Content */}
       <main className="flex-grow bg-[#808080] text-black">
@@ -129,7 +74,8 @@ const handleLogOut = () => {
               <select
                 value={language}
                 onChange={(e) => setLanguage(e.target.value as "en" | "sv" | "ar")}
-                className="bg-red-800 text-white border focus:outline-none focus:ring-1 border-white rounded-[5px]  font-semibold px-[15px] py-[10px]">
+                className="bg-red-800 text-white border focus:outline-none focus:ring-1 border-white rounded-[5px] font-semibold px-[15px] py-[10px]"
+              >
                 <option value="en">EN</option>
                 <option value="ar">Arabic</option>
                 <option value="sv">Swedish</option>
@@ -137,32 +83,22 @@ const handleLogOut = () => {
             </div>
           </div>
 
-          {/* Main Title */}
           <h1 className="text-[32px] font-bold text-center mb-8">{t("title")}</h1>
 
-          {/* Why TeoriMaster Section */}
           <section className="mb-8">
             <h2 className="md:text-2xl text-xl font-bold text-center mb-4">{t("whyTitle")}</h2>
-            <p className="text-center text-white   text-lg">
-              {t("whyText")}
-            </p>
+            <p className="text-center text-white text-lg">{t("whyText")}</p>
           </section>
 
-          {/* How to Study Section */}
           <section className="mb-8">
             <h2 className="md:text-2xl text-xl font-bold text-center mb-4">{t("studyTitle")}</h2>
-            <p className="text-center text-white  text-lg">{t("studyText")}
-            </p>
+            <p className="text-center text-white text-lg">{t("studyText")}</p>
           </section>
 
-          {/* Strategy Section */}
           <section className="mb-8">
             <h2 className="md:text-2xl text-xl font-bold text-center mb-4">{t("strategyTitle")}</h2>
-            <p className="text-center text-white text-lg mb-6">
-              {t("strategyText")}
-            </p>
+            <p className="text-center text-white text-lg mb-6">{t("strategyText")}</p>
 
-            {/* Bullet Points */}
             <div className="flex justify-center mb-10">
               <ul className="list-disc text-lg text-white pl-8">
                 <li>{t("rule")}</li>
@@ -172,23 +108,17 @@ const handleLogOut = () => {
               </ul>
             </div>
 
-            {/* Videos Section */}
-            <p className="text-center text-lg text-white mb-4">
-              {t("videoText")}
-            </p>
+            <p className="text-center text-lg text-white mb-4">{t("videoText")}</p>
 
             <div className="flex justify-center mb-10">
-              <a className='scale-100 hover:scale-105 duration-300' href="https://youtu.be/ClYvqgpq5zQ?si=rMrDGm6KUUTbi9XL" target='_blank'>
+              <a className="scale-100 hover:scale-105 duration-300" href="https://youtu.be/ClYvqgpq5zQ?si=rMrDGm6KUUTbi9XL" target="_blank" rel="noopener noreferrer">
                 <button className="bg-blue-600 text-lg cursor-pointer hover:bg-blue-700 text-white py-2 px-4 rounded">
                   {t("videoButton")}
                 </button>
               </a>
             </div>
 
-            {/* Navigation */}
-            <p className="text-center text-lg text-white mb-4">
-              {t("nextText")}
-            </p>
+            <p className="text-center text-lg text-white mb-4">{t("nextText")}</p>
 
             <div className="flex justify-center">
               <Link href="/quiz-platform">
