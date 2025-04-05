@@ -9,7 +9,7 @@ import { useAuth } from '../_components/AuthProviderContext';
 const AboutPageContent: React.FC = () => {
   const router = useRouter();
   const { t, language, setLanguage } = useLanguage();
-  const { token, loading, logout } = useAuth();
+  const { token, loading, logout, user } = useAuth();
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -52,6 +52,17 @@ const AboutPageContent: React.FC = () => {
           >
             {t("home")}
           </button>
+          
+          {/* Admin Dashboard Button */}
+          {user?.type === 'admin' && (
+            <button 
+              onClick={() => router.push('/admin')}
+              className="bg-blue-300 border text-black justify-self-center shadow-md cursor-pointer hover:scale-105 duration-300 scale-100 text-lg py-3 px-6 rounded-lg"
+            >
+              Dashboard
+            </button>
+          )}
+
           <button 
             onClick={handleLogOut}
             className="bg-blue-300 border shadow-md cursor-pointer hover:scale-105 duration-300 scale-100 text-black text-lg py-3 px-6 rounded-lg flex items-center justify-center justify-self-end gap-2 transform transition-all ease-in-out"
