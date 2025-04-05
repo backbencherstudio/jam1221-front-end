@@ -6,7 +6,7 @@ import { useAuth } from "@/app/_components/AuthProviderContext";
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
-  const { isAuthenticated, loading, token } = useAuth();
+  const { isAuthenticated, loading, token, user } = useAuth();  // Add user to destructuring
   const [isSubscribed, setIsSubscribed] = useState<boolean | null>(null);
 
   useEffect(() => {
@@ -15,6 +15,12 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
     }
 
     const checkSubscription = async () => {
+      // If user is admin, skip subscription check
+      if (user?.type === 'admin') {
+        setIsSubscribed(true);
+        return;
+      }
+
       try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/payment/subscription/status`, {
           headers: {
@@ -33,7 +39,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
     if (!loading && isAuthenticated) {
       checkSubscription();
     }
-  }, [loading, isAuthenticated, token, router]);
+  }, [loading, isAuthenticated, token, router, user]);
 
   if (loading || isSubscribed === null) {
     return (

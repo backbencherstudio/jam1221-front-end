@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
 import { Providers } from "@/app/providers";
-
-
 import Script from "next/script";
 import { AuthProvider } from "./_components/AuthProviderContext";
 
@@ -19,35 +16,31 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-      >
-        {/* Hidden dropdown */}
-        {/* <div id="google_translate_element" style={{ display: "hidden" }}></div> */}
-
-        {/* Google Translate Init Script */}
-        <Script id="google-translate-init" strategy="afterInteractive">
-          {`
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'sv',
-        includedLanguages: 'en,sv,ar',
-        autoDisplay: false
-      }, 'google_translate_element');
-    }
-  `}
-        </Script>
-
-        {/* Google Translate External JS */}
-        <Script
-          src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-          strategy="afterInteractive"
-        />
+      <body>
         <Providers>
           <AuthProvider>
-              <div id="google_translate_element" className="hidden"></div>
-              {children}
+            <div id="google_translate_element" className="fixed top-0 left-0 opacity-0 pointer-events-none"></div>
+            {children}
           </AuthProvider>
         </Providers>
+
+        <Script
+          src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+          strategy="lazyOnload"
+        />
+        
+        <Script strategy="lazyOnload">
+          {`
+            function googleTranslateElementInit() {
+              new google.translate.TranslateElement({
+                pageLanguage: 'sv',
+                includedLanguages: 'en,sv,ar',
+                autoDisplay: false,
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+              }, 'google_translate_element');
+            }
+          `}
+        </Script>
       </body>
     </html>
   );
