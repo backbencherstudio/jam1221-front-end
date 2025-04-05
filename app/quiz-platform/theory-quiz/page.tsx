@@ -30,10 +30,9 @@ interface SubmissionResult {
 }
 
 const TheoryQuizComponent = () => {
-
   const router = useRouter();
-  const { isAuthenticated, loading, token } = useAuth();
-  const { isSubscribed, loading: subscriptionLoading } = useSubscription();
+  const { isAuthenticated, loading: authLoading, token } = useAuth();
+  const { isSubscribed, loading: subscriptionLoading, error: subscriptionError } = useSubscription();
   const [questions, setQuestions] = useState<QuizQuestion[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOptions, setSelectedOptions] = useState<(string | null)[]>([]);
@@ -41,20 +40,26 @@ const TheoryQuizComponent = () => {
   const [showResult, setShowResult] = useState(false);
   const [submissionResult, setSubmissionResult] = useState<SubmissionResult | null>(null);
   const [percentage, setPercentage] = useState(0);
-  const [loadingQuestions, setLoadingQuestions] = useState(true); // NEW
-
-
+  const [loadingQuestions, setLoadingQuestions] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!loading && isAuthenticated === false) {
+    if (!authLoading && !isAuthenticated) {
       router.replace("/login");
+      return;
     }
-  }, [loading, isAuthenticated, router]);
+  }, [authLoading, isAuthenticated, router]);
 
   useEffect(() => {
+    let mounted = true;
+
     const fetchQuestions = async () => {
+      if (!token || !isSubscribed) return;
+      
       try {
         setLoadingQuestions(true);
+        setError(null);
+        
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/quiz-test/questions`, {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -63,40 +68,75 @@ const TheoryQuizComponent = () => {
         });
 
         if (!response.ok) {
-          throw new Error("Failed to fetch data");
+          throw new Error(`Failed to fetch data: ${response.status}`);
         }
 
         const questionsData = await response.json();
-        const quizQuestions = questionsData.questions || [];
+        
+        if (!mounted) return;
+        
+        if (!questionsData || !Array.isArray(questionsData.questions)) {
+          throw new Error('Invalid questions data format');
+        }
+
+        const quizQuestions = questionsData.questions;
         setQuestions(quizQuestions.slice(0, 40));
-        setSelectedOptions(Array(quizQuestions.length).fill(null));
+        setSelectedOptions(new Array(quizQuestions.length).fill(null));
         setCurrentQuestionIndex(0);
         setIsAnswerSubmitted(false);
         setShowResult(false);
       } catch (error) {
+        if (!mounted) return;
         console.error("Error fetching questions:", error);
+        setError(error instanceof Error ? error.message : 'Failed to load questions');
       } finally {
-        setLoadingQuestions(false);
+        if (mounted) {
+          setLoadingQuestions(false);
+        }
       }
     };
     
-    if (!loading && isAuthenticated && isSubscribed) {
+    if (!authLoading && isAuthenticated && isSubscribed) {
       fetchQuestions();
     }
-  }, [loading, isAuthenticated, token, isSubscribed]);
 
-  if (loading || subscriptionLoading || loadingQuestions) {
+    return () => {
+      mounted = false;
+    };
+  }, [authLoading, isAuthenticated, token, isSubscribed]);
+
+  if (authLoading || subscriptionLoading) {
     return (
-      <div className="flex items-center gap-2 bg-blue-500 rounded-md px-3 text-white text-lg font-bold py-2">
-        <span className="w-6 h-6 border-4 border-t-blue-500 border-gray-300 border-solid rounded-full animate-spin"></span>
-        Loading...
+      <div className="min-h-[200px] flex items-center justify-center">
+        <div className="flex items-center gap-2 bg-blue-500 rounded-md px-3 text-white text-lg font-bold py-2">
+          <span className="w-6 h-6 border-4 border-t-blue-500 border-gray-300 border-solid rounded-full animate-spin"></span>
+          Loading...
+        </div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return null; // Will be redirected by the useEffect
+  }
+
+  if (subscriptionError) {
+    return (
+      <div className="min-h-[200px] flex flex-col items-center justify-center">
+        <p className="text-center text-red-500 text-xl">{subscriptionError}</p>
+        <Link
+          href="/subscription"
+          className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-all"
+        >
+          Check Subscription
+        </Link>
       </div>
     );
   }
 
   if (!isSubscribed) {
     return (
-      <div className="flex flex-col items-center">
+      <div className="min-h-[200px] flex flex-col items-center justify-center">
         <p className="text-center text-red-500 text-2xl font-medium">
           Access to questions requires an active subscription. Please subscribe to continue.
         </p>
@@ -109,20 +149,32 @@ const TheoryQuizComponent = () => {
       </div>
     );
   }
-  
+
+  if (error) {
+    return (
+      <div className="min-h-[200px] flex items-center justify-center">
+        <p className="text-center text-red-500 text-xl">{error}</p>
+      </div>
+    );
+  }
+
+  if (loadingQuestions) {
+    return (
+      <div className="min-h-[200px] flex items-center justify-center">
+        <div className="flex items-center gap-2 bg-blue-500 rounded-md px-3 text-white text-lg font-bold py-2">
+          <span className="w-6 h-6 border-4 border-t-blue-500 border-gray-300 border-solid rounded-full animate-spin"></span>
+          Loading questions...
+        </div>
+      </div>
+    );
+  }
 
   if (questions.length === 0) {
     return (
-      <div className="flex flex-col items-center">
+      <div className="min-h-[200px] flex flex-col items-center justify-center">
         <p className="text-center text-red-500 text-2xl font-medium">
-          Access to questions requires an active subscription. Please subscribe to continue.
+          No questions available. Please try again later.
         </p>
-        <Link
-          href="/subscription"
-          className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-all"
-        >
-          Upgrade Subscription
-        </Link>
       </div>
     );
   }
@@ -148,7 +200,6 @@ const TheoryQuizComponent = () => {
       ? "border border-blue-500 bg-blue-100 rounded p-3"
       : "border border-gray-300 rounded p-3 hover:bg-gray-50 cursor-pointer";
   };
-
 
      const getResultOptionStyle = (option: string, question: QuizQuestion, index: number) => {
  
