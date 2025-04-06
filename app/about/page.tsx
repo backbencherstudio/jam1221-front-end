@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useLanguage,LanguageProvider } from '../_components/LanguageContext';
+import { useLanguage, LanguageProvider } from '../_components/LanguageContext';
 import { useRouter } from 'next/navigation';
 // import Loading from '../quiz-platform/loading';
 import { CiMenuFries } from "react-icons/ci";
@@ -16,14 +16,15 @@ const AboutPageContent: React.FC = () => {
   const route = useRouter()
   const [sidebar, setSidebar] = useState(false)
   const { t, language, setLanguage } = useLanguage()
-    const { isAuthenticated, loading,logout } = useAuth();
+  const { isAuthenticated, loading, logout, user } = useAuth();
 
 
-    useEffect(() => {
-      if (!loading && isAuthenticated === false) {
-        route.replace("/login");
-      }
-    }, [loading, isAuthenticated, route]);
+
+  useEffect(() => {
+    if (!loading && isAuthenticated === false) {
+      route.replace("/login");
+    }
+  }, [loading, isAuthenticated, route]);
 
   const handleRoute = () => {
     route.push("/")
@@ -31,25 +32,21 @@ const AboutPageContent: React.FC = () => {
 
   // const {isAuthenticated,logout } = useAuth();
 
-        // if(isAuthenticated === false || isAuthenticated === null){
-        //     return <Loading />
-        // }
-
-        
-  if (loading) return <div className="flex h-screen items-center justify-center gap-2.5"><span className="w-6 h-6 border-4 border-t-blue-500 border-gray-300 border-solid rounded-full animate-spin"></span> Loading...</div> ;
+  // if(isAuthenticated === false || isAuthenticated === null){
+  //     return <Loading />
+  // }
 
 
-  
-
-
-  
+  if (loading || user === undefined) return <div className="flex h-screen items-center justify-center gap-2.5"><span className="w-6 h-6 border-4 border-t-blue-500 border-gray-300 border-solid rounded-full animate-spin"></span> Loading...</div>;
 
 
 
-const handleLogOut = () => {
-  logout()
-  route.push("/login")
-}
+
+
+  const handleLogOut = () => {
+    logout()
+    route.push("/login")
+  }
 
 
 
@@ -61,6 +58,13 @@ const handleLogOut = () => {
           <button onClick={handleRoute} className="bg-blue-300 border text-black justify-self-center shadow-md cursor-pointer hover:scale-105 duration-300 scale-100 text-lg py-3 px-6 rounded-lg">
             {t("home")}
           </button>
+
+          {user?.type === "admin" && (
+            <Link href="/admin" className="bg-blue-300 border text-black justify-self-center shadow-md cursor-pointer hover:scale-105 duration-300 scale-100 text-lg py-3 px-6 rounded-lg">
+            {t("Dashboard")}
+          </Link>
+          )}
+
           <button onClick={() => {
             // localStorage.removeItem("token");
             // route.push("/login");

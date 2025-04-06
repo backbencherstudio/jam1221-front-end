@@ -51,39 +51,63 @@ const TheoryQuizComponent = () => {
 
   useEffect(() => {
     const fetchQuestions = async () => {
+
       try {
         setLoadingQuestions(true); // start loading
-        const [questionsRes, subscriptionRes] = await Promise.all([
-          fetch(`${process.env.NEXT_PUBLIC_API_URL}/quiz-test/questions`, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "Content-Type": "application/json",
-            },
-          }),
-          fetch(`${process.env.NEXT_PUBLIC_API_URL}/payment/subscription/status`, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "Content-Type": "application/json",
-            },
-          }),
-        ]);
-    
-        if (!questionsRes.ok || !subscriptionRes.ok) {
-          throw new Error("Failed to fetch data");
+        const questionsRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/quiz-test/questions`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        });
+      
+        if (!questionsRes.ok) {
+          throw new Error("Failed to fetch questions");
         }
+      
+        const questionsData = await questionsRes.json();
+        
+        const quizQuestions = questionsData.questions || [];
+        setQuestions(quizQuestions);
+        setSelectedOptions(Array(quizQuestions.length).fill(null));
+
+
+//////////here am commenting out the subscription check cause it was in the previous code and i am not sure if we need it or not. so i will comment it out for now. 
+      // try {
+      //   setLoadingQuestions(true); // start loading
+      //   const [questionsRes, subscriptionRes] = await Promise.all([
+      //     fetch(`${process.env.NEXT_PUBLIC_API_URL}/quiz-test/questions`, {
+      //       headers: {
+      //         Authorization: `Bearer ${token}`,
+      //         "Content-Type": "application/json",
+      //       },
+      //     }),
+      //     fetch(`${process.env.NEXT_PUBLIC_API_URL}/payment/subscription/status`, {
+      //       headers: {
+      //         Authorization: `Bearer ${token}`,
+      //         "Content-Type": "application/json",
+      //       },
+      //     }),
+      //   ]);
     
-        const [questionsData, subscriptionData] = await Promise.all([
-          questionsRes.json(),
-          subscriptionRes.json(),
-        ]);
+      //   if (!questionsRes.ok || !subscriptionRes.ok) {
+      //     throw new Error("Failed to fetch data");
+      //   }
     
-        if (subscriptionData?.subscription?.status) {
-          const quizQuestions = questionsData.questions || [];
-          setQuestions(quizQuestions);
-          setSelectedOptions(Array(quizQuestions.length).fill(null));
-        } else {
-          setQuestions([]); // will trigger "no subscription" view
-        }
+      //   const [questionsData, subscriptionData] = await Promise.all([
+      //     questionsRes.json(),
+      //     subscriptionRes.json(),
+      //   ]);
+    
+          
+          // if (subscriptionData?.subscription?.status) {
+            // const quizQuestions = questionsData.questions || [];
+            // setQuestions(quizQuestions);
+            // setSelectedOptions(Array(quizQuestions.length).fill(null));
+        // }
+        //  else {
+        //   setQuestions([]); // will trigger "no subscription" view
+        // }
     
         setCurrentQuestionIndex(0);
         setIsAnswerSubmitted(false);
@@ -112,21 +136,21 @@ const TheoryQuizComponent = () => {
   }
   
 
-  if (questions.length === 0) {
-    return (
-      <div className="flex flex-col items-center">
-        <p className="text-center text-red-500 text-2xl font-medium">
-          Access to questions requires an active subscription. Please subscribe to continue.
-        </p>
-        <Link
-          href="/subscription"
-          className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-all"
-        >
-          Upgrade Subscription
-        </Link>
-      </div>
-    );
-  }
+  // if (questions.length === 0) {
+  //   return (
+  //     <div className="flex flex-col items-center">
+  //       <p className="text-center text-red-500 text-2xl font-medium">
+  //         Access to questions requires an active subscription. Please subscribe to continue.
+  //       </p>
+  //       <Link
+  //         href="/subscription"
+  //         className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-all"
+  //       >
+  //         Upgrade Subscription
+  //       </Link>
+  //     </div>
+  //   );
+  // }
 
   const handleOptionSelect = (option: string) => {
     if (isAnswerSubmitted) return;

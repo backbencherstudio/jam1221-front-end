@@ -11,7 +11,7 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }>) {
   const { user, loading } = useAuth(); 
-  console.log(user)
+
 
   if (loading || user === undefined) {
     return (
@@ -22,12 +22,12 @@ export default function DashboardLayout({
   }
 
   // Redirect if the user type is not 'user'
-  if (!(user?.type === "user")) {
+  if (!(user?.type === "admin")) {
     redirect("/");
   }
 
   return (
-    <div className="">
+    <div className="notranslate">
       <div className="flex h-screen bg-background">
         <DashboardSidebar />
         <div className="flex flex-col flex-1 overflow-hidden">
