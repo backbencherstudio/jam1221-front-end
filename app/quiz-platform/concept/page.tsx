@@ -1,7 +1,8 @@
-import QuestionDesign from "../_component/QuestionDesign";
+import CategoryQuestionDesign from "../_component/CategoryQuestionDesign";
+
 
 const TrafficConceptPage = () => {
-    return <QuestionDesign categoryEndpoint="traffic-rules" />;
+    return <CategoryQuestionDesign categoryEndpoint="concepts" />;
   };
   
   export default TrafficConceptPage;

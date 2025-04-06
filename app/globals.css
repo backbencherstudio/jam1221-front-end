@@ -132,3 +132,20 @@ body {
     @apply bg-background text-foreground;
   }
 } 
+
+/* This helps prevent Google Translate from breaking React's DOM structure */
+/* .google-translate-container {
+  isolation: isolate;
+  position: relative;
+  z-index: 1;
+} */
+
+/* When Google Translate is active, apply these fixes */
+/* .google-translate-active [data-protected="true"] {
+
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+} */
+
+/* Add this class to elements you don't want translated */

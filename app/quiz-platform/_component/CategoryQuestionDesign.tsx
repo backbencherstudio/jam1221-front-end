@@ -18,7 +18,7 @@ interface QuestionDesignProps {
 }
 
 
-const QuestionDesign: React.FC<QuestionDesignProps> = ({ categoryEndpoint }) =>  {
+const CategoryQuestionDesign: React.FC<QuestionDesignProps> = ({ categoryEndpoint }) =>  {
   const [questions, setQuestions] = useState<QuizQuestion[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -36,7 +36,7 @@ const QuestionDesign: React.FC<QuestionDesignProps> = ({ categoryEndpoint }) => 
     const fetchQuestions = async () => {
       try {
         setIsLoading(true);
-        const questionResponse = await fetch(`http://localhost:4000/api/${categoryEndpoint}/questions`, {
+        const questionResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${categoryEndpoint}/questions`, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
@@ -103,7 +103,12 @@ const QuestionDesign: React.FC<QuestionDesignProps> = ({ categoryEndpoint }) => 
 
 
   if (isLoading) {
-    return <div>Loading questions...</div>;
+    return (
+      <div className="flex items-center gap-2 bg-blue-500 rounded-md px-3 text-white text-lg font-bold py-2">
+        <span className="w-6 h-6 border-4 border-t-blue-500 border-gray-300 border-solid rounded-full animate-spin"></span>
+        Loading Questions...
+      </div>
+    );
   }
 
   if (!questions.length) {
@@ -231,4 +236,4 @@ const QuestionDesign: React.FC<QuestionDesignProps> = ({ categoryEndpoint }) => 
 
 };
 
-export default QuestionDesign;
+export default CategoryQuestionDesign;

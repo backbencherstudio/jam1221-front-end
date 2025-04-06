@@ -1,5 +1,6 @@
 "use client"
-import { BookOpen, Grid, HelpCircle, LayoutDashboard, List, Settings } from "lucide-react"
+import { BookOpen, Grid, HelpCircle,List, Settings } from "lucide-react"
+// import { LayoutDashboard,} from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
@@ -23,12 +24,12 @@ export function DashboardSidebar() {
         <div className="px-3 py-2">
           <h2 className="mb-2 px-4 text-xs font-semibold text-muted-foreground">Dashboard</h2>
           <div className="space-y-1">
-            <Button variant={isActive("/admin/dashboard") ? "secondary" : "ghost"} asChild className="w-full justify-start">
+            {/* <Button variant={isActive("/admin/dashboard") ? "secondary" : "ghost"} asChild className="w-full justify-start">
               <Link href="/admin/dashboard">
                 <LayoutDashboard className="mr-2 h-4 w-4" />
                 Overview
               </Link>
-            </Button>
+            </Button> */}
             <Button
               variant={isActive("/admin/dashboard/categories") ? "secondary" : "ghost"}
               asChild

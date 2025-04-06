@@ -131,7 +131,7 @@ const PricingTier: React.FC<PricingTierProps> = ({
 
 const PricingPage: NextPage = () => {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
   // const [isClient, setIsClient] = useState(false);
   const { user, loading } = useAuth();
   const [isSubscribed, setIsSubscribed] = useState<boolean | null>(null);
@@ -141,7 +141,7 @@ const PricingPage: NextPage = () => {
 
   useEffect(() => {
     // setIsClient(true);
-    // loadingSpinner()
+    loadingSpinner()
     const checkSubscription = async () => {
       try {
         const token = localStorage.getItem('token');
@@ -164,10 +164,10 @@ const PricingPage: NextPage = () => {
           return;
         }
 
-        setIsLoading(false);
+        // setIsLoading(false);
       } catch (error) {
         console.error('Error checking subscription:', error);
-        setIsLoading(false);
+        // setIsLoading(false);
       }
     };
 
@@ -177,15 +177,15 @@ const PricingPage: NextPage = () => {
   // Only render content after client-side hydration
   // if (!isClient) return null;
 
-  // function loadingSpinner() {
-  //   if (loading || user === undefined) {
-  //     return (
-  //       <div className="min-h-screen bg-teal-500 flex items-center justify-center">
-  //         <div className="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
-  //       </div>
-  //     );
-  //   } 
-  // }
+  function loadingSpinner() {
+    if (loading || user === undefined) {
+      return (
+        <div className="min-h-screen bg-teal-500 flex items-center justify-center">
+          <div className="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      );
+    } 
+  }
 
   const isBasicUser = user?.type === "admin" || isSubscribed;
 console.log(isSubscribed)

@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { RiResetRightFill } from "react-icons/ri";
-import Link from "next/link";
+// import Link from "next/link";
 import { useAuth } from "@/app/_components/AuthProviderContext";
 
 interface QuizQuestion {

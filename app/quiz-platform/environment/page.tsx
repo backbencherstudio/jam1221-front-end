@@ -1,7 +1,7 @@
-import QuestionDesign from "../_component/QuestionDesign";
+import CategoryQuestionDesign from "../_component/CategoryQuestionDesign";
 
 const EnvironmentPage = () => {
-    return <QuestionDesign categoryEndpoint="enviroment" />;
+    return <CategoryQuestionDesign categoryEndpoint="enviroment" />;
   };
   
   export default EnvironmentPage;

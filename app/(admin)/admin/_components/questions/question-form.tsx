@@ -22,8 +22,8 @@ import { useAuth } from "@/app/_components/AuthProviderContext"
 const categories = [
   { id: "1", name: "THEORY QUIZ" },
   { id: "2", name: "CONCEPT" },
-  { id: "3", name: "TRAFFIC SAFETY" },
-  { id: "4", name: "TRAFFIC RULES" },
+  { id: "3", name: "TRAFFIC RULES" },
+  { id: "4", name: "TRAFFIC SAFETY" },
   { id: "5", name: "ENVIRONMENT" },
 ]
 const validCategories = [
@@ -77,16 +77,18 @@ export function QuestionForm({ questionId }: { questionId?: string }) {
         correctOptionIndex: "",
       }
 
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues,
   })
 
+
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true)
 console.log(values)
     const payload = {
-      category: validCategories.find((cat) => cat.id === values.categoryId)?.name.toLowerCase(),
+      category: validCategories.find((cat) => cat.id === values.categoryId)?.name,
       // category:values.
       // category: validCategories.find((cat) => cat === values.categoryId),
       questions: [
@@ -99,7 +101,7 @@ console.log(values)
     };
     console.log("Payload:", payload)
     try{
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/upload-question/`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/upload-question`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

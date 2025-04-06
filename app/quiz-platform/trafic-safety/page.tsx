@@ -1,7 +1,7 @@
-import QuestionDesign from "../_component/QuestionDesign";
+import CategoryQuestionDesign from "../_component/CategoryQuestionDesign";
 
 const TrafficSafety = () => {
-  return <QuestionDesign categoryEndpoint="traffic-safety" />;
+  return <CategoryQuestionDesign categoryEndpoint="traffic-safety" />;
 };
 
 export default TrafficSafety;
