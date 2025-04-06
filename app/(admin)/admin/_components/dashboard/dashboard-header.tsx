@@ -12,8 +12,13 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import Link from "next/link"
+import { useAuth } from "@/app/_components/AuthProviderContext"
 
 export function DashboardHeader() {
+
+  const { logout } = useAuth();
+
   return (
     <header className="border-b bg-background">
       <div className="flex h-16 items-center px-6">
@@ -43,9 +48,10 @@ export function DashboardHeader() {
             <DropdownMenuContent align="end">
               <DropdownMenuLabel>Admin Account</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Profile</DropdownMenuItem>
-              <DropdownMenuItem>Settings</DropdownMenuItem>
-              <DropdownMenuItem>Sign out</DropdownMenuItem>
+              <DropdownMenuItem > <Link href="/">Home</Link></DropdownMenuItem>
+              {/* <DropdownMenuItem>Profile</DropdownMenuItem> */}
+              {/* <DropdownMenuItem>Settings</DropdownMenuItem> */}
+              <DropdownMenuItem onClick={() => logout()}>Sign out</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>

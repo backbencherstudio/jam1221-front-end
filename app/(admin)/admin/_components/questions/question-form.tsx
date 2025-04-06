@@ -15,13 +15,23 @@ import { Card, CardContent } from "@/components/ui/card"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { toast } from "@/components/ui/use-toast"
+import { useAuth } from "@/app/_components/AuthProviderContext"
 
 // Mock data for categories
+// const validCategories = ['concepts', 'trafficRules', 'trafficSafety', 'enviroment', 'generalQuestion'];
 const categories = [
-  { id: "1", name: "CONCEPT" },
-  { id: "2", name: "TRAFFIC SAFETY" },
-  { id: "3", name: "TRAFFIC RULES" },
-  { id: "4", name: "ENVIRONMENT" },
+  { id: "1", name: "THEORY QUIZ" },
+  { id: "2", name: "CONCEPT" },
+  { id: "3", name: "TRAFFIC SAFETY" },
+  { id: "4", name: "TRAFFIC RULES" },
+  { id: "5", name: "ENVIRONMENT" },
+]
+const validCategories = [
+  { id: "1", name: "generalQuestion" },
+  { id: "2", name: "concepts" },
+  { id: "3", name: "trafficRules" },
+  { id: "4", name: "trafficSafety" },
+  { id: "5", name: "enviroment" },
 ]
 
 const optionSchema = z.object({
@@ -44,6 +54,7 @@ const formSchema = z.object({
 
 export function QuestionForm({ questionId }: { questionId?: string }) {
   const router = useRouter()
+  const {token} = useAuth()
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   // Default values for the form
@@ -71,9 +82,39 @@ export function QuestionForm({ questionId }: { questionId?: string }) {
     defaultValues,
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true)
-
+console.log(values)
+    const payload = {
+      category: validCategories.find((cat) => cat.id === values.categoryId)?.name.toLowerCase(),
+      // category:values.
+      // category: validCategories.find((cat) => cat === values.categoryId),
+      questions: [
+        {
+          question: values.question,
+          options: values.options.map((option) => option.text),
+          answer: values.options[parseInt(values.correctOptionIndex)].text,
+        },
+      ],
+    };
+    console.log("Payload:", payload)
+    try{
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/upload-question/`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+      if (!response.ok) {
+        throw new Error("Network response was not ok")
+      }
+      const data = await response.json()
+      console.log("Response data:", data)
+    }catch (error) {
+      console.error("Error submitting answers:", error);
+    }
     // Simulate API call
     setTimeout(() => {
       console.log(values)

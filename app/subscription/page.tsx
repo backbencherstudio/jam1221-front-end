@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { useAuth } from "../_components/AuthProviderContext";
 
 interface PricingTierProps {
   title: string;
@@ -23,11 +24,12 @@ const PricingTier: React.FC<PricingTierProps> = ({
   validity,
 }) => {
     const router = useRouter();
+    const { token } = useAuth();
     // const [isProcessing, setIsProcessing] = useState(false);
 
     const handleSubscribe = async (plan: string) => {
       // setIsProcessing(true);
-      const token = localStorage.getItem('token');
+      // const token = localStorage.getItem('token');
       
       if (!token) {
         router.push('/login');

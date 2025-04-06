@@ -10,29 +10,37 @@ export type Category = {
 
 // Initial dummy data
 const initialData: Category[] = [
+
   {
     id: "1",
+    name: "Theory Quiz",
+    description: "Theory Quiz questions",
+    questionCount: 40,
+    icon: "🧠",
+  },
+  {
+    id: "2",
     name: "CONCEPT",
     description: "Basic concepts and theory questions",
     questionCount: 10,
     icon: "📚",
   },
   {
-    id: "2",
+    id: "3",
     name: "TRAFFIC SAFETY",
     description: "Questions about traffic safety measures",
     questionCount: 10,
     icon: "🚧",
   },
   {
-    id: "3",
+    id: "4",
     name: "TRAFFIC RULES",
     description: "Questions about traffic rules and regulations",
     questionCount: 10,
     icon: "🚦",
   },
   {
-    id: "4",
+    id: "5",
     name: "ENVIRONMENT",
     description: "Questions about environmental impact and regulations",
     questionCount: 10,
