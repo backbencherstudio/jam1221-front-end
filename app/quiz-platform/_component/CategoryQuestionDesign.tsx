@@ -36,7 +36,7 @@ const CategoryQuestionDesign: React.FC<QuestionDesignProps> = ({ categoryEndpoin
     const fetchQuestions = async () => {
       try {
         setIsLoading(true);
-        const questionResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${categoryEndpoint}/questions`, {
+        const questionResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${categoryEndpoint}/questions`, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
