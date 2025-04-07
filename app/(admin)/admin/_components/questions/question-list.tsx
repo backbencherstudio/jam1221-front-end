@@ -70,7 +70,7 @@ export function QuestionList() {
   const [questionToDelete, setQuestionToDelete] = useState<string | null>(null)
   const [selectedCategory, setSelectedCategory] = useState<string>("all")
   const [searchQuery, setSearchQuery] = useState("")
-  const { token, loading: authLoading } = useAuth()
+  const { token } = useAuth()
 
   // Fetch questions from all APIs and combine them
   useEffect(() => {
@@ -95,7 +95,7 @@ export function QuestionList() {
 
             if (data.success && data.questions) {
               // Map API questions to our question format
-              const processedQuestions = data.questions.map((q, index) => {
+              const processedQuestions = data.questions.map((q) => {
                 // Create options with correct/incorrect flags based on the answer
                 const options = q.options.map((optionText, optIdx) => ({
                   id: String(optIdx + 1),
