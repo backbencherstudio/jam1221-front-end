@@ -14,13 +14,16 @@ import {
 } from "@/components/ui/dropdown-menu"
 import Link from "next/link"
 import { useAuth } from "@/app/_components/AuthProviderContext"
+import LanguageSwitcher from "@/app/_components/LanguageSwitcher"
 
 export function DashboardHeader() {
 
   const { logout } = useAuth();
 
   return (
-    <header className="border-b bg-background">
+    <div className="lg:ml-[240px] ml-[180px] w-full ">
+    {/* Fixed Header */}
+    <header className="fixed top-0 lg:left-[240px] left-[180px] right-0 z-50 border-b bg-background px-5">
       <div className="flex h-16 items-center px-6">
         <div className="flex-1">
           <div className="relative max-w-md">
@@ -38,6 +41,9 @@ export function DashboardHeader() {
             <span className="sr-only">Notifications</span>
             <span className="absolute right-1 top-1 flex h-2 w-2 rounded-full bg-primary"></span>
           </Button>
+          <div>
+            <LanguageSwitcher />
+          </div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon" className="rounded-full">
@@ -57,6 +63,7 @@ export function DashboardHeader() {
         </div>
       </div>
     </header>
+    </div>
   )
 }
 

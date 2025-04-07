@@ -2,9 +2,9 @@ import React from 'react';
 
 const CategoryEditPage = () => {
     return (
-        <div>
+        <span>
             Category Edit Page
-        </div>
+        </span>
     );
 };
 

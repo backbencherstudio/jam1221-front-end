@@ -13,8 +13,9 @@ export function DashboardSidebar() {
   }
 
   return (
-    <div className="flex h-screen w-64 flex-col border-r bg-background">
-      <div className="flex h-16 items-center border-b px-6">
+    <div className="lg:w-[230px] w-[180px] flex h-screen flex-col ">
+    <div className=" fixed top-0 left-0 z-40 h-screen lg:w-[240px] w-[180px] border-r bg-background">
+      <div className="flex h-16 items-center border-b px-6 ">
         <Link href="/admin/dashboard" className="flex items-center gap-2 font-semibold">
           <BookOpen className="h-6 w-6" />
           <span>Quiz Admin</span>
@@ -74,6 +75,7 @@ export function DashboardSidebar() {
           </div>
         </div>
       </nav>
+    </div>
     </div>
   )
 }
