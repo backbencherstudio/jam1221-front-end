@@ -54,28 +54,28 @@ const formSchema = z.object({
 
 export function QuestionForm({ questionId }: { questionId?: string }) {
   const router = useRouter()
-  const {token} = useAuth()
+  const { token } = useAuth()
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   // Default values for the form
   const defaultValues = questionId
     ? {
-        question: "What does a red traffic light mean?", // This would come from an API in a real app
-        categoryId: "3",
-        options: [
-          { id: "1", text: "Stop" },
-          { id: "2", text: "Go" },
-          { id: "3", text: "Slow down" },
-          { id: "4", text: "Speed up" },
-        ],
-        correctOptionIndex: "0", // Index of the correct option
-      }
+      question: "What does a red traffic light mean?", // This would come from an API in a real app
+      categoryId: "3",
+      options: [
+        { id: "1", text: "Stop" },
+        { id: "2", text: "Go" },
+        { id: "3", text: "Slow down" },
+        { id: "4", text: "Speed up" },
+      ],
+      correctOptionIndex: "0", // Index of the correct option
+    }
     : {
-        question: "",
-        categoryId: "",
-        options: [{ text: "" }, { text: "" }, { text: "" }, { text: "" }],
-        correctOptionIndex: "",
-      }
+      question: "",
+      categoryId: "",
+      options: [{ text: "" }, { text: "" }, { text: "" }, { text: "" }],
+      correctOptionIndex: "",
+    }
 
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -86,7 +86,7 @@ export function QuestionForm({ questionId }: { questionId?: string }) {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true)
-console.log(values)
+    console.log(values)
     const payload = {
       category: validCategories.find((cat) => cat.id === values.categoryId)?.name,
       // category:values.
@@ -100,7 +100,7 @@ console.log(values)
       ],
     };
     console.log("Payload:", payload)
-    try{
+    try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/upload-question`, {
         method: "POST",
         headers: {
@@ -114,7 +114,7 @@ console.log(values)
       }
       const data = await response.json()
       console.log("Response data:", data)
-    }catch (error) {
+    } catch (error) {
       console.error("Error submitting answers:", error);
     }
     // Simulate API call
@@ -128,7 +128,9 @@ console.log(values)
       })
 
       router.push("/admin/dashboard/questions")
-    }, 1000)
+ 
+
+    }, 2000)
   }
 
   const addOption = () => {
@@ -161,106 +163,110 @@ console.log(values)
   }
 
   return (
-    <Card>
-      <CardContent className="pt-6">
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            <FormField
-              control={form.control}
-              name="question"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Question</FormLabel>
-                  <FormControl>
-                    <Textarea placeholder="Enter your question here..." className="min-h-[100px]" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
-              name="categoryId"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Category</FormLabel>
-                  <Select onValueChange={field.onChange} defaultValue={field.value}>
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select a category" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {categories.map((category) => (
-                        <SelectItem key={category.id} value={category.id}>
-                          {category.name}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <FormLabel className="text-base">Options</FormLabel>
-                <Button type="button" variant="outline" size="sm" onClick={addOption}>
-                  Add Option
-                </Button>
-              </div>
-
+    <span>
+      <Card>
+        <CardContent className="pt-6">
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <FormField
                 control={form.control}
-                name="correctOptionIndex"
+                name="question"
                 render={({ field }) => (
-                  <FormItem className="space-y-3">
+                  <FormItem>
+                    <FormLabel>Question</FormLabel>
                     <FormControl>
-                      <RadioGroup onValueChange={field.onChange} defaultValue={field.value} className="space-y-3">
-                        {form.watch("options").map((_, index) => (
-                          <div key={index} className="flex items-center space-x-2">
-                            <RadioGroupItem value={index.toString()} id={`option-${index}`} />
-                            <FormField
-                              control={form.control}
-                              name={`options.${index}.text`}
-                              render={({ field }) => (
-                                <FormItem className="flex-1 flex items-center gap-2">
-                                  <FormControl>
-                                    <Input placeholder={`Option ${index + 1}`} {...field} />
-                                  </FormControl>
-                                  <Button type="button" variant="ghost" size="icon" onClick={() => removeOption(index)}>
-                                    <Trash className="h-4 w-4" />
-                                    <span className="sr-only">Remove option</span>
-                                  </Button>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                          </div>
-                        ))}
-                      </RadioGroup>
+                      <Textarea placeholder="Enter your question here..." className="min-h-[100px]" {...field} />
                     </FormControl>
-                    <FormDescription>Select the radio button next to the correct answer.</FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
               />
-            </div>
 
-            <div className="flex gap-4">
-              <Button type="submit" disabled={isSubmitting}>
-                {isSubmitting ? "Saving..." : questionId ? "Update Question" : "Create Question"}
-              </Button>
-              <Button type="button" variant="outline" onClick={() => router.push("/admin/dashboard/questions")}>
-                Cancel
-              </Button>
-            </div>
-          </form>
-        </Form>
-      </CardContent>
-    </Card>
+              <FormField
+                control={form.control}
+                name="categoryId"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Category</FormLabel>
+                    <span className="notranslate">
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select a category" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          {categories.map((category) => (
+                            <SelectItem key={category.id} value={category.id}>
+                              {category.name}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </span>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <FormLabel className="text-base">Options</FormLabel>
+                  <Button type="button" variant="outline" size="sm" onClick={addOption}>
+                    Add Option
+                  </Button>
+                </div>
+
+                <FormField
+                  control={form.control}
+                  name="correctOptionIndex"
+                  render={({ field }) => (
+                    <FormItem className="space-y-3">
+                      <FormControl>
+                        <RadioGroup onValueChange={field.onChange} defaultValue={field.value} className="space-y-3">
+                          {form.watch("options").map((_, index) => (
+                            <div key={index} className="flex items-center space-x-2">
+                              <RadioGroupItem value={index.toString()} id={`option-${index}`} />
+                              <FormField
+                                control={form.control}
+                                name={`options.${index}.text`}
+                                render={({ field }) => (
+                                  <FormItem className="flex-1 flex items-center gap-2">
+                                    <FormControl>
+                                      <Input placeholder={`Option ${index + 1}`} {...field} />
+                                    </FormControl>
+                                    <Button type="button" variant="ghost" size="icon" onClick={() => removeOption(index)}>
+                                      <Trash className="h-4 w-4" />
+                                      <span className="sr-only">Remove option</span>
+                                    </Button>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                            </div>
+                          ))}
+                        </RadioGroup>
+                      </FormControl>
+                      <FormDescription>Select the radio button next to the correct answer.</FormDescription>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+
+              <div className="flex gap-4">
+                <Button type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? "Saving..." : questionId ? "Update Question" : "Create Question"}
+                </Button>
+                <Button type="button" variant="outline" onClick={() => router.push("/admin/dashboard/questions")}>
+                  Cancel
+                </Button>
+              </div>
+            </form>
+          </Form>
+        </CardContent>
+      </Card>
+    </span>
   )
 }
 

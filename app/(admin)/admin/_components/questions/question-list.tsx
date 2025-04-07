@@ -29,6 +29,7 @@ import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import { useAuth } from "@/app/_components/AuthProviderContext"
 
+
 // Define types for the API responses
 interface ApiQuestion {
   question: string
@@ -92,7 +93,8 @@ export function QuestionList() {
               }
             });
             const data: ApiResponse = await questionResponse.json()
-
+            
+            console.log(data,"API response for category:")
             if (data.success && data.questions) {
               // Map API questions to our question format
               const processedQuestions = data.questions.map((q) => {
@@ -129,7 +131,7 @@ export function QuestionList() {
     }
 
     fetchQuestions()
-  }, [])
+  }, [token])
 
   const handleDeleteClick = (questionId: string) => {
     setQuestionToDelete(questionId)
