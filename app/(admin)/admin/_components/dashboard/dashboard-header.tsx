@@ -15,10 +15,13 @@ import {
 import Link from "next/link"
 import { useAuth } from "@/app/_components/AuthProviderContext"
 import LanguageSwitcher from "@/app/_components/LanguageSwitcher"
+import { useRouter } from "next/navigation"
 
 export function DashboardHeader() {
 
   const { logout } = useAuth();
+  const router = useRouter()
+
 
   return (
     <div className="lg:ml-[240px] ml-[180px] w-full ">
@@ -54,10 +57,10 @@ export function DashboardHeader() {
             <DropdownMenuContent align="end">
               <DropdownMenuLabel>Admin Account</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem > <Link href="/">Home</Link></DropdownMenuItem>
+              <DropdownMenuItem onClick={() => router.push("/")} className="cursor-pointer">Home</DropdownMenuItem>
               {/* <DropdownMenuItem>Profile</DropdownMenuItem> */}
               {/* <DropdownMenuItem>Settings</DropdownMenuItem> */}
-              <DropdownMenuItem onClick={() => logout()}>Sign out</DropdownMenuItem>
+              <DropdownMenuItem className="cursor-pointer" onClick={() => logout()}>Sign out</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
