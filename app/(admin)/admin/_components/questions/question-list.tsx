@@ -58,8 +58,8 @@ interface Question {
 // Category definitions
 const categories = [
   { id: "2", name: "CONCEPT", apiPath: "concepts" },
-  { id: "3", name: "TRAFFIC SAFETY", apiPath: "traffic-safety" },
-  { id: "4", name: "TRAFFIC RULES", apiPath: "traffic-rules" },
+  { id: "3", name: "TRAFFIC SAFETY", apiPath: "trafficSafety" },
+  { id: "4", name: "TRAFFIC RULES", apiPath: "trafficRules" },
   { id: "5", name: "ENVIRONMENT", apiPath: "enviroment" }, // Note: API path has a typo "enviroment" not "environment"
 ]
 
@@ -86,7 +86,7 @@ export function QuestionList() {
         // Fetch questions from each API endpoint
         for (const category of categories) {
           try {
-            const questionResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${category.apiPath}/questions`, {
+            const questionResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/upload-question/${category.apiPath}`, {
               headers: {
                 Authorization: `Bearer ${token}`,
                 "Content-Type": "application/json",
