@@ -3,10 +3,11 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/app/_components/AuthProviderContext";
+import Link from "next/link";
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
-  const { isAuthenticated, loading, token,user } = useAuth();
+  const { isAuthenticated, loading, token, user } = useAuth();
   const [isSubscribed, setIsSubscribed] = useState<boolean | null>(null);
 
   useEffect(() => {
@@ -21,7 +22,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
           setIsSubscribed(true);
           return;
         }
-        
+
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/payment/subscription/status`, {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -52,20 +53,22 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 
   if (!isSubscribed) {
     return (
-      <div className="flex flex-col items-center mt-10">
-        <p className="text-center text-red-500 text-2xl font-medium">
-          Access requires an active subscription. Please subscribe to continue.
-        </p>
-        <a
-          href="/subscription"
-          className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-all"
-        >
-          Upgrade Subscription
-        </a>
-      </div>
+      <span>
+        <div className="flex flex-col items-center mt-10">
+          <p className="text-center text-red-500 text-2xl font-medium">
+            Access requires an active subscription. Please subscribe to continue.
+          </p>
+          <Link
+            href="/subscription"
+            className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-all"
+          >
+            Upgrade Subscription
+          </Link>
+        </div>
+      </span>
     );
   }
-console.log(isSubscribed)
+  console.log(isSubscribed)
   return <>{children}</>;
 };
 
