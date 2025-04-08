@@ -1,7 +1,7 @@
 import CategoryQuestionDesign from "../_component/CategoryQuestionDesign";
 
 const EnvironmentPage = () => {
-  return <CategoryQuestionDesign categoryEndpoint="enviroment" />;
+  return <span className="w-full max-w-[800px]"><CategoryQuestionDesign categoryEndpoint="enviroment" /></span>;
 
 };
 

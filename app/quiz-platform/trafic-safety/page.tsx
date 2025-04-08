@@ -1,7 +1,7 @@
 import CategoryQuestionDesign from "../_component/CategoryQuestionDesign";
 
 const TrafficSafety = () => {
-  return  <CategoryQuestionDesign categoryEndpoint="traffic-safety" />;
+  return <span className="w-full max-w-[800px]"><CategoryQuestionDesign categoryEndpoint="traffic-safety" /></span> ;
 
 };
 
