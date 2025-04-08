@@ -12,7 +12,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import Link from "next/link"
 import { useAuth } from "@/app/_components/AuthProviderContext"
 import LanguageSwitcher from "@/app/_components/LanguageSwitcher"
 import { useRouter } from "next/navigation"
