@@ -213,7 +213,7 @@ const CategoryQuestionDesign: React.FC<QuestionDesignProps> = ({ categoryEndpoin
                   }`}>
                     {(selectedOption === option || (selectedOption !== null && option === currentQuestion.answer)) && 
                       <div className="w-3 h-3 rounded-full bg-white"></div>
-                    }
+                     }
                   </div>
                   {option}
                 </div>
