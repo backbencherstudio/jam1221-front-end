@@ -18,7 +18,7 @@ interface QuestionDesignProps {
 }
 
 
-const CategoryQuestionDesign: React.FC<QuestionDesignProps> = ({ categoryEndpoint }) => {
+const CategoryQuestionDesign: React.FC<QuestionDesignProps> = ({ categoryEndpoint }) =>  {
   const [questions, setQuestions] = useState<QuizQuestion[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -70,7 +70,7 @@ const CategoryQuestionDesign: React.FC<QuestionDesignProps> = ({ categoryEndpoin
   const handleNext = () => {
     // Save the user's answer
     setUserAnswers([...userAnswers, selectedOption]);
-
+    
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setSelectedOption(null);
@@ -116,10 +116,10 @@ const CategoryQuestionDesign: React.FC<QuestionDesignProps> = ({ categoryEndpoin
   }
 
   const calculateScore = () => {
-    const answers = userAnswers.filter((answer, index) =>
+    const answers = userAnswers.filter((answer, index) => 
       answer === questions[index].answer
     ).length;
-
+    
     return {
       correct: answers,
       total: questions.length,
@@ -130,113 +130,108 @@ const CategoryQuestionDesign: React.FC<QuestionDesignProps> = ({ categoryEndpoin
   // Results view
   if (showResults) {
     const score = calculateScore();
-
+    
     return (
-      <span>
-        <div className="bg-white rounded-lg shadow-lg w-full max-w-[800px] p-6 mt-10">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold mb-4">Your Result</h2>
-            <p className="text-lg mb-2">Correct Answers: {score.correct} / {score.total}</p>
-            <p className="text-lg mb-6">Score: {score.percentage}%</p>
-
-            <button
-              onClick={handleRetry}
-              className="bg-blue-100 text-blue-600 font-medium py-2 px-8 rounded-md flex items-center justify-center mx-auto"
-            >
-              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-              </svg>
-              Retry
-            </button>
-          </div>
-
-          {questions.map((question, qIndex) => {
-            const userAnswer = userAnswers[qIndex];
-            const isCorrect = userAnswer === question.answer;
-
-            return (
-              <span>
-                <div key={qIndex} className="mb-8">
-                  <h3 className="text-lg font-medium mb-4">{question.question}</h3>
-                  <div className="space-y-2">
-                    {question.options.map((option, i) => {
-                      let optionClass = "border p-4 my-2 rounded-md";
-
-                      if (option === question.answer) {
-                        optionClass = "border border-blue-500 p-4 my-2 rounded-md bg-blue-100";
-                      } else if (option === userAnswer) {
-                        optionClass = "border border-red-500 p-4 my-2 rounded-md bg-red-100";
-                      }
-
-                      return (
-                        <span>
-                          <div key={i} className={optionClass}>
-                            <div className="flex items-center">
-                              <div className={`w-6 h-6 rounded-full flex items-center justify-center mr-3 border ${option === userAnswer ? (isCorrect ? 'bg-blue-500 border-blue-500' : 'bg-red-500 border-red-500') :
-                                option === question.answer ? 'bg-blue-500 border-blue-500' : 'border-gray-300'
-                                }`}>
-                                {(option === userAnswer || option === question.answer) &&
-                                  <div className="w-3 h-3 rounded-full bg-white"></div>
-                                }
-                              </div>
-                              {option}
-                            </div>
-                          </div>
-                        </span>
-                      );
-                    })}
-                  </div>
-                </div>
-              </span>
-            );
-          })}
+      <div className="bg-white rounded-lg shadow-lg w-full max-w-[800px] p-6 mt-10">
+        <div className="text-center mb-8">
+          <h2 className="text-2xl font-bold mb-4">Your Result</h2>
+          <p className="text-lg mb-2">Correct Answers: {score.correct} / {score.total}</p>
+          <p className="text-lg mb-6">Score: {score.percentage}%</p>
+          
+          <button 
+            onClick={handleRetry}
+            className="bg-blue-100 text-blue-600 font-medium py-2 px-8 rounded-md flex items-center justify-center mx-auto"
+          >
+            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+            Retry
+          </button>
         </div>
-      </span>
+        
+        {questions.map((question, qIndex) => {
+          const userAnswer = userAnswers[qIndex];
+          const isCorrect = userAnswer === question.answer;
+          
+          return (
+            <div key={qIndex} className="mb-8">
+              <h3 className="text-lg font-medium mb-4">{question.question}</h3>
+              <div className="space-y-2">
+                {question.options.map((option, i) => {
+                  let optionClass = "border p-4 my-2 rounded-md";
+                  
+                  if (option === question.answer) {
+                    optionClass = "border border-blue-500 p-4 my-2 rounded-md bg-blue-100";
+                  } else if (option === userAnswer) {
+                    optionClass = "border border-red-500 p-4 my-2 rounded-md bg-red-100";
+                  }
+                  
+                  return (
+                    <div key={i} className={optionClass}>
+                      <div className="flex items-center">
+                        <div className={`w-6 h-6 rounded-full flex items-center justify-center mr-3 border ${
+                          option === userAnswer ? (isCorrect ? 'bg-blue-500 border-blue-500' : 'bg-red-500 border-red-500') :
+                          option === question.answer ? 'bg-blue-500 border-blue-500' : 'border-gray-300'
+                        }`}>
+                          {(option === userAnswer || option === question.answer) && 
+                            <div className="w-3 h-3 rounded-full bg-white"></div>
+                          }
+                        </div>
+                        {option}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
+      </div>
     );
   }
 
   // Quiz view
   return (
-    <span>
-      <div className="bg-white rounded-lg shadow-lg w-full max-w-[800px] p-6 mt-10">
+    <div className="bg-white rounded-lg shadow-lg w-full max-w-[800px] p-6 mt-10">
+      <div>
+        <h1 className="text-end my-2 text-gray-500 font-medium notranslate">
+          {currentQuestionIndex + 1} / {questions.length}
+        </h1>
         <div>
-          <h1 className="text-end my-2 text-gray-500 font-medium notranslate">
-            {currentQuestionIndex + 1} / {questions.length}
-          </h1>
-          <div>
-            <h3 className="text-lg font-medium mb-4">{currentQuestion.question}</h3>
-            <div className="space-y-2" key={currentQuestionIndex}>
-              {currentQuestion.options.map((option, i) => (
-                <div
-                  key={i}
-                  className={getOptionStyle(option)}
-                  onClick={() => handleOptionSelect(option)}
-                >
-                  <div className="flex items-center">
-                    <div className={`w-6 h-6 rounded-full flex items-center justify-center mr-3 border ${selectedOption === option ? (option === currentQuestion.answer ? 'bg-blue-500 border-blue-500' : 'bg-red-500 border-red-500') :
-                      selectedOption !== null && option === currentQuestion.answer ? 'bg-blue-500 border-blue-500' : 'border-gray-300'
-                      }`}>
-                      {(selectedOption === option || (selectedOption !== null && option === currentQuestion.answer)) &&
-                        <div className="w-3 h-3 rounded-full bg-white"></div>
-                      }
-                    </div>
-                    {option}
+          <h3 className="text-lg font-medium mb-4">{currentQuestion.question}</h3>
+          <div className="space-y-2" key={currentQuestionIndex}>
+            {currentQuestion.options.map((option, i) => (
+              <div
+                key={i}
+                className={getOptionStyle(option)}
+                onClick={() => handleOptionSelect(option)}
+              >
+                <div className="flex items-center">
+                  <div className={`w-6 h-6 rounded-full flex items-center justify-center mr-3 border ${
+                    selectedOption === option ? (option === currentQuestion.answer ? 'bg-blue-500 border-blue-500' : 'bg-red-500 border-red-500') :
+                    selectedOption !== null && option === currentQuestion.answer ? 'bg-blue-500 border-blue-500' : 'border-gray-300'
+                  }`}>
+                    {(selectedOption === option || (selectedOption !== null && option === currentQuestion.answer)) && 
+                      <div className="w-3 h-3 rounded-full bg-white"></div>
+                    }
                   </div>
+                  {option}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
-          <button
-            onClick={handleNext}
-            disabled={selectedOption === null}
-            className={`mt-6 text-white mx-auto flex font-bold py-2 px-12 rounded ${selectedOption === null ? 'bg-gray-300 cursor-not-allowed' : 'bg-blue-500 cursor-pointer'
-              }`}
-          >
-            {isLastQuestion ? "Show Results" : "Next"}
-          </button>
         </div>
+        <button
+          onClick={handleNext}
+          disabled={selectedOption === null}
+          className={`mt-6 text-white mx-auto flex font-bold py-2 px-12 rounded ${
+            selectedOption === null ? 'bg-gray-300 cursor-not-allowed' : 'bg-blue-500 cursor-pointer'
+          }`}
+        >
+          {isLastQuestion ? "Show Results" : "Next"}
+        </button>
       </div>
-    </span>
+    </div>
   );
 
 };
