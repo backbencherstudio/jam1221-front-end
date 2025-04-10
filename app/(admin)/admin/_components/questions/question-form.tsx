@@ -119,7 +119,6 @@ export function QuestionForm({ questionId }: { questionId?: string }) {
     }
     // Simulate API call
     setTimeout(() => {
-      console.log(values)
       setIsSubmitting(false)
 
       toast({
@@ -127,10 +126,10 @@ export function QuestionForm({ questionId }: { questionId?: string }) {
         description: `Successfully ${questionId ? "updated" : "created"} question`,
       })
 
+      
       router.push("/admin/dashboard/questions")
- 
-
-    }, 2000)
+      
+    }, 3500)
   }
 
   const addOption = () => {
