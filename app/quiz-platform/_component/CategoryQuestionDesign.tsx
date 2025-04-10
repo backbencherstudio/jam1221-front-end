@@ -91,7 +91,7 @@ const CategoryQuestionDesign: React.FC<QuestionDesignProps> = ({ categoryEndpoin
     }
 
     if (option === currentQuestion.answer) {
-      return "border border-blue-500 bg-blue-100 rounded p-3";
+      return "border border-green-500 bg-green-100 rounded p-3";
     }
 
     if (option === selectedOption && option !== currentQuestion.answer) {
@@ -163,7 +163,7 @@ const CategoryQuestionDesign: React.FC<QuestionDesignProps> = ({ categoryEndpoin
                       let optionClass = "border p-4 my-2 rounded-md";
 
                       if (option === question.answer) {
-                        optionClass = "border border-blue-500 p-4 my-2 rounded-md bg-blue-100";
+                        optionClass = "border border-green-500 p-4 my-2 rounded-md bg-green-100";
                       } else if (option === userAnswer) {
                         optionClass = "border border-red-500 p-4 my-2 rounded-md bg-red-100";
                       }
@@ -171,8 +171,8 @@ const CategoryQuestionDesign: React.FC<QuestionDesignProps> = ({ categoryEndpoin
                       return (
                         <div key={i} className={optionClass}>
                           <div className="flex items-center">
-                            <div className={`w-6 h-6 rounded-full flex items-center justify-center mr-3 border ${option === userAnswer ? (isCorrect ? 'bg-blue-500 border-blue-500' : 'bg-red-500 border-red-500') :
-                              option === question.answer ? 'bg-blue-500 border-blue-500' : 'border-gray-300'
+                            <div className={`w-6 h-6 rounded-full flex items-center justify-center mr-3 border ${option === userAnswer ? (isCorrect ? 'bg-green-500 border-green-500' : 'bg-red-500 border-red-500') :
+                              option === question.answer ? 'bg-green-500 border-green-500' : 'border-gray-300'
                               }`}>
                               {(option === userAnswer || option === question.answer) &&
                                 <div className="w-3 h-3 rounded-full bg-white"></div>
@@ -211,8 +211,8 @@ const CategoryQuestionDesign: React.FC<QuestionDesignProps> = ({ categoryEndpoin
                   onClick={() => handleOptionSelect(option)}
                 >
                   <div className="flex items-center">
-                    <div className={`w-6 h-6 rounded-full flex items-center justify-center mr-3 border ${selectedOption === option ? (option === currentQuestion.answer ? 'bg-blue-500 border-blue-500' : 'bg-red-500 border-red-500') :
-                      selectedOption !== null && option === currentQuestion.answer ? 'bg-blue-500 border-blue-500' : 'border-gray-300'
+                    <div className={`w-6 h-6 rounded-full flex items-center justify-center mr-3 border ${selectedOption === option ? (option === currentQuestion.answer ? 'bg-green-500 border-green-500' : 'bg-red-500 border-red-500') :
+                      selectedOption !== null && option === currentQuestion.answer ? 'bg-green-500 border-green-500' : 'border-gray-300'
                       }`}>
                       {(selectedOption === option || (selectedOption !== null && option === currentQuestion.answer)) &&
                         <div className="w-3 h-3 rounded-full bg-white"></div>

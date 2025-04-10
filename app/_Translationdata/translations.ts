@@ -10,6 +10,7 @@ export interface Translation {
   export const translations: Translations = {
     "sv": {
       "home":"Hem",
+      "subscription":"Kontrollera prenumeration",
       "dashboard":"Instrumentbräda",
       "logout":"Logga ut",
       "languageSelect":"Välj språk:",
@@ -35,6 +36,7 @@ export interface Translation {
     },
     "en": {
       "home":"Home",
+      "subscription":"Check Subscription",
       "dashboard":"Dashboard",
       "logout":"Log out",
       "languageSelect":"Select Language",
@@ -61,6 +63,7 @@ export interface Translation {
     },
     "ar": {
       "home":"الرئيسية",
+      "subscription":"تحقق من الاشتراك",
       "dashboard":"لوحة التحكم",
       "logout":"تسجيل الخروج",
       "languageSelect":"اختر اللغة",

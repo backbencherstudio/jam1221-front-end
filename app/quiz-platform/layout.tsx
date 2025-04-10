@@ -5,6 +5,7 @@ import React from 'react';
 import LanguageSwitcher from '../_components/LanguageSwitcher';
 import { useRouter } from 'next/navigation';
 import ProtectedRoute from './ProtectedRoute';
+import img from "@/public/img2.png"
 
 export default function QuizPlatformLayout({
     children,
@@ -20,7 +21,7 @@ export default function QuizPlatformLayout({
             <Head>
                 <title>Quiz App</title>
                 <meta name="description" content="Interactive quiz application" />
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" href={img.src} />
             </Head>
 
             <div className="w-full max-w-lg flex justify-center mt-30 mb-4">
