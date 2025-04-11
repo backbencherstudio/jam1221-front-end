@@ -43,7 +43,6 @@ const CategoryQuestionDesign: React.FC<QuestionDesignProps> = ({ categoryEndpoin
           }
         });
         const questionData = await questionResponse.json();
-        console.log(questionData.questions[0])
         if (questionData.success) {
           setQuestions(questionData.questions); // Adjust based on your API response structure
         } else {

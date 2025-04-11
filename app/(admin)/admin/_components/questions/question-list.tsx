@@ -94,7 +94,7 @@ export function QuestionList() {
             });
             const data: ApiResponse = await questionResponse.json()
             
-            console.log(data,"API response for category:")
+
             if (data.success && data.questions) {
               // Map API questions to our question format
               const processedQuestions = data.questions.map((q) => {

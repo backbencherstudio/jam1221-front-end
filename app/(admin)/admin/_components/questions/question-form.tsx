@@ -86,7 +86,7 @@ export function QuestionForm({ questionId }: { questionId?: string }) {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true)
-    console.log(values)
+
     const payload = {
       category: validCategories.find((cat) => cat.id === values.categoryId)?.name,
       // category:values.
@@ -99,7 +99,7 @@ export function QuestionForm({ questionId }: { questionId?: string }) {
         },
       ],
     };
-    console.log("Payload:", payload)
+
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/upload-question`, {
         method: "POST",
@@ -113,7 +113,7 @@ export function QuestionForm({ questionId }: { questionId?: string }) {
         throw new Error("Network response was not ok")
       }
       const data = await response.json()
-      console.log("Response data:", data)
+
     } catch (error) {
       console.error("Error submitting answers:", error);
     }

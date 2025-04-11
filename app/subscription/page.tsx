@@ -188,7 +188,7 @@ const PricingPage: NextPage = () => {
   }
 
   const isBasicUser = user?.type === "admin" || isSubscribed;
-console.log(isSubscribed)
+
 
   return (
 

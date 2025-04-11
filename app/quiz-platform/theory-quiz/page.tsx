@@ -129,7 +129,7 @@ const TheoryQuizComponent = () => {
              return "border border-gray-300 rounded p-3 opacity-50";
          }
      };
-     console.log(submissionResult)
+
 
   const submitAnswers = async () => {
     setShowResult(true);
