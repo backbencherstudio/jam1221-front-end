@@ -4,6 +4,7 @@ import { useState } from 'react';
 // Adjust import path based on your project structure
 import { AlertTriangle, Check, Clock, Calendar, CreditCard, X, AlertCircle } from 'lucide-react';
 import { useAuth } from '../_components/AuthProviderContext';
+import { redirect } from "next/navigation"
 
 export interface Subscription {
   stripe_subscription_id: string;  // Note: Corrected from "strlpe_subscription_id" in your image
@@ -49,6 +50,12 @@ export default function SubscriptionStatusPage() {
           "Content-Type": "application/json",
         },
       });
+
+      const data = await response.json()
+
+      if(data.success){
+        redirect("/")
+      }
       
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
