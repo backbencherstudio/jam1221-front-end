@@ -55,19 +55,22 @@ const AboutPageContent: React.FC = () => {
       <div className="flex flex-col min-h-screen notranslate">
         {/* Header */}
         <header className="w-full bg-[#007BFF] text-white p-[10px]">
-          <div className="w-full justify-end flex text-center  gap-4 ">
-            <button onClick={handleRoute} className="bg-blue-300 border text-black justify-self-center shadow-md cursor-pointer hover:scale-105 duration-300 scale-100 text-lg py-3 px-6 rounded-lg">
+          <div className="w-full justify-end flex text-center  md:gap-4 gap-2 ">
+            <button onClick={handleRoute} className="bg-blue-300 border  text-black justify-self-center shadow-md cursor-pointer hover:scale-105 duration-300 scale-100 md:text-lg text-base md:py-3 py-1 md:px-6 px-2  md:rounded-lg rounded-md">
               {t("home")}
             </button>
 
             {user?.type === "admin" && (
-              <Link href="/admin" className="bg-blue-300 border text-black justify-self-center shadow-md cursor-pointer hover:scale-105 duration-300 scale-100 text-lg py-3 px-6 rounded-lg">
+              <Link href="/admin" className="bg-blue-300 border text-black justify-self-center shadow-md cursor-pointer hover:scale-105 duration-300 scale-100  md:text-lg text-base md:py-3 py-1 md:px-6 px-2  md:rounded-lg rounded-md">
                 {t("Dashboard")}
               </Link>
             )}
-             <button onClick={() => route.push("/check-subscription")} className="bg-blue-300 border text-black justify-self-center shadow-md cursor-pointer hover:scale-105 duration-300 scale-100 text-lg py-3 px-6 rounded-lg">
+            {user?.type !== "admin" && (
+              <button onClick={() => route.push("/check-subscription")} className="bg-blue-300 border text-black justify-self-center shadow-md cursor-pointer hover:scale-105 duration-300 scale-100  md:text-lg text-base md:py-3 py-1 md:px-6 px-2  md:rounded-lg rounded-md">
               {t("subscription")}
             </button>
+            )}
+             
 
             <button onClick={() => {
               // localStorage.removeItem("token");
@@ -75,7 +78,7 @@ const AboutPageContent: React.FC = () => {
               handleLogOut()
 
             }}
-              className="bg-blue-300 border shadow-md cursor-pointer hover:scale-105 duration-300 scale-100 text-black text-lg py-3 px-6 rounded-lg flex items-center justify-center justify-self-end gap-2 transform transition-all ease-in-out  "
+              className="bg-blue-300 border shadow-md cursor-pointer hover:scale-105 duration-300 scale-100 text-black  md:text-lg text-base md:py-3 py-1 md:px-6 px-2  md:rounded-lg rounded-md flex items-center justify-center justify-self-end gap-2 transform transition-all ease-in-out  "
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
