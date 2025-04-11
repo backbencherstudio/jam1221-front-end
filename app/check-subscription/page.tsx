@@ -5,8 +5,27 @@ import { useState } from 'react';
 import { AlertTriangle, Check, Clock, Calendar, CreditCard, X, AlertCircle } from 'lucide-react';
 import { useAuth } from '../_components/AuthProviderContext';
 
+export interface Subscription {
+  stripe_subscription_id: string;  // Note: Corrected from "strlpe_subscription_id" in your image
+  status: 'active' | 'canceled' | 'incomplete' | 'incomplete_expired' | 'past_due' | 'trialing' | 'unpaid';
+  plan_type: string;
+  current_period_end: string; // ISO 8601 date string
+}
+
+export interface User {
+  id: string;
+  email: string;
+  created_at: string;
+  subscriptions?: Subscription[];
+}
+
 export default function SubscriptionStatusPage() {
-  const { user } = useAuth();
+ const { user, loading,token} = useAuth() as {
+    user: User | null;
+    loading: boolean;
+    token:any;
+    // Add other return values from useAuth as needed
+  };
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [cancelSuccess, setCancelSuccess] = useState(false);
@@ -15,19 +34,20 @@ export default function SubscriptionStatusPage() {
 
 
   const handleCancelSubscription = async () => {
-    if (!user?.data?.subscriptions?.[0]?.stripe_subscription_id) return;
+    if (!user?.subscriptions?.[0]?.stripe_subscription_id) return;
     
-    const subscriptionId = user.data.subscriptions[0].stripe_subscription_id;
-    console.log(subscriptionId,"sghddddddddddddddd")
+    const subscriptionId = user.subscriptions[0].stripe_subscription_id;
+  
     setIsLoading(true);
     setCancelError(null);
     
     try {
       const response = await fetch(`http://localhost:4000/api/payment/cancel-subscription/${subscriptionId}`, {
-        method: 'GET',
+        method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
-        }
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
       });
       
       if (!response.ok) {
@@ -79,6 +99,19 @@ export default function SubscriptionStatusPage() {
 
   const subscription = user?.subscriptions?.[0];
   const isActive = subscription?.status === 'active';
+
+
+
+  if (loading) {
+    return (
+      <div className="fixed inset-0 flex items-center justify-center">
+        <div className="flex items-center gap-2 rounded-md px-3 bg-blue-500 text-white text-lg font-bold py-2">
+          <span className="w-6 h-6 border-4 border-t-blue-500 border-gray-300 border-solid rounded-full animate-spin"></span>
+          Loading...
+        </div>
+      </div>
+    );
+  }
 
   if (!user) {
     return (
@@ -134,9 +167,9 @@ export default function SubscriptionStatusPage() {
                 <div className="bg-gray-50 px-6 py-4 border-b">
                   <div className="flex items-center justify-between">
                     <h3 className="text-base font-medium text-gray-900">Current Subscription</h3>
-                    <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(subscription.status)}`}>
-                      {getStatusIcon(subscription.status)}
-                      <span className="ml-1 capitalize">{subscription.status}</span>
+                    <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(user.subscriptions?.[0].status)}`}>
+                      {getStatusIcon(user.subscriptions?.[0].status)}
+                      <span className="ml-1 capitalize">{user.subscriptions?.[0].status}</span>
                     </span>
                   </div>
                 </div>
@@ -146,7 +179,7 @@ export default function SubscriptionStatusPage() {
                     <CreditCard className="h-5 w-5 text-gray-400 mt-0.5" />
                     <div className="ml-3">
                       <h4 className="text-sm font-medium text-gray-900">Plan</h4>
-                      <p className="text-sm text-gray-500 capitalize">{subscription.plan_type}</p>
+                      <p className="text-sm text-gray-500 capitalize">{user.subscriptions?.[0].plan_type}</p>
                     </div>
                   </div>
 
@@ -154,7 +187,7 @@ export default function SubscriptionStatusPage() {
                     <Calendar className="h-5 w-5 text-gray-400 mt-0.5" />
                     <div className="ml-3">
                       <h4 className="text-sm font-medium text-gray-900">Current Period End</h4>
-                      <p className="text-sm text-gray-500">{formatDate(subscription.current_period_end)}</p>
+                      <p className="text-sm text-gray-500">{formatDate(user.subscriptions?.[0].current_period_end)}</p>
                     </div>
                   </div>
 
@@ -162,7 +195,7 @@ export default function SubscriptionStatusPage() {
                     <AlertCircle className="h-5 w-5 text-gray-400 mt-0.5" />
                     <div className="ml-3">
                       <h4 className="text-sm font-medium text-gray-900">Subscription ID</h4>
-                      <p className="text-sm text-gray-500">{subscription.stripe_subscription_id}</p>
+                      <p className="text-sm text-gray-500">{user.subscriptions?.[0].stripe_subscription_id}</p>
                     </div>
                   </div>
                 </div>
