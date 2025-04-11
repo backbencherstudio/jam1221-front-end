@@ -112,7 +112,7 @@ export function QuestionForm({ questionId }: { questionId?: string }) {
       if (!response.ok) {
         throw new Error("Network response was not ok")
       }
-      const data = await response.json()
+
 
     } catch (error) {
       console.error("Error submitting answers:", error);

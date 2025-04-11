@@ -25,7 +25,7 @@ export default function SubscriptionStatusPage() {
  const { user, loading,token} = useAuth() as {
     user: User | null;
     loading: boolean;
-    token:any;
+    token: string;
     // Add other return values from useAuth as needed
   };
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -52,7 +52,6 @@ export default function SubscriptionStatusPage() {
         },
       });
 
-      const data = await response.json()
 
     
       if (!response.ok) {
