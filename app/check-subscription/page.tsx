@@ -4,7 +4,8 @@ import { useState } from 'react';
 // Adjust import path based on your project structure
 import { AlertTriangle, Check, Clock, Calendar, CreditCard, X, AlertCircle } from 'lucide-react';
 import { useAuth } from '../_components/AuthProviderContext';
-import { redirect } from "next/navigation"
+import { useRouter } from 'next/navigation';
+
 
 export interface Subscription {
   stripe_subscription_id: string;  // Note: Corrected from "strlpe_subscription_id" in your image
@@ -31,7 +32,7 @@ export default function SubscriptionStatusPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [cancelSuccess, setCancelSuccess] = useState(false);
   const [cancelError, setCancelError] = useState<string | null>(null);
-
+   const router = useRouter()
 
 
   const handleCancelSubscription = async () => {
@@ -53,10 +54,7 @@ export default function SubscriptionStatusPage() {
 
       const data = await response.json()
 
-      if(data.success){
-        redirect("/")
-      }
-      
+    
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
         throw new Error(errorData.message || 'Failed to cancel subscription');
@@ -275,7 +273,7 @@ export default function SubscriptionStatusPage() {
                       Processing...
                     </>
                   ) : (
-                    'Yes, Cancel'
+                    <span onClick={() => router.push("/")} >Yes, Cancel</span>
                   )}
                 </button>
                 <button
