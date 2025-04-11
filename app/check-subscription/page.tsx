@@ -4,7 +4,7 @@ import { useState } from 'react';
 // Adjust import path based on your project structure
 import { AlertTriangle, Check, Clock, Calendar, CreditCard, X, AlertCircle } from 'lucide-react';
 import { useAuth } from '../_components/AuthProviderContext';
-import { useRouter } from 'next/navigation';
+import {  useRouter } from 'next/navigation';
 
 
 export interface Subscription {
@@ -204,7 +204,7 @@ export default function SubscriptionStatusPage() {
                   </div>
                 </div>
 
-                <div className="px-6 py-4 bg-gray-50 border-t">
+                <div className="px-6 py-4 bg-gray-50 border-t flex flex-col gap-2">
                   <button
                     onClick={() => isActive && setIsModalOpen(true)}
                     disabled={!isActive}
@@ -215,6 +215,7 @@ export default function SubscriptionStatusPage() {
                   >
                     {isActive ? 'Cancel Subscription' : 'Subscription Cancelled'}
                   </button>
+                  <button onClick={() => router.back()} className='w-full inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500'>Go Back</button>
                 </div>
               </div>
             ) : (
